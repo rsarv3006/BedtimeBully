@@ -25,7 +25,7 @@ struct BedtimeBullyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
         }
         .modelContainer(sharedModelContainer)
     }
