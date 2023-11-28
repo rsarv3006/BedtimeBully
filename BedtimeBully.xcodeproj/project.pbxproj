@@ -26,9 +26,18 @@
 		7898165F2B105CF3002AF275 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898165D2B105CF3002AF275 /* Utils.swift */; };
 		789816602B105DB2002AF275 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898165D2B105CF3002AF275 /* Utils.swift */; };
 		789816622B105DCF002AF275 /* BedtimeBullyDataTestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816612B105DCF002AF275 /* BedtimeBullyDataTestsUtils.swift */; };
+		789816642B13F851002AF275 /* CountdownUntilBedtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816632B13F851002AF275 /* CountdownUntilBedtimeView.swift */; };
+		789816652B13F851002AF275 /* CountdownUntilBedtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816632B13F851002AF275 /* CountdownUntilBedtimeView.swift */; };
+		789816672B144430002AF275 /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816662B144430002AF275 /* NotificationSchedule.swift */; };
+		789816682B144430002AF275 /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816662B144430002AF275 /* NotificationSchedule.swift */; };
+		7898166A2B145117002AF275 /* BuildInitialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816692B145117002AF275 /* BuildInitialData.swift */; };
+		7898166B2B145117002AF275 /* BuildInitialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816692B145117002AF275 /* BuildInitialData.swift */; };
+		7898166D2B151601002AF275 /* CustomizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898166C2B151601002AF275 /* CustomizeScreen.swift */; };
+		7898166F2B15A13E002AF275 /* NotificationScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7898166E2B15A13E002AF275 /* NotificationScheduleView.swift */; };
+		789816712B15A785002AF275 /* TimeInterval+formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816702B15A785002AF275 /* TimeInterval+formatted.swift */; };
+		789816722B15A785002AF275 /* TimeInterval+formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789816702B15A785002AF275 /* TimeInterval+formatted.swift */; };
 		78BB44D82B0161D7000EA9F5 /* BedtimeBullyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB44D72B0161D7000EA9F5 /* BedtimeBullyApp.swift */; };
 		78BB44DA2B0161D7000EA9F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB44D92B0161D7000EA9F5 /* ContentView.swift */; };
-		78BB44DC2B0161D7000EA9F5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB44DB2B0161D7000EA9F5 /* Item.swift */; };
 		78BB44DE2B0161D8000EA9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BB44DD2B0161D8000EA9F5 /* Assets.xcassets */; };
 		78BB44E12B0161D8000EA9F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BB44E02B0161D8000EA9F5 /* Preview Assets.xcassets */; };
 		78BB44ED2B0161D9000EA9F5 /* BedtimeBullyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB44EC2B0161D9000EA9F5 /* BedtimeBullyTests.swift */; };
@@ -123,10 +132,15 @@
 		7898164D2B105A8E002AF275 /* NotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTests.swift; sourceTree = "<group>"; };
 		7898165D2B105CF3002AF275 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		789816612B105DCF002AF275 /* BedtimeBullyDataTestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyDataTestsUtils.swift; sourceTree = "<group>"; };
+		789816632B13F851002AF275 /* CountdownUntilBedtimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownUntilBedtimeView.swift; sourceTree = "<group>"; };
+		789816662B144430002AF275 /* NotificationSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedule.swift; sourceTree = "<group>"; };
+		789816692B145117002AF275 /* BuildInitialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildInitialData.swift; sourceTree = "<group>"; };
+		7898166C2B151601002AF275 /* CustomizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeScreen.swift; sourceTree = "<group>"; };
+		7898166E2B15A13E002AF275 /* NotificationScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleView.swift; sourceTree = "<group>"; };
+		789816702B15A785002AF275 /* TimeInterval+formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+formatted.swift"; sourceTree = "<group>"; };
 		78BB44D42B0161D7000EA9F5 /* BedtimeBully.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedtimeBully.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BB44D72B0161D7000EA9F5 /* BedtimeBullyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyApp.swift; sourceTree = "<group>"; };
 		78BB44D92B0161D7000EA9F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		78BB44DB2B0161D7000EA9F5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		78BB44DD2B0161D8000EA9F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78BB44E02B0161D8000EA9F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78BB44E22B0161D9000EA9F5 /* BedtimeBully.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BedtimeBully.entitlements; sourceTree = "<group>"; };
@@ -203,6 +217,9 @@
 				7898161D2B105999002AF275 /* BedtimeBullyData.h */,
 				789816372B105A2D002AF275 /* AppGroup.swift */,
 				7898165D2B105CF3002AF275 /* Utils.swift */,
+				789816662B144430002AF275 /* NotificationSchedule.swift */,
+				789816692B145117002AF275 /* BuildInitialData.swift */,
+				789816702B15A785002AF275 /* TimeInterval+formatted.swift */,
 			);
 			path = BedtimeBullyData;
 			sourceTree = "<group>";
@@ -266,12 +283,14 @@
 			children = (
 				78BB44D72B0161D7000EA9F5 /* BedtimeBullyApp.swift */,
 				78BB44D92B0161D7000EA9F5 /* ContentView.swift */,
-				78BB44DB2B0161D7000EA9F5 /* Item.swift */,
 				78BB44DD2B0161D8000EA9F5 /* Assets.xcassets */,
 				78BB44E22B0161D9000EA9F5 /* BedtimeBully.entitlements */,
 				78BB44E32B0161D9000EA9F5 /* Info.plist */,
 				78BB44DF2B0161D8000EA9F5 /* Preview Content */,
 				78BB45072B0163CE000EA9F5 /* HomeScreen.swift */,
+				789816632B13F851002AF275 /* CountdownUntilBedtimeView.swift */,
+				7898166C2B151601002AF275 /* CustomizeScreen.swift */,
+				7898166E2B15A13E002AF275 /* NotificationScheduleView.swift */,
 			);
 			path = BedtimeBully;
 			sourceTree = "<group>";
@@ -575,7 +594,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				789816392B105A2D002AF275 /* AppGroup.swift in Sources */,
+				789816682B144430002AF275 /* NotificationSchedule.swift in Sources */,
 				7898165F2B105CF3002AF275 /* Utils.swift in Sources */,
+				7898166B2B145117002AF275 /* BuildInitialData.swift in Sources */,
+				789816722B15A785002AF275 /* TimeInterval+formatted.swift in Sources */,
+				789816652B13F851002AF275 /* CountdownUntilBedtimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,13 +633,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789816642B13F851002AF275 /* CountdownUntilBedtimeView.swift in Sources */,
 				7898165B2B105A9B002AF275 /* Notifications.swift in Sources */,
+				7898166A2B145117002AF275 /* BuildInitialData.swift in Sources */,
 				789816382B105A2D002AF275 /* AppGroup.swift in Sources */,
+				789816712B15A785002AF275 /* TimeInterval+formatted.swift in Sources */,
 				78BB45082B0163CE000EA9F5 /* HomeScreen.swift in Sources */,
+				789816672B144430002AF275 /* NotificationSchedule.swift in Sources */,
 				7898165E2B105CF3002AF275 /* Utils.swift in Sources */,
+				7898166D2B151601002AF275 /* CustomizeScreen.swift in Sources */,
 				78BB44DA2B0161D7000EA9F5 /* ContentView.swift in Sources */,
-				78BB44DC2B0161D7000EA9F5 /* Item.swift in Sources */,
 				78BB44D82B0161D7000EA9F5 /* BedtimeBullyApp.swift in Sources */,
+				7898166F2B15A13E002AF275 /* NotificationScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

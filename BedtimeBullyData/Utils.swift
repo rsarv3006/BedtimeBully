@@ -19,4 +19,8 @@ struct DataUtils {
         
         return (hours, minutes, seconds)
     }
+    
+    static func calculateFirstNotificationTime(bedtime: Date, notificationOffset: TimeInterval) -> Date {
+        return bedtime.addingTimeInterval(-notificationOffset)
+    }
 }
