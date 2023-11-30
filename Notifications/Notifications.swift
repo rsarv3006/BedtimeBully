@@ -21,7 +21,7 @@ struct NotificationService {
         }
     }
     
-    static func scheduleNotification(title: String, body: String, timestamp: Date) {
+    static func scheduleNotification(title: String, body: String, timestamp: Date) -> UUID {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -29,10 +29,17 @@ struct NotificationService {
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: timestamp)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
+       
+        let notificationId = UUID()
+        let request = UNNotificationRequest(identifier: notificationId.uuidString,
                                             content: content, trigger: trigger)
         
         center.add(request)
+        
+        return notificationId
+    }
+    
+    static func cancelNotification(id: String) {
+        center.removePendingNotificationRequests(withIdentifiers: [id])
     }
 }

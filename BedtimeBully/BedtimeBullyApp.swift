@@ -12,7 +12,9 @@ import SwiftData
 struct BedtimeBullyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            NotificationSchedule.self
+            NotificationSchedule.self,
+            Bedtime.self,
+            BedtimeSchedule.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

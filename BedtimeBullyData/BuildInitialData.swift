@@ -9,11 +9,9 @@ import Foundation
 import SwiftData
 
 func buildInitialData(_ modelContext: ModelContext) throws {
-    // check if we have any data
-    
-    let fetchDescriptor: FetchDescriptor<NotificationSchedule> = FetchDescriptor()
-    let schedules = try modelContext.fetch(fetchDescriptor)
-    
+    let schedulesFetchDescriptor: FetchDescriptor<NotificationSchedule> = FetchDescriptor()
+    let schedules = try modelContext.fetch(schedulesFetchDescriptor)
+  
     if schedules.count > 0 {
         print("schedules have been loaded")
         return
@@ -31,6 +29,42 @@ func buildInitialData(_ modelContext: ModelContext) throws {
             TimeInterval(0 * 60),
         ])
         modelContext.insert(defaultSchedule)
+        
+        print("default schedule has been created - creating default bedtimes")
+        let defaultBedtime = DateComponents(calendar: .current, hour: 21, minute: 45).date!
+        
+        let defaultMondayBedtime = Bedtime(name: "Monday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultTuesdayBedtime = Bedtime(name: "Tuesday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultWednesdayBedtime = Bedtime(name: "Wednesday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultThursdayBedtime = Bedtime(name: "Thursday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultFridayBedtime = Bedtime(name: "Friday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultSaturdayBedtime = Bedtime(name: "Saturday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        let defaultSundayBedtime = Bedtime(name: "Sunday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
+        
+        defaultMondayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultTuesdayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultWednesdayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultThursdayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultFridayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultSaturdayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+        defaultSundayBedtime.addNotificationSchedule(notificationSchedule: defaultSchedule)
+       
+        modelContext.insert(defaultMondayBedtime)
+        modelContext.insert(defaultTuesdayBedtime)
+        modelContext.insert(defaultWednesdayBedtime)
+        modelContext.insert(defaultThursdayBedtime)
+        modelContext.insert(defaultFridayBedtime)
+        modelContext.insert(defaultSaturdayBedtime)
+        modelContext.insert(defaultSundayBedtime)
+        
+        print("default bed times created")
+        
+        let defaultBedtimeSchedule = BedtimeSchedule(name: "Default Bedtime Schedule", isActive: true)
+        print("default bedtime schedule created")
+        defaultBedtimeSchedule.setBedtimes(monday: defaultMondayBedtime, tuesday: defaultTuesdayBedtime, wednesday: defaultWednesdayBedtime, thursday: defaultThursdayBedtime, friday: defaultFridayBedtime, saturday: defaultSaturdayBedtime, sunday: defaultSundayBedtime)
+        print("default bedtimes set")
+        
+        modelContext.insert(defaultBedtimeSchedule)
     }
     
     

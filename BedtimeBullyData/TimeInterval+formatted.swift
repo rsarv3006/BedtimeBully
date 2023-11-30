@@ -9,7 +9,6 @@ import Foundation
 
 extension TimeInterval {
     func formatted() -> String {
-
         let seconds = Int(self)
 
         let minutes = seconds / 60
@@ -31,7 +30,5 @@ extension TimeInterval {
         } else {
             return "\(seconds) seconds"
         }
-
     }
-
 }

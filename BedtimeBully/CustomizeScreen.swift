@@ -52,8 +52,15 @@ struct CustomizeScreen: View {
 }
 
 #Preview {
+    let schema = Schema([
+        NotificationSchedule.self,
+        Bedtime.self,
+        BedtimeSchedule.self
+    ])
+    
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: NotificationSchedule.self, configurations: config)
+    let container = try! ModelContainer(for: schema,
+        configurations: config)
     
     try! buildInitialData(container.mainContext)
     
