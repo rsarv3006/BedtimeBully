@@ -9,9 +9,9 @@ import SwiftUI
 
 struct CountdownUntilBedtimeView: View {
     @Binding var countdownToDate: Date
-
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
+    
     var body: some View {
         ZStack {
             if hours == 0 && minutes == 0 && seconds == 0 {
@@ -27,47 +27,39 @@ struct CountdownUntilBedtimeView: View {
             updateCountdownComponents()
         }
     }
-
+    
     @State private var hours = 0
     @State private var minutes = 0
     @State private var seconds = 0
-
+    
     private func updateCountdownComponents() {
+        let now = Date()
+        
+        guard let bedtime = DateComponents(calendar: .current, year: now.year, month: now.month, day: now.day, hour: countdownToDate.hour, minute: countdownToDate.minute, second: countdownToDate.second).date else { return }
+        
+        countdownToDate = bedtime
+        
         if countdownToDate < Date() {
-            hours = 0
-            minutes = 0
-            seconds = 0
-            return
+            countdownToDate = countdownToDate.addingTimeInterval(24 * 60 * 60)
         }
         
-        let itemDate = Calendar.current.dateComponents([.hour, .minute, .second], from: countdownToDate)
-        let nowDate = Calendar.current.dateComponents([.hour, .minute, .second], from: Date())
+        let bedtimeTimeInterval = countdownToDate.timeIntervalSince(Date())
         
-        var hours = itemDate.hour! - nowDate.hour!
-        var minutes = itemDate.minute! - nowDate.minute!
-        var seconds = itemDate.second! - nowDate.second!
-        
-        if seconds < 0 {
-            seconds += 60
-            minutes -= 1
+        let hours = Int(bedtimeTimeInterval) / 3600
+        if hours >= 24 {
+            self.hours = hours - 24
+        } else {
+            self.hours = hours
         }
-        if minutes < 0 {
-            minutes += 60
-            hours -= 1
-        }
-        hours = max(0, hours)
-        minutes = max(0, minutes)
-        seconds = max(0, seconds)
         
-        self.hours = hours
-        self.minutes = minutes
-        self.seconds = seconds
+        self.minutes = Int(bedtimeTimeInterval) / 60 % 60
+        self.seconds = Int(bedtimeTimeInterval) % 60
     }
-
+    
     private var timeRemainingText: String {
         "You have \(hours) hours, \(minutes) minutes and \(seconds) seconds until bedtime."
     }
-
+    
 }
 
 #Preview {
