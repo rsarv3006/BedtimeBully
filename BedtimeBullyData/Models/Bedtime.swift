@@ -16,11 +16,11 @@ class Bedtime {
     let bedtimeDay: BedtimeDay
     let isActive: Bool
     let notificationIdentifiers: [UUID] = []
-    let bedtime: Date
+    let bedtime: Time
     
     @Relationship(deleteRule: .cascade) var notificationSchedule: NotificationSchedule?
     
-    init(name: String, bedtimeDay: BedtimeDay, isActive: Bool, bedtime: Date) {
+    init(name: String, bedtimeDay: BedtimeDay, isActive: Bool, bedtime: Time) {
         self.id = UUID()
         self.name = name
         self.bedtimeDay = bedtimeDay

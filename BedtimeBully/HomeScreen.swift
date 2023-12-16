@@ -6,14 +6,32 @@
 //
 
 import SwiftUI
+import SwiftData
+
+enum BedtimeScheduleError: Error {
+    case noBedtimeSchedule
+    case unableToGetBedtime
+}
+
+let bedtimeSchedulePredicate = #Predicate<BedtimeSchedule> { bedtimeSchedule in
+    bedtimeSchedule.isActive == true
+}
+
+let bedtimeSchedulesFetch = FetchDescriptor<BedtimeSchedule>(predicate: bedtimeSchedulePredicate)
 
 struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
+  
+    @Query(bedtimeSchedulesFetch) private var bedtimeSchedules: [BedtimeSchedule]
     
-    @State private var bedtime = Date().addingTimeInterval(60*60)
+    private var bedtimeSchedule: BedtimeSchedule? {
+        return bedtimeSchedules.first
+    }
+    
+    @State() private var bedtime: Date = Date()
     
     private var beginNotifyingString: String {
-        return "We will begin notifying you at \(DataUtils.calculateFirstNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your impending bedtime."
+        return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your impending bedtime."
     }
     
     var body: some View {
@@ -48,13 +66,41 @@ struct HomeScreen: View {
             .navigationTitle("BedtimeBully")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
+                
                 do {
                     try buildInitialData(modelContext)
+                    
+                    bedtime = try getBedtimeDate()
                 } catch {
                     print("Error: \(error)")
                 }
             }
         }
+    }
+    
+    func getBedtimeDate() throws -> Date {
+        guard let bedtimeSchedule = bedtimeSchedule else { throw BedtimeScheduleError.noBedtimeSchedule }
+        let today = Date()
+        let dayOfWeek = today.dayOfWeek
+        
+        if let bedtime = bedtimeSchedule.getBedtime(dayOfWeek: dayOfWeek) {
+            
+            let time = bedtime.bedtime
+            let bedtimeDate = try? time.toDate(baseDate: Date())
+            
+                
+            if let todayBedtimeDate = bedtimeDate {
+                if !todayBedtimeDate.isInPast {
+                    return todayBedtimeDate
+                } else {
+                    if let tomorrowBedtimeDate = try? time.toDate(baseDate: Date.tomorrow) {
+                        return tomorrowBedtimeDate
+                    }
+                }
+            }
+        }
+        
+        throw BedtimeScheduleError.unableToGetBedtime
     }
 }
 

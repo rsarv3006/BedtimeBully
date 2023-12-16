@@ -37,4 +37,23 @@ class BedtimeSchedule {
         self.saturday = saturday
         self.sunday = sunday
     }
+    
+    func getBedtime(dayOfWeek: Date.DayOfTheWeek) -> Bedtime? {
+        switch dayOfWeek {
+        case .Sunday:
+            return self.sunday
+        case .Monday:
+            return self.monday
+        case .Tuesday:
+            return self.tuesday
+        case .Wednesday:
+            return self.wednesday
+        case .Thursday:
+            return self.thursday
+        case .Friday:
+            return self.friday
+        case .Saturday:
+            return self.saturday
+        }
+    }
 }

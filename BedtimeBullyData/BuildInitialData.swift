@@ -12,10 +12,7 @@ func buildInitialData(_ modelContext: ModelContext) throws {
     let schedulesFetchDescriptor: FetchDescriptor<NotificationSchedule> = FetchDescriptor()
     let schedules = try modelContext.fetch(schedulesFetchDescriptor)
   
-    if schedules.count > 0 {
-        print("schedules have been loaded")
-        return
-    } else {
+    if schedules.count == 0 {
         print("creating default schedule")
         let defaultSchedule = NotificationSchedule(name: "Default", notificationIntervals: [
             TimeInterval(30 * 60),
@@ -31,7 +28,7 @@ func buildInitialData(_ modelContext: ModelContext) throws {
         modelContext.insert(defaultSchedule)
         
         print("default schedule has been created - creating default bedtimes")
-        let defaultBedtime = DateComponents(calendar: .current, hour: 21, minute: 45).date!
+        let defaultBedtime = try! Time(hour: 21, minute: 45) 
         
         let defaultMondayBedtime = Bedtime(name: "Monday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)
         let defaultTuesdayBedtime = Bedtime(name: "Tuesday Default", bedtimeDay: .monday, isActive: true, bedtime: defaultBedtime)

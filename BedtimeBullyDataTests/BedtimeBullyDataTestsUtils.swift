@@ -26,7 +26,7 @@ final class BedtimeBullyDataTestsUtils: XCTestCase {
         let expectedOffset = DateComponents(calendar: .current, year: 2023, month: 12, day: 25, hour: 18, minute: 0).date!
         let notifyOffset: TimeInterval = 30 * 60
         
-        let calculatedOffset = DataUtils.calculateFirstNotificationTime(bedtime: bedtime, notificationOffset: notifyOffset)
+        let calculatedOffset = DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: notifyOffset)
        XCTAssertEqual(calculatedOffset, expectedOffset)
     }
 

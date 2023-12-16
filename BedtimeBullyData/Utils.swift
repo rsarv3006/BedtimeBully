@@ -9,7 +9,7 @@ import Foundation
 
 struct DataUtils {
     
-    static func calculateFirstNotificationTime(bedtime: Date, notificationOffset: TimeInterval) -> Date {
+    static func calculateNotificationTime(bedtime: Date, notificationOffset: TimeInterval) -> Date {
         return bedtime.addingTimeInterval(-notificationOffset)
     }
 }

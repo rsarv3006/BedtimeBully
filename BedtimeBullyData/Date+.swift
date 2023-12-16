@@ -35,4 +35,30 @@ extension Date {
     var second: Int {
         return Calendar.current.component(.second, from: self)
     }
+    
+    var dayOfWeek: DayOfTheWeek {
+        let calendar = Calendar.current
+        let dayOfWeek = calendar.component(.weekday, from: self)
+        return Date.DayOfTheWeek.allCases[dayOfWeek - 1]
+    }
+    
+    
+    enum DayOfTheWeek: String, Codable, CaseIterable {
+        case Sunday
+        case Monday
+        case Tuesday
+        case Wednesday
+        case Thursday
+        case Friday
+        case Saturday
+    }
+    
+    var isInPast: Bool {
+        return timeIntervalSinceNow < 0
+    }
+    
+    static var tomorrow: Date {
+        return Date().addingTimeInterval(86400)
+    }
 }
+
