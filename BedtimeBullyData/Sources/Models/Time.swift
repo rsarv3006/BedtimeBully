@@ -49,6 +49,6 @@ public struct Time {
 
 extension Time: Codable {}
 
-public enum TimeError : Error {
+public enum TimeError: Error {
   case invalidHour, invalidMinute, invalidDate, invalidComponents
 }

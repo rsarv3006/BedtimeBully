@@ -13,7 +13,7 @@ struct CustomizeScreen: View {
     @Query private var notificationSchedules: [NotificationSchedule]
     @State private var isUnlockPurchased = false
     @State private var selectedNotificationSchedule: NotificationSchedule?
-    
+
 //    @Query(bedtimeSchedulesFetch) private var bedtimeSchedules: [BedtimeSchedule]
 //    
 //    private var bedtimeSchedule: BedtimeSchedule? {
@@ -22,39 +22,48 @@ struct CustomizeScreen: View {
 //    
 //    @State() private var bedtime: Date = Date()
     
+    @Query private var bedtimes: [Bedtime]
+    @Query private var notificationItems: [NotificationItem]
+
+    @State() private var potentialNewBedtime: Date = .init()
+    
     var body: some View {
         NavigationStack {
             VStack {
-                
-                if !isUnlockPurchased {
-                    Text("WIREFRAME: pick bedtime")
-                    
-                    Text("Need to further customize your bedtime? Purchase our advanced features to unlock custom bedtimes per day of the week and customize your notification schedule!")
-                        .padding()
-                }
-                
-                Picker("Selected Notification Schedule", selection: $selectedNotificationSchedule) {
-                    ForEach(notificationSchedules, id: \.self) { schedule in
-                        Text(schedule.name)
+                Button(action: {
+                    bedtimes.forEach { bedtime in
+                        print("*** BEDTIME ***")
+                        print(bedtime.name)
+                        print(bedtime.id)
+                        print(Date(timeIntervalSince1970: bedtime.id).description)
+                        print(bedtime.notificationItems?.count ?? 0)
                     }
-                }
-                .disabled(!isUnlockPurchased)
+                }, label: {
+                    Text("LOG BEDTIMES")
+                })
                 
-                NotificationScheduleView(schedule: selectedNotificationSchedule)
+                Button(action: {
+                    notificationItems.forEach { notificationItem in
+                        print("*** NOTIFICATION ITEM ***")
+                        print(notificationItem.id)
+                        print(Date(timeIntervalSince1970: notificationItem.id).description)
+                    }
+                }, label: {
+                    Text("LOG NOTIFICATION ITEMS")
+                })
                 
-                NavigationLink("Create New Notification Scedule") {
+                VStack {
+                    Text("Update Bedtime")
+                        .font(.title2)
                     
-                }
-                .buttonStyle(.bordered)
-                .padding(.bottom)
-                .disabled(!isUnlockPurchased)
-                
-                NavigationLink("Set Bedtime Schedule") {
+                    DatePicker("", selection: $potentialNewBedtime, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
+                        .padding(.bottom)
                     
+                    Button(action: {}, label: {
+                        Text("Save")
+                    })
                 }
-                .buttonStyle(.bordered)
-                .padding(.bottom)
-                .disabled(!isUnlockPurchased)
                 
                 Spacer()
             }
@@ -64,12 +73,6 @@ struct CustomizeScreen: View {
                 if selectedNotificationSchedule == nil {
                     selectedNotificationSchedule = notificationSchedules.first
                 }
-                
-//                do {
-//                    bedtime = try DataUtils.getBedtimeDateFromSchedule(bedtimeSchedule)
-//                } catch {
-//                    print("Error getting bedtime date from schedule: \(error)")
-//                }
             })
         }
     }
@@ -79,15 +82,15 @@ struct CustomizeScreen: View {
     let schema = Schema([
         NotificationSchedule.self,
         Bedtime.self,
-        BedtimeSchedule.self
+        BedtimeScheduleTemplate.self
     ])
-    
+
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: schema,
                                         configurations: config)
-    
+
     try! buildInitialData(container.mainContext)
-    
+
     return CustomizeScreen()
         .modelContainer(container)
 }

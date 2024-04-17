@@ -15,6 +15,6 @@ public enum BedtimeDay: String, Codable {
     case thursday
     case friday
     case saturday
-    
+
     static let allCases: [BedtimeDay] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
 }

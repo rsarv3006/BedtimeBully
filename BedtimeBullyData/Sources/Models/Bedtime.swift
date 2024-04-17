@@ -8,44 +8,43 @@
 import Foundation
 import SwiftData
 
-
 @Model
 public class Bedtime {
-    public let id: UUID
+    @Attribute(.unique) public let id: TimeInterval
     public let name: String
-    public let bedtimeDay: BedtimeDay
     public let isActive: Bool
-    public let notificationIdentifiers: [UUID] = []
-    public let bedtime: Time
-    
-    @Relationship(deleteRule: .cascade) var notificationSchedule: NotificationSchedule?
-    
-    public init(name: String, bedtimeDay: BedtimeDay, isActive: Bool, bedtime: Time) {
-        self.id = UUID()
+
+    @Relationship(deleteRule: .cascade)
+    public var notificationItems: [NotificationItem]? = []
+
+    public init(date: Date, name: String, isActive: Bool) {
+        id = date.timeIntervalSince1970
         self.name = name
-        self.bedtimeDay = bedtimeDay
         self.isActive = isActive
-        self.bedtime = bedtime
     }
-    
-    func addNotificationSchedule(notificationSchedule: NotificationSchedule) {
-        self.notificationSchedule = notificationSchedule
-    }
-    
 }
 
+// MARK: - Generate Notification Dates
 
-// MARK - Generate Notification Dates
 public extension Bedtime {
-    func generateNotificationDates(dateForBedtime: Date) throws -> [Date] {
+    func generateNotificationDates(notificationSchedule: NotificationSchedule?) throws -> [Date] {
         guard let notificationIntervals = notificationSchedule?.notificationIntervals else { throw BedtimeError.notificationScheduleNotSetOnBedtime }
-        let bedtime = DateComponents(calendar: Calendar.current, month: dateForBedtime.month, day: dateForBedtime.day, hour: self.bedtime.hour, minute: self.bedtime.minute).date
-       
-        guard let bedtime else { throw BedtimeError.failedToCreateBedtimeDate }
-        
+        let bedtime = Date(timeIntervalSince1970: id)
+
         return notificationIntervals.map { notificationInterval in
             let bedtimeCopy = bedtime
             return bedtimeCopy.addingTimeInterval(-notificationInterval)
         }
+    }
+}
+
+// MARK: - Bedtime Predicates
+
+public extension Bedtime {
+    static func nextBedtimePredicate(_ date: Date) -> Predicate<Bedtime> {
+        let nextBedtimePredicate = #Predicate<Bedtime> { bedtime in
+            bedtime.isActive == true && bedtime.id > date.timeIntervalSince1970
+        }
+        return nextBedtimePredicate
     }
 }

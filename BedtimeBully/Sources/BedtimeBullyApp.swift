@@ -1,7 +1,6 @@
-
-import SwiftUI
-import SwiftData
 import BedtimeBullyData
+import SwiftData
+import SwiftUI
 
 @main
 struct BedtimeBullyApp: App {
@@ -9,7 +8,9 @@ struct BedtimeBullyApp: App {
         let schema = Schema([
             NotificationSchedule.self,
             Bedtime.self,
-            BedtimeSchedule.self
+            BedtimeScheduleTemplate.self,
+            NotificationItem.self,
+            Config.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

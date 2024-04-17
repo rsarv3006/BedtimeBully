@@ -1,67 +1,58 @@
-//
-//  HomeScreen.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/12/23.
-//
-
-import SwiftUI
-import SwiftData
 import BedtimeBullyData
+import Notifications
+import SwiftData
+import SwiftUI
 
-let bedtimeSchedulePredicate = #Predicate<BedtimeSchedule> { bedtimeSchedule in
-    bedtimeSchedule.isActive == true
-}
-
-let bedtimeSchedulesFetch = FetchDescriptor<BedtimeSchedule>(predicate: bedtimeSchedulePredicate)
-
-struct HomeScreen: View {
+public struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
-  
-    @Query(bedtimeSchedulesFetch) private var bedtimeSchedules: [BedtimeSchedule]
-    
-    private var bedtimeSchedule: BedtimeSchedule? {
-        return bedtimeSchedules.first
+
+    @Query(filter: Bedtime.nextBedtimePredicate(Date()), sort: \.id, order: .reverse) private var bedtimes: [Bedtime]
+    @Query() private var configs: [Config]
+
+    private var bedtimeSchedule: Bedtime? {
+        return bedtimes.first
     }
-    
-    @State() private var bedtime: Date = Date()
-    
-    private var beginNotifyingString: String {
-        return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your impending bedtime."
-    }
-    
-    var body: some View {
+
+    @State() private var bedtime: Date = .init()
+    @State() private var hasBedtime = false
+    @State() private var shouldShowRequestNotificationPermissions = true
+
+    public var body: some View {
         NavigationStack {
             VStack {
-                Text("Welcome to Bedtime Bully! This app is designed to help you get to bed on time.")
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                
-                Text("Today's Bedtime")
-                    .font(.title2)
-                
-                DatePicker("", selection: $bedtime, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                    .padding(.bottom)
-                    .disabled(true)
-                
-                CountdownUntilBedtimeView(countdownToDate: $bedtime)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                
-                Text(beginNotifyingString)
-                    .multilineTextAlignment(.center)
-                    .padding()
-               
+                BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime)
+
                 NavigationLink("Customize") {
                     CustomizeScreen()
                 }
                 .buttonStyle(.bordered)
-                
+
                 Spacer()
             }
             .navigationTitle("BedtimeBully")
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $shouldShowRequestNotificationPermissions) {
+                RequestNotificationsPermissionView(
+                    isModalPresented: $shouldShowRequestNotificationPermissions, config: configs.first
+                ) {
+                    do {
+                        try addBedtimesFromSchedule(modelContext)
+
+                        guard let maybeBedtime = bedtimes.first.map({ bedtime in
+                            Date(timeIntervalSince1970: bedtime.id)
+                        }) else { print("No bedtime located")
+                            return
+                        }
+
+                        bedtime = maybeBedtime
+                        hasBedtime = true
+
+                        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
+                    } catch {
+                        print("Error: \(error)")
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: SettingsScreen()) {
@@ -70,11 +61,8 @@ struct HomeScreen: View {
                 }
             }
             .onAppear {
-                
                 do {
                     try buildInitialData(modelContext)
-                    
-                    bedtime = try DataUtils.getBedtimeDateFromSchedule(bedtimeSchedule)
                 } catch {
                     print("Error: \(error)")
                 }

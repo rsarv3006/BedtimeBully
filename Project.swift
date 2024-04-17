@@ -30,7 +30,7 @@ let project = Project(
             bundleId: "rjs.app.dev.BedtimeBully",
             infoPlist: .extendingDefault(
                 with: [
-                    "UILaunchStoryboardName": "LaunchScreen.storyboard",
+                    "UILaunchStoryboardName": "LaunchScreen.storyboard"
                 ]
             ),
             sources: ["BedtimeBully/Sources/**"],
@@ -70,4 +70,3 @@ let project = Project(
         )
     ]
 )
-
