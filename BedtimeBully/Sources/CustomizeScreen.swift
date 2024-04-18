@@ -5,76 +5,44 @@
 //  Created by Robert J. Sarvis Jr on 11/27/23.
 //
 
-import SwiftUI
-import SwiftData
 import BedtimeBullyData
+import SwiftData
+import SwiftUI
 
 struct CustomizeScreen: View {
-    @Query private var notificationSchedules: [NotificationSchedule]
-    @State private var isUnlockPurchased = false
-    @State private var selectedNotificationSchedule: NotificationSchedule?
+    @State private var newBedtime: Date
+    @Binding var bedtime: Date
+    @Binding var hasLoadedBedtime: Bool
 
-//    @Query(bedtimeSchedulesFetch) private var bedtimeSchedules: [BedtimeSchedule]
-//    
-//    private var bedtimeSchedule: BedtimeSchedule? {
-//        return bedtimeSchedules.first
-//    }
-//    
-//    @State() private var bedtime: Date = Date()
-    
-    @Query private var bedtimes: [Bedtime]
-    @Query private var notificationItems: [NotificationItem]
+    init(bedtime: Binding<Date>, hasLoadedBedtime: Binding<Bool>) {
+        _bedtime = bedtime
+        _hasLoadedBedtime = hasLoadedBedtime
+        _newBedtime = State(initialValue: bedtime.wrappedValue)
+    }
 
-    @State() private var potentialNewBedtime: Date = .init()
-    
     var body: some View {
         NavigationStack {
             VStack {
-                Button(action: {
-                    bedtimes.forEach { bedtime in
-                        print("*** BEDTIME ***")
-                        print(bedtime.name)
-                        print(bedtime.id)
-                        print(Date(timeIntervalSince1970: bedtime.id).description)
-                        print(bedtime.notificationItems?.count ?? 0)
-                    }
-                }, label: {
-                    Text("LOG BEDTIMES")
-                })
-                
-                Button(action: {
-                    notificationItems.forEach { notificationItem in
-                        print("*** NOTIFICATION ITEM ***")
-                        print(notificationItem.id)
-                        print(Date(timeIntervalSince1970: notificationItem.id).description)
-                    }
-                }, label: {
-                    Text("LOG NOTIFICATION ITEMS")
-                })
-                
-                VStack {
-                    Text("Update Bedtime")
-                        .font(.title2)
-                    
-                    DatePicker("", selection: $potentialNewBedtime, displayedComponents: .hourAndMinute)
+                Text("Update Bedtime")
+                    .font(.title2)
+
+                if hasLoadedBedtime {
+                    DatePicker("", selection: $bedtime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .padding(.bottom)
-                    
-                    Button(action: {}, label: {
-                        Text("Save")
-                    })
+                } else {
+                    Text("Bedtime not found")
                 }
-                
-                Spacer()
+
+                Button(action: {}, label: {
+                    Text("Save")
+                })
             }
-            .navigationTitle("Customize")
-            .navigationBarTitleDisplayMode(.inline)
-            .onAppear(perform: {
-                if selectedNotificationSchedule == nil {
-                    selectedNotificationSchedule = notificationSchedules.first
-                }
-            })
+
+            Spacer()
         }
+        .navigationTitle("Customize")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -82,7 +50,7 @@ struct CustomizeScreen: View {
     let schema = Schema([
         NotificationSchedule.self,
         Bedtime.self,
-        BedtimeScheduleTemplate.self
+        BedtimeScheduleTemplate.self,
     ])
 
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
@@ -91,6 +59,6 @@ struct CustomizeScreen: View {
 
     try! buildInitialData(container.mainContext)
 
-    return CustomizeScreen()
+    return CustomizeScreen(bedtime: .constant(Date()), hasLoadedBedtime: .constant(false))
         .modelContainer(container)
 }

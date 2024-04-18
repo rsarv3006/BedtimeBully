@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import SwiftData
 import Notifications
+import SwiftData
 
 public func buildInitialData(_ modelContext: ModelContext) throws {
     let schedulesFetchDescriptor: FetchDescriptor<NotificationSchedule> = FetchDescriptor()
@@ -34,7 +34,7 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
             "Bedtime in 2 minutes",
             "Bedtime in 1 minute",
             "Time for Bed!",
-            "Bedtime in 30 seconds"
+            "Bedtime in 30 seconds",
         ])
         modelContext.insert(defaultSchedule)
 
@@ -125,7 +125,7 @@ public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) thr
         ) { notificationItem in
             print("\(notificationItem.id) - \(notificationItem.message)")
             let date = Date(timeIntervalSince1970: notificationItem.id)
-            let _ = NotificationService.scheduleNotification(id: String("\(notificationItem.id)"), title: "Bedtime Bully", body: notificationItem.message, timestamp: date)
+            _ = NotificationService.scheduleNotification(id: String("\(notificationItem.id)"), title: "Bedtime Bully", body: notificationItem.message, timestamp: date)
         }
     }
 }

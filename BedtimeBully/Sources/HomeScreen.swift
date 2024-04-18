@@ -15,7 +15,7 @@ public struct HomeScreen: View {
 
     @State() private var bedtime: Date = .init()
     @State() private var hasBedtime = false
-    @State() private var shouldShowRequestNotificationPermissions = true
+    @State() private var shouldShowRequestNotificationPermissions = false
 
     public var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ public struct HomeScreen: View {
                 BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime)
 
                 NavigationLink("Customize") {
-                    CustomizeScreen()
+                    CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
                 }
                 .buttonStyle(.bordered)
 
@@ -36,18 +36,7 @@ public struct HomeScreen: View {
                     isModalPresented: $shouldShowRequestNotificationPermissions, config: configs.first
                 ) {
                     do {
-                        try addBedtimesFromSchedule(modelContext)
-
-                        guard let maybeBedtime = bedtimes.first.map({ bedtime in
-                            Date(timeIntervalSince1970: bedtime.id)
-                        }) else { print("No bedtime located")
-                            return
-                        }
-
-                        bedtime = maybeBedtime
-                        hasBedtime = true
-
-                        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
+                        try initializeBedtimeAndOtherData()
                     } catch {
                         print("Error: \(error)")
                     }
@@ -63,11 +52,39 @@ public struct HomeScreen: View {
             .onAppear {
                 do {
                     try buildInitialData(modelContext)
+
+                    if let config = configs.first {
+                        hasBedtime = config.hasSetBedtime
+                        shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
+
+                        print("isNotificationsEnabled: \(config.isNotificationsEnabled)")
+                        print("hasSetBedtime: \(config.hasSetBedtime)")
+
+                        if config.isNotificationsEnabled && config.hasSetBedtime {
+                            try initializeBedtimeAndOtherData()
+                        }
+                    }
+
                 } catch {
                     print("Error: \(error)")
                 }
             }
         }
+    }
+
+    func initializeBedtimeAndOtherData() throws {
+        try addBedtimesFromSchedule(modelContext)
+
+        guard let maybeBedtime = bedtimes.first.map({ bedtime in
+            Date(timeIntervalSince1970: bedtime.id)
+        }) else { print("No bedtime located")
+            return
+        }
+
+        bedtime = maybeBedtime
+        hasBedtime = true
+
+        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
     }
 }
 

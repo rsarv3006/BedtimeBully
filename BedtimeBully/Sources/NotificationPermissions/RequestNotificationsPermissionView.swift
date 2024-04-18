@@ -35,6 +35,7 @@ public struct RequestNotificationsPermissionView: View {
             if isAuthorized {
                 isModalPresented = false
                 config?.isNotificationsEnabled = true
+                config?.hasSetBedtime = true
                 onAccept()
             }
         }

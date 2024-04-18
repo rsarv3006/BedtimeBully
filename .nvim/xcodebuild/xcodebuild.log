@@ -1,21 +1,11 @@
 [!]  --- xcodebuild: Using the first of multiple matching destinations:
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
-[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
-[Notifications] Processing Notifications-Info.plist
-[Notifications] Compiling Notifications.swift
-Signing Notifications.framework (in target 'Notifications' from project 'BedtimeBully')
-[BedtimeBully] Compiling RequestNotificationPermissionsVM.swift
-[BedtimeBully] Compiling HomeScreen.swift
-Signing BedtimeBullyData.framework (in target 'BedtimeBullyData' from project 'BedtimeBully')
-[BedtimeBully] Compiling SettingsScreen.swift
-[BedtimeBully] Compiling BedtimeBullyApp.swift
-[BedtimeBully] Compiling NotificationScheduleView.swift
-[BedtimeBully] Compiling CountdownUntilBedtimeView.swift
 [BedtimeBully] Compiling CustomizeScreen.swift
-Signing Notifications.framework (in target 'BedtimeBully' from project 'BedtimeBully')
-[BedtimeBully] Processing BedtimeBully-Info.plist
-Signing BedtimeBullyData.framework (in target 'BedtimeBully' from project 'BedtimeBully')
+[BedtimeBully] Compiling CountdownUntilBedtimeView.swift
+[BedtimeBully] Compiling NotificationScheduleView.swift
+[BedtimeBully] Compiling HomeScreen.swift
+[BedtimeBully] Compiling SettingsScreen.swift
 Signing BedtimeBully.app (in target 'BedtimeBully' from project 'BedtimeBully')
 Build Succeeded
 
