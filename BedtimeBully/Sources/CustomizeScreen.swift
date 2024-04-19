@@ -39,7 +39,6 @@ struct CustomizeScreen: View {
 
                 Button(action: {
                     do {
-                        // TODO: This crap is broken
                         bedtime = newBedtime
                         guard let bedtimeTime = newBedtime.getTime else { return }
                        try removeAllBedtimesAndNotifications(modelContext: modelContext)

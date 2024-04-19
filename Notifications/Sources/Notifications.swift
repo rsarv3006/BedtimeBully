@@ -11,13 +11,15 @@ public enum NotificationService {
     static let center = UNUserNotificationCenter.current()
 
     public static func requestAuthorization(completion: @escaping (Bool, (any Error)?) -> Void) {
-        center.requestAuthorization(options: [.alert, .sound], completionHandler: completion)
+        center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay, .criticalAlert ], completionHandler: completion)
     }
 
     public static func scheduleNotification(id: String, title: String, body: String, timestamp: Date) -> String {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
+        content.interruptionLevel = .timeSensitive
+        content.sound = UNNotificationSound.default
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: timestamp)
         print(dateComponents.description)
