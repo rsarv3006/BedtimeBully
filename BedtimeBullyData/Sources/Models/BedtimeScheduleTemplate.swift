@@ -30,11 +30,11 @@ public class BedtimeScheduleTemplate {
         self.isActive = isActive
     }
 
-    func addNotificationSchedule(notificationSchedule: NotificationSchedule) {
+    public func addNotificationSchedule(notificationSchedule: NotificationSchedule) {
         self.notificationSchedule = notificationSchedule
     }
 
-    func setBedtimes(monday: Time, tuesday: Time, wednesday: Time, thursday: Time, friday: Time, saturday: Time, sunday: Time) {
+    public func setBedtimes(modelContext: ModelContext, monday: Time, tuesday: Time, wednesday: Time, thursday: Time, friday: Time, saturday: Time, sunday: Time) throws {
         self.monday = monday
         self.tuesday = tuesday
         self.wednesday = wednesday
@@ -42,9 +42,10 @@ public class BedtimeScheduleTemplate {
         self.friday = friday
         self.saturday = saturday
         self.sunday = sunday
+        try modelContext.save()
     }
 
-    func getBedtime(dayOfWeek: Date.DayOfTheWeek) -> Time? {
+    public func getBedtime(dayOfWeek: Date.DayOfTheWeek) -> Time? {
         switch dayOfWeek {
         case .Sunday:
             return sunday
@@ -63,7 +64,7 @@ public class BedtimeScheduleTemplate {
         }
     }
 
-    func getBedtime(dayOfWeek: Int) -> Time? {
+    public func getBedtime(dayOfWeek: Int) -> Time? {
         switch dayOfWeek {
         case 1:
             return sunday
@@ -82,5 +83,14 @@ public class BedtimeScheduleTemplate {
         default:
             return nil
         }
+    }
+}
+
+public extension BedtimeScheduleTemplate {
+    static func activeBedtimeSchedulePredicate() -> Predicate<BedtimeScheduleTemplate> {
+        let activeBedtimeSchedulePredicate = #Predicate<BedtimeScheduleTemplate> { schedule in
+            schedule.isActive == true
+        }
+        return activeBedtimeSchedulePredicate
     }
 }

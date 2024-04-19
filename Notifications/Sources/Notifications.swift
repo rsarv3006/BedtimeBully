@@ -20,6 +20,7 @@ public enum NotificationService {
         content.body = body
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: timestamp)
+        print(dateComponents.description)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 

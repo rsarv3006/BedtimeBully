@@ -8,6 +8,10 @@
 import Foundation
 
 public extension Date {
+    var getTime: Time? {
+        return try? Time(hour: hour, minute: minute)
+    }
+
     var weekday: Int {
         return Calendar.current.component(.weekday, from: self)
     }

@@ -9,10 +9,6 @@ public struct HomeScreen: View {
     @Query(filter: Bedtime.nextBedtimePredicate(Date()), sort: \.id, order: .reverse) private var bedtimes: [Bedtime]
     @Query() private var configs: [Config]
 
-    private var bedtimeSchedule: Bedtime? {
-        return bedtimes.first
-    }
-
     @State() private var bedtime: Date = .init()
     @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false

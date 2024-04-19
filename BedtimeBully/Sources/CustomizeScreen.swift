@@ -10,6 +10,9 @@ import SwiftData
 import SwiftUI
 
 struct CustomizeScreen: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query(filter: BedtimeScheduleTemplate.activeBedtimeSchedulePredicate()) private var bedtimeSchedules: [BedtimeScheduleTemplate]
+
     @State private var newBedtime: Date
     @Binding var bedtime: Date
     @Binding var hasLoadedBedtime: Bool
@@ -27,14 +30,28 @@ struct CustomizeScreen: View {
                     .font(.title2)
 
                 if hasLoadedBedtime {
-                    DatePicker("", selection: $bedtime, displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .padding(.bottom)
                 } else {
                     Text("Bedtime not found")
                 }
 
-                Button(action: {}, label: {
+                Button(action: {
+                    do {
+                        // TODO: This crap is broken
+                        bedtime = newBedtime
+                        guard let bedtimeTime = newBedtime.getTime else { return }
+                       try removeAllBedtimesAndNotifications(modelContext: modelContext)
+                        try bedtimeSchedules.first?.setBedtimes(modelContext: modelContext, monday: bedtimeTime, tuesday: bedtimeTime, wednesday: bedtimeTime, thursday: bedtimeTime, friday: bedtimeTime, saturday: bedtimeTime, sunday: bedtimeTime)
+
+                        try addBedtimesFromSchedule(modelContext)
+                        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
+                    } catch {
+                        // TODO: Handle this better
+                        print("Error: \(error)")
+                    }
+                }, label: {
                     Text("Save")
                 })
             }
