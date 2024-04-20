@@ -11,7 +11,7 @@ public enum NotificationService {
     static let center = UNUserNotificationCenter.current()
 
     public static func requestAuthorization(completion: @escaping (Bool, (any Error)?) -> Void) {
-        center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay, .criticalAlert ], completionHandler: completion)
+        center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay, .criticalAlert], completionHandler: completion)
     }
 
     public static func scheduleNotification(id: String, title: String, body: String, timestamp: Date) -> String {
@@ -22,7 +22,6 @@ public enum NotificationService {
         content.sound = UNNotificationSound.default
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: timestamp)
-        print(dateComponents.description)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
 

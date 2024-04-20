@@ -23,8 +23,7 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
             TimeInterval(3 * 60),
             TimeInterval(2 * 60),
             TimeInterval(1 * 60),
-            TimeInterval(1 * 01),
-            TimeInterval(0.5 * 60),
+            TimeInterval(0),
         ], notificationMessages: [
             "Bedtime in 30 minutes",
             "Bedtime in 15 minutes",
@@ -34,7 +33,6 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
             "Bedtime in 2 minutes",
             "Bedtime in 1 minute",
             "Time for Bed!",
-            "Bedtime in 30 seconds",
         ])
         modelContext.insert(defaultSchedule)
 
@@ -125,7 +123,7 @@ public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) thr
     for bedtime in bedtimes {
         bedtime.notificationItems?.forEach(
         ) { notificationItem in
-            print("\(notificationItem.id) - \(notificationItem.message)")
+            print("\(notificationItem.id) - \(notificationItem.message) - \(Date(timeIntervalSince1970: notificationItem.id).description)")
             let date = Date(timeIntervalSince1970: notificationItem.id)
             _ = NotificationService.scheduleNotification(id: String("\(notificationItem.id)"), title: "Bedtime Bully", body: notificationItem.message, timestamp: date)
         }

@@ -53,9 +53,6 @@ public struct HomeScreen: View {
                         hasBedtime = config.hasSetBedtime
                         shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
 
-                        print("isNotificationsEnabled: \(config.isNotificationsEnabled)")
-                        print("hasSetBedtime: \(config.hasSetBedtime)")
-
                         if config.isNotificationsEnabled && config.hasSetBedtime {
                             try initializeBedtimeAndOtherData()
                         }

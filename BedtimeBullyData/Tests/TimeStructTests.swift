@@ -48,7 +48,6 @@ final class TimeStructTests: XCTestCase {
         XCTAssertEqual(time.minute, 30)
 
         let converted = try time.toDate(baseDate: date)
-        print(converted)
         XCTAssertEqual(Calendar.current.component(.hour, from: converted), 12)
         XCTAssertEqual(Calendar.current.component(.minute, from: converted), 30)
     }
