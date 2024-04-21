@@ -1,1 +1,1 @@
-{"testsCount": 0, "failedTestsCount": 0, "tests": [], "buildWarnings": [], "testErrors": [], "buildErrors": []}
+{"testsCount": 0, "failedTestsCount": 0, "tests": [], "buildWarnings": [], "testErrors": [], "buildErrors": [{"source": "clang", "message": ["linker command failed with exit code 1 (use -v to see invocation)"]}]}

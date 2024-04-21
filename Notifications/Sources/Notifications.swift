@@ -33,8 +33,8 @@ public enum NotificationService {
         return id
     }
 
-    public static func cancelNotification(id: String) {
-        center.removePendingNotificationRequests(withIdentifiers: [id])
+    public static func cancelNotifications(ids: [String]) {
+        center.removePendingNotificationRequests(withIdentifiers: ids)
     }
 
     public static func debugGetAllNotifications() {

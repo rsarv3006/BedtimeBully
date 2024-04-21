@@ -23,7 +23,7 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
             TimeInterval(3 * 60),
             TimeInterval(2 * 60),
             TimeInterval(1 * 60),
-            TimeInterval(0),
+            TimeInterval(-1),
         ], notificationMessages: [
             "Bedtime in 30 minutes",
             "Bedtime in 15 minutes",
@@ -140,6 +140,35 @@ public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws
 
     let notificationItemsFetchDescriptor: FetchDescriptor<NotificationItem> = FetchDescriptor()
     let notificationItems = try modelContext.fetch(notificationItemsFetchDescriptor)
+
+    let notificationItemIds = notificationItems.map { "\($0.id)" }
+
+    NotificationService.cancelNotifications(ids: notificationItemIds)
+    
+    for notificationItem in notificationItems {
+        modelContext.delete(notificationItem)
+    }
+}
+
+public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, currentDate date: Date) throws {
+    let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
+        predicate: #Predicate { $0.id < date.timeIntervalSince1970 }
+    )
+    let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
+
+    for bedtime in bedtimes {
+        modelContext.delete(bedtime)
+    }
+
+    let notificationItemsFetchDescriptor: FetchDescriptor<NotificationItem> = FetchDescriptor(
+        predicate: #Predicate { $0.id < date.timeIntervalSince1970 }
+    )
+
+    let notificationItems = try modelContext.fetch(notificationItemsFetchDescriptor)
+
+    let notificationItemIds = notificationItems.map { "\($0.id)" }
+
+    NotificationService.cancelNotifications(ids: notificationItemIds)
 
     for notificationItem in notificationItems {
         modelContext.delete(notificationItem)

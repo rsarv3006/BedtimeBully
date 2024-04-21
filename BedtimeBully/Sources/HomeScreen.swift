@@ -66,6 +66,8 @@ public struct HomeScreen: View {
     }
 
     func initializeBedtimeAndOtherData() throws {
+        try removeBedtimesAndNotificationsInThePast(modelContext: modelContext, currentDate: Date.now)
+        
         try addBedtimesFromSchedule(modelContext)
 
         guard let maybeBedtime = bedtimes.first.map({ bedtime in
