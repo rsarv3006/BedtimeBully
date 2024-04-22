@@ -13,14 +13,5 @@ public class RequestNotificationPermissionsVM: ObservableObject {
 
     If you do want these notifications, please tap the accept button below to grant permission.
     """
-
-    public func requestAuthorization() {
-        NotificationService.requestAuthorization { [weak self] isAuthorized, error in
-            DispatchQueue.main.async {
-                self?.isAuthorized = isAuthorized
-                self?.error = error
-            }
-        }
-    }
 }
 

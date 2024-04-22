@@ -1,6 +1,7 @@
 // RequestNotificationsPermissionView.swift
 import BedtimeBullyData
 import SwiftUI
+import Notifications
 
 public struct RequestNotificationsPermissionView: View {
     @ObservedObject private var viewModel: RequestNotificationPermissionsVM
@@ -24,19 +25,18 @@ public struct RequestNotificationsPermissionView: View {
                 .padding()
 
             Button("Accept") {
-                viewModel.requestAuthorization()
+                NotificationService.requestAuthorization { isAuthorized, error in
+                    if isAuthorized {
+                        isModalPresented = false
+                        config?.isNotificationsEnabled = true
+                        config?.hasSetBedtime = true
+                        onAccept()
+                    }
+                }
             }
 
             if let error = viewModel.error {
                 Text("Error: \(error.localizedDescription)")
-            }
-        }
-        .onReceive(viewModel.$isAuthorized) { isAuthorized in
-            if isAuthorized {
-                isModalPresented = false
-                config?.isNotificationsEnabled = true
-                config?.hasSetBedtime = true
-                onAccept()
             }
         }
     }
