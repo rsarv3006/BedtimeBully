@@ -14,8 +14,7 @@ public class Bedtime {
     public let name: String
     public let isActive: Bool
 
-    @Relationship(deleteRule: .cascade)
-    public var notificationItems: [NotificationItem]? = []
+    public var notificationItems: [NotificationItem] = []
 
     public init(date: Date, name: String, isActive: Bool) {
         id = date.timeIntervalSince1970

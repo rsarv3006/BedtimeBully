@@ -11,7 +11,6 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @Query private var bedtimes: [Bedtime]
-    @Query private var notificationItems: [NotificationItem]
 
     var body: some View {
         VStack {
@@ -20,23 +19,11 @@ struct SettingsScreen: View {
                     print("*** BEDTIME ***")
                     print(bedtime.name)
                     print(bedtime.id)
-                    print(Date(timeIntervalSince1970: bedtime.id).description)
-                    print(bedtime.notificationItems?.count ?? 0)
+                    print(bedtime.getPrettyDate())
+                    print(bedtime.notificationItems.count)
                 }
             }, label: {
                 Text("LOG BEDTIMES")
-            })
-
-            Button(action: {
-                for notificationItem in notificationItems {
-                    print("*** NOTIFICATION ITEM ***")
-                    print(notificationItem.id)
-                    print(Date(timeIntervalSince1970: notificationItem.id).description)
-                }
-                
-                print(notificationItems.count)
-            }, label: {
-                Text("LOG NOTIFICATION ITEMS")
             })
         }
     }

@@ -11,7 +11,6 @@ import SwiftUI
 
 struct CustomizeScreen: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(filter: BedtimeScheduleTemplate.activeBedtimeSchedulePredicate()) private var bedtimeSchedules: [BedtimeScheduleTemplate]
 
     @State private var newBedtime: Date
     @Binding var bedtime: Date
@@ -39,13 +38,9 @@ struct CustomizeScreen: View {
 
                 Button(action: {
                     do {
+                        try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
                         bedtime = newBedtime
-                        guard let bedtimeTime = newBedtime.getTime else { return }
-                        try removeAllBedtimesAndNotifications(modelContext: modelContext)
-                        try bedtimeSchedules.first?.setBedtimes(modelContext: modelContext, monday: bedtimeTime, tuesday: bedtimeTime, wednesday: bedtimeTime, thursday: bedtimeTime, friday: bedtimeTime, saturday: bedtimeTime, sunday: bedtimeTime)
 
-                        try addBedtimesFromSchedule(modelContext)
-                        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
                     } catch {
                         // TODO: Handle this better
                         print("Error: \(error)")

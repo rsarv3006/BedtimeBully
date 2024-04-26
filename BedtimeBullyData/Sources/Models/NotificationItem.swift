@@ -1,8 +1,6 @@
 import Foundation
-import SwiftData
 
-@Model
-public class NotificationItem {
+public class NotificationItem: Codable {
     public let id: TimeInterval
     public let message: String
     

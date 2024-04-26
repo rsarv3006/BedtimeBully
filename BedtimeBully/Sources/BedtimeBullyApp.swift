@@ -9,7 +9,6 @@ struct BedtimeBullyApp: App {
             NotificationSchedule.self,
             Bedtime.self,
             BedtimeScheduleTemplate.self,
-            NotificationItem.self,
             Config.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
