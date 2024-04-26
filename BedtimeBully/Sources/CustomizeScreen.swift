@@ -41,7 +41,7 @@ struct CustomizeScreen: View {
                     do {
                         bedtime = newBedtime
                         guard let bedtimeTime = newBedtime.getTime else { return }
-                       try removeAllBedtimesAndNotifications(modelContext: modelContext)
+                        try removeAllBedtimesAndNotifications(modelContext: modelContext)
                         try bedtimeSchedules.first?.setBedtimes(modelContext: modelContext, monday: bedtimeTime, tuesday: bedtimeTime, wednesday: bedtimeTime, thursday: bedtimeTime, friday: bedtimeTime, saturday: bedtimeTime, sunday: bedtimeTime)
 
                         try addBedtimesFromSchedule(modelContext)

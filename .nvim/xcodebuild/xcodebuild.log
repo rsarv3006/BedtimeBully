@@ -1,30 +1,16 @@
 [!]  --- xcodebuild: Using the first of multiple matching destinations:
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
-[Notifications] Compiling Notifications.swift
-[BedtimeBullyData] Compiling BuildInitialData.swift
-Signing Notifications.framework (in target 'Notifications' from project 'BedtimeBully')
-[BedtimeBully] Compiling RequestNotificationsPermissionView.swift
-[BedtimeBully] Compiling RequestNotificationPermissionsVM.swift
-[BedtimeBully] Compiling NotificationScheduleView.swift
-[BedtimeBully] Compiling BedtimeBullyApp.swift
-[BedtimeBully] Compiling CountdownUntilBedtimeView.swift
-[BedtimeBully] Compiling CustomizeScreen.swift
-[BedtimeBully] Compiling HomeScreen.swift
+[Notifications] Processing Notifications-Info.plist
+[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
 [BedtimeBully] Compiling BedtimeHomeDisplay.swift
-[BedtimeBully] Compiling GeneratedAssetSymbols.swift
-[BedtimeBully] Compiling SettingsScreen.swift
-[x] Undefined symbols for architecture arm64
-[x]   "static Notifications.NotificationService.cancelNotification(ids: [Swift.String]) -> ()", referenced from:
-[x] ld: symbol(s) not found for architecture arm64
-[x] clang: error: linker command failed with exit code 1 (use -v to see invocation)
+[BedtimeBully] Processing BedtimeBully-Info.plist
+Signing BedtimeBully.app (in target 'BedtimeBully' from project 'BedtimeBully')
+Build Succeeded
 
 -----------------------------
 -- xcodebuild.nvim summary --
 -----------------------------
 
-Errors:
-  ✖ linker command failed with exit code 1 (use -v to see invocation)
-
-  Build Failed
+  ✔ Build Succeeded
 

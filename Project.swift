@@ -59,14 +59,20 @@ let project = Project(
             destinations: .iOS,
             product: .framework,
             bundleId: "rjs.app.dev.BedtimeBullyData",
-            sources: ["BedtimeBullyData/Sources/**"]
+            sources: ["BedtimeBullyData/Sources/**"],
+            dependencies: [
+                .target(name: ProjectTargets.Notifications)
+            ]
         ),
         .target(
             name: ProjectTargets.BedtimeBullyDataTests,
             destinations: .iOS,
             product: .unitTests,
             bundleId: "rjs.app.dev.BedtimeBullyDataTests",
-            sources: ["BedtimeBullyData/Tests/**"]
+            sources: ["BedtimeBullyData/Tests/**"],
+            dependencies: [
+                .target(name: ProjectTargets.BedtimeBullyData)
+            ]
         )
     ]
 )

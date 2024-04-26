@@ -6,9 +6,10 @@ import SwiftUI
 public struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
     
-    @Query(filter: Bedtime.nextBedtimePredicate(Date()), sort: \.id, order: .reverse) private var bedtimes: [Bedtime]
+    @Query(filter: Bedtime.nextBedtimePredicate(Date()), sort: \.id, order: .forward) private var bedtimes: [Bedtime]
     @Query() private var configs: [Config]
     
+    @State() private var bedtimeModel: Bedtime?
     @State() private var bedtime: Date = .init()
     @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false
@@ -16,7 +17,7 @@ public struct HomeScreen: View {
     public var body: some View {
         NavigationStack {
             VStack {
-                BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime)
+                BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel)
                 
                 NavigationLink("Customize") {
                     CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
@@ -73,13 +74,16 @@ public struct HomeScreen: View {
         
         try addBedtimesFromSchedule(modelContext)
         
-        guard let maybeBedtime = bedtimes.first.map({ bedtime in
-            Date(timeIntervalSince1970: bedtime.id)
-        }) else { print("No bedtime located")
+        bedtimeModel = bedtimes.first
+       
+        print("Bedtime: \(bedtimeModel?.getPrettyDate() ?? "No bedtime found.") - homescreen")
+        
+        guard let bedtimeModel else {
+            print("No bedtimes found.")
             return
         }
         
-        bedtime = maybeBedtime
+        bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
         hasBedtime = true
         
         try addNotificationsForAllActiveBedtimes(modelContext: modelContext)

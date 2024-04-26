@@ -22,6 +22,14 @@ public class Bedtime {
         self.name = name
         self.isActive = isActive
     }
+    
+    public func getPrettyDate() -> String {
+        let date = Date(timeIntervalSince1970: id)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
+    }
 }
 
 // MARK: - Generate Notification Dates

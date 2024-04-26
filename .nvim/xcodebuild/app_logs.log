@@ -1,293 +1,89 @@
-isNotificationsEnabled: true
-hasSetBedtime: true
-1713667200.0 - Bedtime in 5 minutes
-1713665700.0 - Bedtime in 30 minutes
-1713667320.0 - Bedtime in 3 minutes
-1713666900.0 - Bedtime in 10 minutes
-1713667380.0 - Bedtime in 2 minutes
-1713667470.0 - Bedtime in 30 seconds
-1713666600.0 - Bedtime in 15 minutes
-1713667440.0 - Bedtime in 1 minute
-1713667499.0 - Time for Bed!
-1713753899.0 - Time for Bed!
-1713753780.0 - Bedtime in 2 minutes
-1713753000.0 - Bedtime in 15 minutes
-1713752100.0 - Bedtime in 30 minutes
-1713753720.0 - Bedtime in 3 minutes
-1713753840.0 - Bedtime in 1 minute
-1713753600.0 - Bedtime in 5 minutes
-1713753300.0 - Bedtime in 10 minutes
-1713753870.0 - Bedtime in 30 seconds
-1713839100.0 - Bedtime in 15 minutes
-1713839700.0 - Bedtime in 5 minutes
-1713838200.0 - Bedtime in 30 minutes
-1713839999.0 - Time for Bed!
-1713839820.0 - Bedtime in 3 minutes
-1713839940.0 - Bedtime in 1 minute
-1713839970.0 - Bedtime in 30 seconds
-1713839400.0 - Bedtime in 10 minutes
-1713839880.0 - Bedtime in 2 minutes
-1713838500.0 - Bedtime in 30 minutes
-1713839700.0 - Bedtime in 10 minutes
-1713840240.0 - Bedtime in 1 minute
-1713840180.0 - Bedtime in 2 minutes
-1713840120.0 - Bedtime in 3 minutes
-1713840000.0 - Bedtime in 5 minutes
-1713839400.0 - Bedtime in 15 minutes
-1713840270.0 - Bedtime in 30 seconds
-1713840299.0 - Time for Bed!
-1713925500.0 - Bedtime in 15 minutes
-1713926220.0 - Bedtime in 3 minutes
-1713926100.0 - Bedtime in 5 minutes
-1713926280.0 - Bedtime in 2 minutes
-1713926370.0 - Bedtime in 30 seconds
-1713926399.0 - Time for Bed!
-1713924600.0 - Bedtime in 30 minutes
-1713925800.0 - Bedtime in 10 minutes
-1713926340.0 - Bedtime in 1 minute
-1713926100.0 - Bedtime in 10 minutes
-1713926400.0 - Bedtime in 5 minutes
-1713925800.0 - Bedtime in 15 minutes
-1713924900.0 - Bedtime in 30 minutes
-1713926580.0 - Bedtime in 2 minutes
-1713926670.0 - Bedtime in 30 seconds
-1713926640.0 - Bedtime in 1 minute
-1713926520.0 - Bedtime in 3 minutes
-1713926699.0 - Time for Bed!
-1714012500.0 - Bedtime in 5 minutes
-1714011000.0 - Bedtime in 30 minutes
-1714012620.0 - Bedtime in 3 minutes
-1714012680.0 - Bedtime in 2 minutes
-1714012740.0 - Bedtime in 1 minute
-1714012770.0 - Bedtime in 30 seconds
-1714012200.0 - Bedtime in 10 minutes
-1714012799.0 - Time for Bed!
-1714011900.0 - Bedtime in 15 minutes
-1714011300.0 - Bedtime in 30 minutes
-1714012800.0 - Bedtime in 5 minutes
-1714012200.0 - Bedtime in 15 minutes
-1714013070.0 - Bedtime in 30 seconds
-1714013040.0 - Bedtime in 1 minute
-1714013099.0 - Time for Bed!
-1714012980.0 - Bedtime in 2 minutes
-1714012500.0 - Bedtime in 10 minutes
-1714012920.0 - Bedtime in 3 minutes
-1713667200.0 - Bedtime in 5 minutes
-1713665700.0 - Bedtime in 30 minutes
-1713667320.0 - Bedtime in 3 minutes
-1713666900.0 - Bedtime in 10 minutes
-1713667380.0 - Bedtime in 2 minutes
-1713667470.0 - Bedtime in 30 seconds
-1713666600.0 - Bedtime in 15 minutes
-1713667440.0 - Bedtime in 1 minute
-1713667499.0 - Time for Bed!
-1713753899.0 - Time for Bed!
-1713753780.0 - Bedtime in 2 minutes
-1713753000.0 - Bedtime in 15 minutes
-1713752100.0 - Bedtime in 30 minutes
-1713753720.0 - Bedtime in 3 minutes
-1713753840.0 - Bedtime in 1 minute
-1713753600.0 - Bedtime in 5 minutes
-1713753300.0 - Bedtime in 10 minutes
-1713753870.0 - Bedtime in 30 seconds
-1713839100.0 - Bedtime in 15 minutes
-1713839700.0 - Bedtime in 5 minutes
-1713838200.0 - Bedtime in 30 minutes
-1713839999.0 - Time for Bed!
-1713839820.0 - Bedtime in 3 minutes
-1713839940.0 - Bedtime in 1 minute
-1713839970.0 - Bedtime in 30 seconds
-1713839400.0 - Bedtime in 10 minutes
-1713839880.0 - Bedtime in 2 minutes
-1713838500.0 - Bedtime in 30 minutes
-1713839700.0 - Bedtime in 10 minutes
-1713840240.0 - Bedtime in 1 minute
-1713840180.0 - Bedtime in 2 minutes
-1713840120.0 - Bedtime in 3 minutes
-1713840000.0 - Bedtime in 5 minutes
-1713839400.0 - Bedtime in 15 minutes
-1713840270.0 - Bedtime in 30 seconds
-1713840299.0 - Time for Bed!
-1713925500.0 - Bedtime in 15 minutes
-1713926220.0 - Bedtime in 3 minutes
-1713926100.0 - Bedtime in 5 minutes
-1713926280.0 - Bedtime in 2 minutes
-1713926370.0 - Bedtime in 30 seconds
-1713926399.0 - Time for Bed!
-1713924600.0 - Bedtime in 30 minutes
-1713925800.0 - Bedtime in 10 minutes
-1713926340.0 - Bedtime in 1 minute
-1713926100.0 - Bedtime in 10 minutes
-1713926400.0 - Bedtime in 5 minutes
-1713925800.0 - Bedtime in 15 minutes
-1713924900.0 - Bedtime in 30 minutes
-1713926580.0 - Bedtime in 2 minutes
-1713926670.0 - Bedtime in 30 seconds
-1713926640.0 - Bedtime in 1 minute
-1713926520.0 - Bedtime in 3 minutes
-1713926699.0 - Time for Bed!
-1714012500.0 - Bedtime in 5 minutes
-1714011000.0 - Bedtime in 30 minutes
-1714012620.0 - Bedtime in 3 minutes
-1714012680.0 - Bedtime in 2 minutes
-1714012740.0 - Bedtime in 1 minute
-1714012770.0 - Bedtime in 30 seconds
-1714012200.0 - Bedtime in 10 minutes
-1714012799.0 - Time for Bed!
-1714011900.0 - Bedtime in 15 minutes
-1714011300.0 - Bedtime in 30 minutes
-1714012800.0 - Bedtime in 5 minutes
-1714012200.0 - Bedtime in 15 minutes
-1714013070.0 - Bedtime in 30 seconds
-1714013040.0 - Bedtime in 1 minute
-1714013099.0 - Time for Bed!
-1714012980.0 - Bedtime in 2 minutes
-1714012500.0 - Bedtime in 10 minutes
-1714012920.0 - Bedtime in 3 minutes
-1713667200.0 - Bedtime in 5 minutes
-1713665700.0 - Bedtime in 30 minutes
-1713667320.0 - Bedtime in 3 minutes
-1713666900.0 - Bedtime in 10 minutes
-1713667380.0 - Bedtime in 2 minutes
-1713667470.0 - Bedtime in 30 seconds
-1713666600.0 - Bedtime in 15 minutes
-1713667440.0 - Bedtime in 1 minute
-1713667499.0 - Time for Bed!
-1713753899.0 - Time for Bed!
-1713753780.0 - Bedtime in 2 minutes
-1713753000.0 - Bedtime in 15 minutes
-1713752100.0 - Bedtime in 30 minutes
-1713753720.0 - Bedtime in 3 minutes
-1713753840.0 - Bedtime in 1 minute
-1713753600.0 - Bedtime in 5 minutes
-1713753300.0 - Bedtime in 10 minutes
-1713753870.0 - Bedtime in 30 seconds
-1713839100.0 - Bedtime in 15 minutes
-1713839700.0 - Bedtime in 5 minutes
-1713838200.0 - Bedtime in 30 minutes
-1713839999.0 - Time for Bed!
-1713839820.0 - Bedtime in 3 minutes
-1713839940.0 - Bedtime in 1 minute
-1713839970.0 - Bedtime in 30 seconds
-1713839400.0 - Bedtime in 10 minutes
-1713839880.0 - Bedtime in 2 minutes
-1713838500.0 - Bedtime in 30 minutes
-1713839700.0 - Bedtime in 10 minutes
-1713840240.0 - Bedtime in 1 minute
-1713840180.0 - Bedtime in 2 minutes
-1713840120.0 - Bedtime in 3 minutes
-1713840000.0 - Bedtime in 5 minutes
-1713839400.0 - Bedtime in 15 minutes
-1713840270.0 - Bedtime in 30 seconds
-1713840299.0 - Time for Bed!
-1713925500.0 - Bedtime in 15 minutes
-1713926220.0 - Bedtime in 3 minutes
-1713926100.0 - Bedtime in 5 minutes
-1713926280.0 - Bedtime in 2 minutes
-1713926370.0 - Bedtime in 30 seconds
-1713926399.0 - Time for Bed!
-1713924600.0 - Bedtime in 30 minutes
-1713925800.0 - Bedtime in 10 minutes
-1713926340.0 - Bedtime in 1 minute
-1713926100.0 - Bedtime in 10 minutes
-1713926400.0 - Bedtime in 5 minutes
-1713925800.0 - Bedtime in 15 minutes
-1713924900.0 - Bedtime in 30 minutes
-1713926580.0 - Bedtime in 2 minutes
-1713926670.0 - Bedtime in 30 seconds
-1713926640.0 - Bedtime in 1 minute
-1713926520.0 - Bedtime in 3 minutes
-1713926699.0 - Time for Bed!
-1714012500.0 - Bedtime in 5 minutes
-1714011000.0 - Bedtime in 30 minutes
-1714012620.0 - Bedtime in 3 minutes
-1714012680.0 - Bedtime in 2 minutes
-1714012740.0 - Bedtime in 1 minute
-1714012770.0 - Bedtime in 30 seconds
-1714012200.0 - Bedtime in 10 minutes
-1714012799.0 - Time for Bed!
-1714011900.0 - Bedtime in 15 minutes
-1714011300.0 - Bedtime in 30 minutes
-1714012800.0 - Bedtime in 5 minutes
-1714012200.0 - Bedtime in 15 minutes
-1714013070.0 - Bedtime in 30 seconds
-1714013040.0 - Bedtime in 1 minute
-1714013099.0 - Time for Bed!
-1714012980.0 - Bedtime in 2 minutes
-1714012500.0 - Bedtime in 10 minutes
-1714012920.0 - Bedtime in 3 minutes
-isNotificationsEnabled: true
-hasSetBedtime: true
-1713667200.0 - Bedtime in 5 minutes
-1713665700.0 - Bedtime in 30 minutes
-1713667320.0 - Bedtime in 3 minutes
-1713666900.0 - Bedtime in 10 minutes
-1713667380.0 - Bedtime in 2 minutes
-1713667470.0 - Bedtime in 30 seconds
-1713666600.0 - Bedtime in 15 minutes
-1713667440.0 - Bedtime in 1 minute
-1713667499.0 - Time for Bed!
-1713753899.0 - Time for Bed!
-1713753780.0 - Bedtime in 2 minutes
-1713753000.0 - Bedtime in 15 minutes
-1713752100.0 - Bedtime in 30 minutes
-1713753720.0 - Bedtime in 3 minutes
-1713753840.0 - Bedtime in 1 minute
-1713753600.0 - Bedtime in 5 minutes
-1713753300.0 - Bedtime in 10 minutes
-1713753870.0 - Bedtime in 30 seconds
-1713839100.0 - Bedtime in 15 minutes
-1713839700.0 - Bedtime in 5 minutes
-1713838200.0 - Bedtime in 30 minutes
-1713839999.0 - Time for Bed!
-1713839820.0 - Bedtime in 3 minutes
-1713839940.0 - Bedtime in 1 minute
-1713839970.0 - Bedtime in 30 seconds
-1713839400.0 - Bedtime in 10 minutes
-1713839880.0 - Bedtime in 2 minutes
-1713838500.0 - Bedtime in 30 minutes
-1713839700.0 - Bedtime in 10 minutes
-1713840240.0 - Bedtime in 1 minute
-1713840180.0 - Bedtime in 2 minutes
-1713840120.0 - Bedtime in 3 minutes
-1713840000.0 - Bedtime in 5 minutes
-1713839400.0 - Bedtime in 15 minutes
-1713840270.0 - Bedtime in 30 seconds
-1713840299.0 - Time for Bed!
-1713925500.0 - Bedtime in 15 minutes
-1713926220.0 - Bedtime in 3 minutes
-1713926100.0 - Bedtime in 5 minutes
-1713926280.0 - Bedtime in 2 minutes
-1713926370.0 - Bedtime in 30 seconds
-1713926399.0 - Time for Bed!
-1713924600.0 - Bedtime in 30 minutes
-1713925800.0 - Bedtime in 10 minutes
-1713926340.0 - Bedtime in 1 minute
-1713926100.0 - Bedtime in 10 minutes
-1713926400.0 - Bedtime in 5 minutes
-1713925800.0 - Bedtime in 15 minutes
-1713924900.0 - Bedtime in 30 minutes
-1713926580.0 - Bedtime in 2 minutes
-1713926670.0 - Bedtime in 30 seconds
-1713926640.0 - Bedtime in 1 minute
-1713926520.0 - Bedtime in 3 minutes
-1713926699.0 - Time for Bed!
-1714012500.0 - Bedtime in 5 minutes
-1714011000.0 - Bedtime in 30 minutes
-1714012620.0 - Bedtime in 3 minutes
-1714012680.0 - Bedtime in 2 minutes
-1714012740.0 - Bedtime in 1 minute
-1714012770.0 - Bedtime in 30 seconds
-1714012200.0 - Bedtime in 10 minutes
-1714012799.0 - Time for Bed!
-1714011900.0 - Bedtime in 15 minutes
-1714011300.0 - Bedtime in 30 minutes
-1714012800.0 - Bedtime in 5 minutes
-1714012200.0 - Bedtime in 15 minutes
-1714013070.0 - Bedtime in 30 seconds
-1714013040.0 - Bedtime in 1 minute
-1714013099.0 - Time for Bed!
-1714012980.0 - Bedtime in 2 minutes
-1714012500.0 - Bedtime in 10 minutes
-1714012920.0 - Bedtime in 3 minutes
-rjs.app.dev.BedtimeBully: 15336
+1714012380.0 - Bedtime in 1 minute - 2024-04-25 02:33:00 +0000
+1714012260.0 - Bedtime in 3 minutes - 2024-04-25 02:31:00 +0000
+1714011840.0 - Bedtime in 10 minutes - 2024-04-25 02:24:00 +0000
+1714012441.0 - Time for Bed! - 2024-04-25 02:34:01 +0000
+1714010640.0 - Bedtime in 30 minutes - 2024-04-25 02:04:00 +0000
+1714012320.0 - Bedtime in 2 minutes - 2024-04-25 02:32:00 +0000
+1714011540.0 - Bedtime in 15 minutes - 2024-04-25 02:19:00 +0000
+1714012140.0 - Bedtime in 5 minutes - 2024-04-25 02:29:00 +0000
+1714098780.0 - Bedtime in 1 minute - 2024-04-26 02:33:00 +0000
+1714098240.0 - Bedtime in 10 minutes - 2024-04-26 02:24:00 +0000
+1714098660.0 - Bedtime in 3 minutes - 2024-04-26 02:31:00 +0000
+1714098841.0 - Time for Bed! - 2024-04-26 02:34:01 +0000
+1714098540.0 - Bedtime in 5 minutes - 2024-04-26 02:29:00 +0000
+1714097040.0 - Bedtime in 30 minutes - 2024-04-26 02:04:00 +0000
+1714098720.0 - Bedtime in 2 minutes - 2024-04-26 02:32:00 +0000
+1714097940.0 - Bedtime in 15 minutes - 2024-04-26 02:19:00 +
+0000
+1714185241.0 - Time for Bed! - 2024-04-27 02:34:01 +0000
+1714184340.0 - Bedtime in 15 minutes - 2024-04-27 02:19:00 +0000
+1714185180.0 - Bedtime in 1 minute - 2024-04-27 02:33:00 +0000
+1714184640.0 - Bedtime in 10 minutes - 2024-04-27 02:24:00 +0000
+1714185060.0 - Bedtime in 3 minutes - 2024-04-27 02:31:00 +0000
+1714183440.0 - Bedtime in 30 minutes - 2024-04-27 02:04:00 +0000
+1714185120.0 - Bedtime in 2 minutes - 2024-04-27 02:32:00 +0000
+1714184940.0 - Bedtime in 5 minutes - 2024-04-27 02:29:00 +0000
+1714012260.0 - Bedtime in 5 minutes - 2024-04-25 02:31:00 +0000
+1714011660.0 - Bedtime in 15 minutes - 2024-04-25 02:21:00 +0000
+1714012440.0 - Bedtime in 2 minutes - 2024-04-25 02:34:00 +0000
+1714012561.0 - Time for Bed! - 2024-04-25 02:36:01 +0000
+1714010760.0 - Bedtime in 30 minutes - 2024-04-25 02:06:00 +0000
+1714012500.0 - Bedtime in 1 minute - 2024-04-25 02:35:00 +0000
+1714012380.0 - Bedtime in 3 minutes - 2024-04-25 02:33:00 +0000
+1714011960.0 - Bedtime in 10 minutes - 2024-04-25 02:26:00 +0000
+1714098060.0 - Bedtime in 15 minutes - 2024-04-26 02:21:00 +0000
+1714098660.0 - Bedtime in 5 minutes - 2024-04-26 02:31:00 +0000
+1714098961.0 - Time for Bed! - 2024-04-26 02:36:01 +0000
+1714098360.0 - Bedtime in 10 minutes - 2024-04-26 02:26:00 +0000
+1714098780.0 - Bedtime in 3 minutes - 2024-04-26 02:33:00 +0000
+1714098900.0 - Bedtime in 1 minute - 2024-04-26 02:35:00 +0000
+1714097160.0 - Bedtime in 30 minutes - 2024-04-26 02:06:00 +0000
+1714098840.0 - Bedtime in 2 minutes - 2024-04-26 02:34:00 +0000
+1714185300.0 - Bedtime in 1 minute - 2024-04-27 02:35:00 +0000
+1714184760.0 - Bedtime in 10 minutes - 2024-04-27 02:26:00 +0000
+1714185180.0 - Bedtime in 3 minutes - 2024-04-27 02:33:00 +0000
+1714185361.0 - Time for Bed! - 2024-04-27 02:36:01 +0000
+1714185240.0 - Bedtime in 2 minutes - 2024-04-27 02:34:00 +0000
+1714183560.0 - Bedtime in 30 minutes - 2024-04-27 02:06:00 +0000
+1714184460.0 - Bedtime in 15 minutes - 2024-04-27 02:21:00 +0000
+1714185060.0 - Bedtime in 5 minutes - 2024-04-27 02:31:00 +0000
+1714271640.0 - Bedtime in 2 minutes - 2024-04-28 02:34:00 +0000
+1714271460.0 - Bedtime in 5 minutes - 2024-04-28 02:31:00 +0000
+1714269960.0 - Bedtime in 30 minutes - 2024-04-28 02:06:00 +0000
+1714271700.0 - Bedtime in 1 minute - 2024-04-28 02:35:00 +0000
+1714270860.0 - Bedtime in 15 minutes - 2024-04-28 02:21:00 +0000
+1714271160.0 - Bedtime in 10 minutes - 2024-04-28 02:26:00 +0000
+1714271580.0 - Bedtime in 3 minutes - 2024-04-28 02:33:00 +0000
+1714271761.0 - Time for Bed! - 2024-04-28 02:36:01 +0000
+1714011960.0 - Bedtime in 10 minutes - 2024-04-25 02:26:00 +0000
+1714010760.0 - Bedtime in 30 minutes - 2024-04-25 02:06:00 +0000
+1714012260.0 - Bedtime in 5 minutes - 2024-04-25 02:31:00 +0000
+1714012500.0 - Bedtime in 1 minute - 2024-04-25 02:35:00 +0000
+1714012380.0 - Bedtime in 3 minutes - 2024-04-25 02:33:00 +0000
+1714011660.0 - Bedtime in 15 minutes - 2024-04-25 02:21:00 +0000
+1714012561.0 - Time for Bed! - 2024-04-25 02:36:01 +0000
+1714012440.0 - Bedtime in 2 minutes - 2024-04-25 02:34:00 +0000
+1714098060.0 - Bedtime in 15 minutes - 2024-04-26 02:21:00 +0000
+1714098660.0 - Bedtime in 5 minutes - 2024-04-26 02:31:00 +0000
+1714098961.0 - Time for Bed! - 2024-04-26 02:36:01 +0000
+1714098780.0 - Bedtime in 3 minutes - 2024-04-26 02:33:00 +0000
+1714098840.0 - Bedtime in 2 minutes - 2024-04-26 02:34:00 +0000
+1714098360.0 - Bedtime in 10 minutes - 2024-04-26 02:26:00 +0000
+1714097160.0 - Bedtime in 30 minutes - 2024-04-26 02:06:00 +0000
+1714098900.0 - Bedtime in 1 minute - 2024-04-26 02:35:00 +0000
+1714184760.0 - Bedtime in 10 minutes - 2024-04-27 02:26:00 +0000
+1714185060.0 - Bedtime in 5 minutes - 2024-04-27 02:31:00 +0000
+1714184460.0 - Bedtime in 15 minutes - 2024-04-27 02:21:00 +0000
+1714183560.0 - Bedtime in 30 minutes - 2024-04-27 02:06:00 +0000
+1714185300.0 - Bedtime in 1 minute - 2024-04-27 02:35:00 +0000
+1714185180.0 - Bedtime in 3 minutes - 2024-04-27 02:33:00 +0000
+1714185240.0 - Bedtime in 2 minutes - 2024-04-27 02:34:00 +0000
+1714185361.0 - Time for Bed! - 2024-04-27 02:36:01 +0000
+1714271640.0 - Bedtime in 2 minutes - 2024-04-28 02:34:00 +0000
+1714271761.0 - Time for Bed! - 2024-04-28 02:36:01 +0000
+1714270860.0 - Bedtime in 15 minutes - 2024-04-28 02:21:00 +0000
+1714271580.0 - Bedtime in 3 minutes - 2024-04-28 02:33:00 +0000
+1714271700.0 - Bedtime in 1 minute - 2024-04-28 02:35:00 +0000
+1714269960.0 - Bedtime in 30 minutes - 2024-04-28 02:06:00 +0000
+1714271160.0 - Bedtime in 10 minutes - 2024-04-28 02:26:00 +0000
+1714271460.0 - Bedtime in 5 minutes - 2024-04-28 02:31:00 +0000

@@ -33,6 +33,8 @@ struct SettingsScreen: View {
                     print(notificationItem.id)
                     print(Date(timeIntervalSince1970: notificationItem.id).description)
                 }
+                
+                print(notificationItems.count)
             }, label: {
                 Text("LOG NOTIFICATION ITEMS")
             })
