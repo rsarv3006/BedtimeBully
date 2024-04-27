@@ -13,6 +13,7 @@ public class Bedtime {
     @Attribute(.unique) public let id: TimeInterval
     public let name: String
     public let isActive: Bool
+    public var hasGoneToBed: Bool = false
 
     public var notificationItems: [NotificationItem] = []
 

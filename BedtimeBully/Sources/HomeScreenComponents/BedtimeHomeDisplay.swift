@@ -40,14 +40,13 @@ public struct BedtimeHomeDisplay: View {
             .multilineTextAlignment(.center)
             .padding(.horizontal)
 
-        if hours == 0 && minutes < 60 {
+        if hours == 0 && minutes < 60 && !(bedtimeModel?.hasGoneToBed ?? true) {
             Button {
                 do {
                     if let bedtimeModel {
-                        print(bedtimeModel.getPrettyDate())
-                        // TODO: This did not work as expected. The notifications were not removed.
-                        // It's trying to delete the wrong day's bedtime
                         try removeUpcomingNotificationsForCurrentBedtime(modelContext: modelContext, currentBedtime: bedtimeModel)
+                        bedtimeModel.hasGoneToBed = true
+                        try modelContext.save()
                     }
                 } catch {
                     print("Error: \(error)")
@@ -56,6 +55,9 @@ public struct BedtimeHomeDisplay: View {
                 Text("I'm in Bed")
             }
             .buttonStyle(.bordered)
+        } else if hours == 0 && minutes < 60 && bedtimeModel?.hasGoneToBed ?? true {
+            Text("Good night! Sleep well!")
+                .padding(.top)
         }
 
         Text(beginNotifyingString)
