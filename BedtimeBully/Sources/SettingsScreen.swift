@@ -13,19 +13,30 @@ struct SettingsScreen: View {
     @Query private var bedtimes: [Bedtime]
 
     var body: some View {
-        VStack {
-            Button(action: {
-                for bedtime in bedtimes {
-                    print("*** BEDTIME ***")
-                    print(bedtime.name)
-                    print(bedtime.id)
-                    print(bedtime.getPrettyDate())
-                    print(bedtime.notificationItems.count)
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    Button(action: {
+                        for bedtime in bedtimes {
+                            print("*** BEDTIME ***")
+                            print(bedtime.name)
+                            print(bedtime.id)
+                            print(bedtime.getPrettyDate())
+                            print(bedtime.notificationItems.count)
+                        }
+                    }, label: {
+                        Text("LOG BEDTIMES")
+                    })
+                    
+                    HStack {
+                        Spacer()
+                    }
                 }
-            }, label: {
-                Text("LOG BEDTIMES")
-            })
+            }
+            .appBackground()
         }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -49,7 +49,6 @@ struct CustomizeScreen: View {
                                 bedtime = newBedtime
                                 
                             } catch {
-                                // TODO: Handle this better
                                 print("Error: \(error)")
                             }
                         }, label: {
@@ -59,8 +58,8 @@ struct CustomizeScreen: View {
                 }
                 .padding(.horizontal)
             }
+            .appBackground()
 
-            Spacer()
         }
         .navigationTitle("Customize")
         .navigationBarTitleDisplayMode(.inline)
