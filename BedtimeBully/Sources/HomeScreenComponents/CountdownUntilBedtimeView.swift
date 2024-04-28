@@ -3,13 +3,7 @@ import SwiftUI
 public struct CountdownUntilBedtimeView: View {
     public var body: some View {
         ZStack {
-            if hours == 0 && minutes == 0 && seconds == 0 {
-                Text("It's bedtime!")
-                    .font(.title3)
-                    .padding()
-            } else {
-                Text(timeRemainingText)
-            }
+            Text(timeRemainingText)
         }
     }
 

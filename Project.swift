@@ -11,6 +11,9 @@ struct ProjectTargets {
 let project = Project(
     name: "BedtimeBully",
     settings: Settings.settings(
+        base: [
+            "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor"
+        ],
         configurations: [
             Configuration.debug(
                 name: "Debug",
@@ -20,7 +23,7 @@ let project = Project(
                 name: "Release",
                 settings: SettingsDictionary().automaticCodeSigning(devTeam: "4QGR522B9M")
             )
-        ]
+        ], defaultSettings: .recommended()
     ),
     targets: [
         .target(

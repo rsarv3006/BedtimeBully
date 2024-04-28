@@ -35,10 +35,16 @@ public struct BedtimeHomeDisplay: View {
             Text("No bedtime scheduled for today.")
                 .padding(.bottom)
         }
-
-        CountdownUntilBedtimeView(hours: $hours, minutes: $minutes, seconds: $seconds)
-            .multilineTextAlignment(.center)
-            .padding(.horizontal)
+        
+        if (hours == 0 && minutes == 0 && seconds == 0) || hours == 23 {
+            Text("It's bedtime!")
+                .font(.title3)
+                .padding()
+        } else {
+            CountdownUntilBedtimeView(hours: $hours, minutes: $minutes, seconds: $seconds)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+        }
 
         if hours == 0 && minutes < 60 && !(bedtimeModel?.hasGoneToBed ?? true) {
             Button {
