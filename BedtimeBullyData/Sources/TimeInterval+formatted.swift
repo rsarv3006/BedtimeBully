@@ -31,4 +31,12 @@ public extension TimeInterval {
             return "\(seconds) seconds"
         }
     }
+    
+    func getPrettyDate() -> String {
+        let date = Date(timeIntervalSince1970: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
+    }
 }

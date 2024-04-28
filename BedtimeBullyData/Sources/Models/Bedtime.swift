@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Notifications
 
 @Model
 public class Bedtime {
@@ -23,12 +24,24 @@ public class Bedtime {
         self.isActive = isActive
     }
     
+    public init(date: Date, notificationSchedule: NotificationSchedule) throws {
+        self.id = date.timeIntervalSince1970
+        self.name = "Bedtime for \(date.timeIntervalSince1970.getPrettyDate())"
+        self.isActive = true
+        let notificationDates = try self.generateNotificationDates(notificationSchedule: notificationSchedule)
+        var notificationItems: [NotificationItem] = []
+        
+        for index in 0 ..< notificationDates.count {
+            let notificationDate = notificationDates[index]
+            let notifcationItem = NotificationItem(id: TimeInterval(notificationDate.timeIntervalSince1970), message: notificationSchedule.notificationMessages[index])
+            notificationItems.append(notifcationItem)
+        }
+        
+        self.notificationItems = notificationItems
+    }
+    
     public func getPrettyDate() -> String {
-        let date = Date(timeIntervalSince1970: id)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: date)
+        return id.getPrettyDate()
     }
 }
 
@@ -43,6 +56,16 @@ public extension Bedtime {
             let bedtimeCopy = bedtime
             return bedtimeCopy.addingTimeInterval(-notificationInterval)
         }
+    }
+        
+    func removeUpcomingNotificationsForCurrentBedtime() {
+        let notificationItems = self.notificationItems
+        
+        let notificationItemIds = notificationItems.map { "\($0.id)" }
+        
+        NotificationService.cancelNotifications(ids: notificationItemIds)
+        
+        self.notificationItems = []
     }
 }
 

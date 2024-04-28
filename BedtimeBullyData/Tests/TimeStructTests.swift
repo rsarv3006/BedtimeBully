@@ -54,7 +54,7 @@ final class TimeStructTests: XCTestCase {
 
     func testPerformanceDateConversion() throws {
         let baseDate = Date()
-        let time = try! Time(hour: 12, minute: 30)
+        let time = try Time(hour: 12, minute: 30)
 
         measure {
             for _ in 1...10_000 {

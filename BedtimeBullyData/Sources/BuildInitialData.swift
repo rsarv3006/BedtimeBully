@@ -14,7 +14,6 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
     let schedules = try modelContext.fetch(schedulesFetchDescriptor)
     
     if schedules.count == 0 {
-        print("creating default schedule")
         let defaultSchedule = NotificationSchedule(name: "Default", notificationIntervals: [
             TimeInterval(30 * 60),
             TimeInterval(15 * 60),
@@ -36,16 +35,12 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
         ])
         modelContext.insert(defaultSchedule)
         
-        print("default schedule has been created - creating default bedtimes")
-        let defaultBedtime = try! Time(hour: 21, minute: 45)
+        let defaultBedtime = try Time(hour: 21, minute: 45)
         
-        print("default bed times created")
         let defaultBedtimeScheduleTemplate = BedtimeScheduleTemplate(name: "Default Bedtime Schedule", isActive: true)
         
-        print("default bedtime schedule created")
         try defaultBedtimeScheduleTemplate.setBedtimes(modelContext: modelContext, monday: defaultBedtime, tuesday: defaultBedtime, wednesday: defaultBedtime, thursday: defaultBedtime, friday: defaultBedtime, saturday: defaultBedtime, sunday: defaultBedtime)
         
-        print("default bedtimes set")
         defaultBedtimeScheduleTemplate.notificationSchedule = defaultSchedule
         
         modelContext.insert(defaultBedtimeScheduleTemplate)
@@ -60,8 +55,10 @@ public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
     let scheduleTemplates = try modelContext.fetch(bedtimeScheduleTemplatesDescriptor)
 
     let activeScheduleTemplate = scheduleTemplates.first { $0.isActive == true }
-
+    
     if let activeScheduleTemplate = activeScheduleTemplate {
+        let notificationSchedule = activeScheduleTemplate.notificationSchedule
+
         let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
             predicate: #Predicate { $0.isActive == true },
             sortBy: [
@@ -83,7 +80,6 @@ public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
                 let bedtimeDate = calendar.date(bySettingHour: timeForBedtime.hour, minute: timeForBedtime.minute, second: 0, of: dateSection)
 
                 if let bedtimeDate, bedtimes.first(where: { $0.id == bedtimeDate.timeIntervalSince1970 }) == nil {
-                    let notificationSchedule = activeScheduleTemplate.notificationSchedule
 
                     try createBedtimeAndNotificationsforDate(modelContext: modelContext, bedtimeDate: bedtimeDate, notificationSchedule: notificationSchedule)
                 }
@@ -93,18 +89,11 @@ public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
 }
 
 func createBedtimeAndNotificationsforDate(modelContext: ModelContext, bedtimeDate: Date, notificationSchedule: NotificationSchedule?) throws {
-    let bedtime = Bedtime(date: bedtimeDate, name: "Bedtime I guess what is this even for?", isActive: true)
-    
-    let notificationDates = try bedtime.generateNotificationDates(notificationSchedule: notificationSchedule)
-    var notificationItems: [NotificationItem] = []
-    
-    for index in 0 ..< notificationDates.count {
-        let notificationDate = notificationDates[index]
-        let notifcationItem = NotificationItem(id: TimeInterval(notificationDate.timeIntervalSince1970), message: notificationSchedule?.notificationMessages[index] ?? "")
-        notificationItems.append(notifcationItem)
+    guard let notificationSchedule else {
+        throw BedtimeError.notificationScheduleNotSetOnBedtime
     }
-    
-    bedtime.notificationItems = notificationItems
+    let bedtime = try Bedtime(date: bedtimeDate, notificationSchedule: notificationSchedule)
+
     modelContext.insert(bedtime)
 }
 
@@ -120,9 +109,8 @@ public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) thr
     for bedtime in bedtimes {
         bedtime.notificationItems.forEach(
         ) { notificationItem in
-            print("\(notificationItem.id) - \(notificationItem.message) - \(Date(timeIntervalSince1970: notificationItem.id).description)")
             let date = Date(timeIntervalSince1970: notificationItem.id)
-            _ = NotificationService.scheduleNotification(id: String("\(notificationItem.id)"), title: "Bedtime Bully", body: notificationItem.message, timestamp: date)
+            _ = NotificationService.scheduleNotification(id: notificationItem.idToString(), title: "Bedtime Bully", body: notificationItem.message, timestamp: date)
         }
     }
 }
@@ -138,7 +126,7 @@ public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws
         modelContext.delete(bedtime)
     }
     
-    let notificationItemIds = notificationItems.map { "\($0.id)" }
+    let notificationItemIds = notificationItems.map { $0.idToString() }
     
     NotificationService.cancelNotifications(ids: notificationItemIds)
 }
@@ -156,13 +144,12 @@ public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, 
         modelContext.delete(bedtime)
     }
     
-    let notificationItemIds = notificationItems.map { "\($0.id)" }
+    let notificationItemIds = notificationItems.map { $0.idToString() }
     
     NotificationService.cancelNotifications(ids: notificationItemIds)
 }
 
 public func wipeAllData(modelContext: ModelContext) throws {
-    print("WIPING ALL DATA")
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor()
     let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
     
@@ -173,7 +160,7 @@ public func wipeAllData(modelContext: ModelContext) throws {
         modelContext.delete(bedtime)
     }
     
-    let notificationItemIds = notificationItems.map { "\($0.id)" }
+    let notificationItemIds = notificationItems.map { $0.idToString() }
     
     NotificationService.cancelNotifications(ids: notificationItemIds)
     
@@ -190,17 +177,6 @@ public func wipeAllData(modelContext: ModelContext) throws {
     for scheduleTemplate in scheduleTemplates {
         modelContext.delete(scheduleTemplate)
     }
-}
-
-public func removeUpcomingNotificationsForCurrentBedtime(modelContext: ModelContext, currentBedtime bedtime: Bedtime) throws {
-    let notificationItems = bedtime.notificationItems
-    
-    let notificationItemIds = notificationItems.map { "\($0.id)" }
-    
-    NotificationService.cancelNotifications(ids: notificationItemIds)
-    
-    bedtime.notificationItems = []
-    try modelContext.save()
 }
 
 public func updateBedtimeAndNotifications(modelContext: ModelContext, newBedtime: Date) throws {

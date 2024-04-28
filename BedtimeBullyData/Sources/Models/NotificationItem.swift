@@ -8,4 +8,8 @@ public class NotificationItem: Codable {
         self.id = id
         self.message = message
     }
+    
+    public func idToString() -> String {
+        return "\(id)"
+    }
 }

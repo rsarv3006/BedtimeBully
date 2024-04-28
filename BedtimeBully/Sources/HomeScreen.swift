@@ -16,54 +16,56 @@ public struct HomeScreen: View {
 
     public var body: some View {
         NavigationStack {
-            VStack {
-                BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel)
+            ScrollView {
+                VStack {
+                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel)
 
-                NavigationLink("Customize") {
-                    CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
+                    NavigationLink("Customize") {
+                        CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
+                    }
+                    .buttonStyle(.bordered)
+
+                    Spacer()
                 }
-                .buttonStyle(.bordered)
-
-                Spacer()
-            }
-            .navigationTitle("BedtimeBully")
-            .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $shouldShowRequestNotificationPermissions) {
-                RequestNotificationsPermissionView(
-                    isModalPresented: $shouldShowRequestNotificationPermissions, config: configs.first
-                ) {
-                    DispatchQueue.main.async {
-                        do {
-                            try initializeBedtimeAndOtherData()
-                        } catch {
-                            print("Error: \(error)")
+                .navigationTitle("BedtimeBully")
+                .navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $shouldShowRequestNotificationPermissions) {
+                    RequestNotificationsPermissionView(
+                        isModalPresented: $shouldShowRequestNotificationPermissions, config: configs.first
+                    ) {
+                        DispatchQueue.main.async {
+                            do {
+                                try initializeBedtimeAndOtherData()
+                            } catch {
+                                print("Error: \(error)")
+                            }
                         }
                     }
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: SettingsScreen()) {
-                        Image(systemName: "gear")
-                    }
-                }
-            }
-            .onAppear {
-                do {
-                    try buildInitialData(modelContext)
-
-                    if let config = configs.first {
-                        hasBedtime = config.hasSetBedtime
-                        shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
-
-                        if config.isNotificationsEnabled && config.hasSetBedtime {
-                            try initializeBedtimeAndOtherData()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: SettingsScreen()) {
+                            Image(systemName: "gear")
                         }
                     }
-
-                } catch {
-                    print("Error: \(error)")
                 }
+                .onAppear {
+                    do {
+                        try buildInitialData(modelContext)
+
+                        if let config = configs.first {
+                            hasBedtime = config.hasSetBedtime
+                            shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
+
+                            if config.isNotificationsEnabled && config.hasSetBedtime {
+                                try initializeBedtimeAndOtherData()
+                            }
+                        }
+
+                    } catch {
+                        print("Error: \(error)")
+                    }
+            }
             }
         }
     }
@@ -74,8 +76,6 @@ public struct HomeScreen: View {
         try addBedtimesFromSchedule(modelContext)
 
         bedtimeModel = bedtimes.first
-
-        print("Bedtime: \(bedtimeModel?.getPrettyDate() ?? "No bedtime found.") - homescreen")
 
         guard let bedtimeModel else {
             print("No bedtimes found.")

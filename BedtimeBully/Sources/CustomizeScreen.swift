@@ -24,30 +24,40 @@ struct CustomizeScreen: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Update Bedtime")
-                    .font(.title2)
+            ScrollView {
+                VStack {
+                    HStack {
+                        Text("Update Bedtime")
 
-                if hasLoadedBedtime {
-                    DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
-                        .padding(.bottom)
-                } else {
-                    Text("Bedtime not found")
-                }
-
-                Button(action: {
-                    do {
-                        try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
-                        bedtime = newBedtime
-
-                    } catch {
-                        // TODO: Handle this better
-                        print("Error: \(error)")
+                        Spacer()
+                        
+                        if hasLoadedBedtime {
+                            DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                                .padding(.bottom)
+                        } else {
+                            Text("Bedtime not found")
+                        }
                     }
-                }, label: {
-                    Text("Save")
-                })
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            do {
+                                try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
+                                bedtime = newBedtime
+                                
+                            } catch {
+                                // TODO: Handle this better
+                                print("Error: \(error)")
+                            }
+                        }, label: {
+                            Text("Save")
+                        })
+                    }
+                }
+                .padding(.horizontal)
             }
 
             Spacer()

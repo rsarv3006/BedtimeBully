@@ -50,7 +50,7 @@ public struct BedtimeHomeDisplay: View {
             Button {
                 do {
                     if let bedtimeModel {
-                        try removeUpcomingNotificationsForCurrentBedtime(modelContext: modelContext, currentBedtime: bedtimeModel)
+                        bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
                         bedtimeModel.hasGoneToBed = true
                         try modelContext.save()
                     }
