@@ -9,10 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6f79806-8e73-4014-bba6-a9ecb06ab998" name="Changes" comment="switch to tuist">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBully/Sources/CustomizeScreen.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully/Sources/CustomizeScreen.swift" afterDir="false" />
-    </list>
+    <list default="true" id="e6f79806-8e73-4014-bba6-a9ecb06ab998" name="Changes" comment="switch to tuist" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +72,7 @@
       <recent name="$PROJECT_DIR$/BedtimeBully/NotificationPermissions" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Tuist Generate">
+  <component name="RunManager" selected="Shell Script.Tuist Edit">
     <configuration name="Tuist Edit" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="tuist edit" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -146,7 +143,7 @@
       <workItem from="1712956318945" duration="8824000" />
       <workItem from="1713021245604" duration="5606000" />
       <workItem from="1713062988926" duration="3448000" />
-      <workItem from="1713232699381" duration="4593000" />
+      <workItem from="1713232699381" duration="20980000" />
     </task>
     <task id="LOCAL-00001" summary="switch to tuist">
       <option name="closed" value="true" />
