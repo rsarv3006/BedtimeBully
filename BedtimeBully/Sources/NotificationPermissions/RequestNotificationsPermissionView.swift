@@ -21,16 +21,20 @@ public struct RequestNotificationsPermissionView: View {
 
     public var body: some View {
         VStack {
+            Spacer()
+            
             Text(viewModel.explanationString)
                 .padding()
 
             Button("Accept") {
                 NotificationService.requestAuthorization { isAuthorized, error in
                     if isAuthorized {
-                        isModalPresented = false
-                        config?.isNotificationsEnabled = true
-                        config?.hasSetBedtime = true
-                        onAccept()
+                        DispatchQueue.main.async {
+                            isModalPresented = false
+                            config?.isNotificationsEnabled = true
+                            config?.hasSetBedtime = true
+                            onAccept()
+                        }
                     }
                 }
             }
@@ -38,6 +42,9 @@ public struct RequestNotificationsPermissionView: View {
             if let error = viewModel.error {
                 Text("Error: \(error.localizedDescription)")
             }
+            
+            Spacer()
         }
+        .appBackground()
     }
 }

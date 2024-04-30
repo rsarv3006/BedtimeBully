@@ -75,7 +75,9 @@ public struct BedtimeHomeDisplay: View {
             .multilineTextAlignment(.center)
             .padding()
             .onReceive(timer) { _ in
-                updateCountdownComponents()
+                if hasBedtime {
+                    updateCountdownComponents()
+                }
             }
     }
 }

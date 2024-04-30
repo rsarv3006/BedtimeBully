@@ -41,6 +41,7 @@ public struct HomeScreen: View {
                             }
                         }
                     }
+                    .presentationDetents([.medium])
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
