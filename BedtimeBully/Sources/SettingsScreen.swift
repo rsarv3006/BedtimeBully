@@ -10,8 +10,6 @@ import SwiftData
 import SwiftUI
 
 struct SettingsScreen: View {
-    @Query private var bedtimes: [Bedtime]
-
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -40,18 +38,5 @@ struct SettingsScreen: View {
 }
 
 #Preview {
-    let schema = Schema([
-        NotificationSchedule.self,
-        Bedtime.self,
-        BedtimeScheduleTemplate.self,
-    ])
-
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: schema,
-                                        configurations: config)
-
-    try! buildInitialData(container.mainContext)
-
     return SettingsScreen()
-        .modelContainer(container)
 }

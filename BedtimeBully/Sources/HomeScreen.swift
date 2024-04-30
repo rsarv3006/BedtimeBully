@@ -13,6 +13,8 @@ public struct HomeScreen: View {
     @State() private var bedtime: Date = .init()
     @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false
+    @State private var hasError = false
+    @State private var errorMessage = ""
     
     public var body: some View {
         NavigationStack {
@@ -37,7 +39,8 @@ public struct HomeScreen: View {
                             do {
                                 try initializeBedtimeAndOtherData()
                             } catch {
-                                print("Error: \(error)")
+                                hasError = true
+                                errorMessage = error.localizedDescription
                             }
                         }
                     }
@@ -49,6 +52,9 @@ public struct HomeScreen: View {
                             Image(systemName: "gear")
                         }
                     }
+                }
+                .alert("Error Encountered", isPresented: $hasError, actions: {}) {
+                    Text(errorMessage)
                 }
                 .onAppear {
                     do {
@@ -64,7 +70,8 @@ public struct HomeScreen: View {
                         }
                         
                     } catch {
-                        print("Error: \(error)")
+                        hasError = true
+                        errorMessage = error.localizedDescription
                     }
                 }
                 HStack {
@@ -83,8 +90,7 @@ public struct HomeScreen: View {
         bedtimeModel = bedtimes.first
         
         guard let bedtimeModel else {
-            print("No bedtimes found.")
-            return
+            throw BedtimeError.unableToGetBedtime
         }
         
         bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
@@ -94,7 +100,3 @@ public struct HomeScreen: View {
     }
 }
 
-#Preview {
-    HomeScreen()
-        .modelContainer(for: NotificationSchedule.self, inMemory: true)
-}
