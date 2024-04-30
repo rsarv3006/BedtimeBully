@@ -35,7 +35,7 @@ public struct BedtimeHomeDisplay: View {
 
         } else {
             Text("No bedtime scheduled for today.")
-                .padding(.bottom)
+                .padding()
         }
         
 

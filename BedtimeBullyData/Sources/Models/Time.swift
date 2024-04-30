@@ -49,6 +49,19 @@ public struct Time {
 
 extension Time: Codable {}
 
-public enum TimeError: Error {
+public enum TimeError: Error, LocalizedError {
   case invalidHour, invalidMinute, invalidDate, invalidComponents
+    
+    public var errorDescription: String? {
+        switch self {
+        case .invalidHour:
+        return "Invalid hour"
+        case .invalidMinute:
+        return "Invalid minute"
+        case .invalidDate:
+        return "Invalid date"
+        case .invalidComponents:
+        return "Invalid components"
+        }
+    }
 }

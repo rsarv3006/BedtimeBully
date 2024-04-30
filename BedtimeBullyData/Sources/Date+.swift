@@ -8,8 +8,8 @@
 import Foundation
 
 public extension Date {
-    var getTime: Time? {
-        return try? Time(hour: hour, minute: minute)
+    func getTime() throws -> Time {
+        return try Time(hour: hour, minute: minute)
     }
     
     var weekday: Int {

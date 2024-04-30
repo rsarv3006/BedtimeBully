@@ -41,6 +41,7 @@ public struct RequestNotificationsPermissionView: View {
 
             if let error = viewModel.error {
                 Text("Error: \(error.localizedDescription)")
+                    .foregroundStyle(.red)
             }
             
             Spacer()

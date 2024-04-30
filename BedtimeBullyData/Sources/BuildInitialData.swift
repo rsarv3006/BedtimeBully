@@ -180,14 +180,14 @@ public func wipeAllData(modelContext: ModelContext) throws {
 }
 
 public func updateBedtimeAndNotifications(modelContext: ModelContext, newBedtime: Date) throws {
-    guard let bedtimeTime = newBedtime.getTime else { return }
+    let bedtimeTime = try newBedtime.getTime()
     
     let bedtimeSchedulesFetchDescriptor: FetchDescriptor<BedtimeScheduleTemplate> = FetchDescriptor(
         predicate: BedtimeScheduleTemplate.activeBedtimeSchedulePredicate()
     )
     let bedtimeSchedules = try modelContext.fetch(bedtimeSchedulesFetchDescriptor)
     
-    guard let bedtimeSchedule = bedtimeSchedules.first else { return }
+    guard let bedtimeSchedule = bedtimeSchedules.first else { throw BedtimeError.noBedtimeSchedule }
     
     try removeAllBedtimesAndNotifications(modelContext: modelContext)
     

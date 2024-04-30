@@ -15,6 +15,8 @@ struct CustomizeScreen: View {
     @State private var newBedtime: Date
     @Binding var bedtime: Date
     @Binding var hasLoadedBedtime: Bool
+    @State private var hasError = false
+    @State private var errorMessage = ""
 
     init(bedtime: Binding<Date>, hasLoadedBedtime: Binding<Bool>) {
         _bedtime = bedtime
@@ -49,7 +51,8 @@ struct CustomizeScreen: View {
                                 bedtime = newBedtime
                                 
                             } catch {
-                                print("Error: \(error)")
+                                hasError = true
+                                errorMessage = error.localizedDescription
                             }
                         }, label: {
                             Text("Save")
@@ -57,6 +60,9 @@ struct CustomizeScreen: View {
                     }
                 }
                 .padding(.horizontal)
+                .alert("Error Encountered", isPresented: $hasError, actions: {}) {
+                    Text(errorMessage)
+                }
             }
             .appBackground()
 
@@ -64,21 +70,4 @@ struct CustomizeScreen: View {
         .navigationTitle("Customize")
         .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-#Preview {
-    let schema = Schema([
-        NotificationSchedule.self,
-        Bedtime.self,
-        BedtimeScheduleTemplate.self,
-    ])
-
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: schema,
-                                        configurations: config)
-
-    try! buildInitialData(container.mainContext)
-
-    return CustomizeScreen(bedtime: .constant(Date()), hasLoadedBedtime: .constant(false))
-        .modelContainer(container)
 }
