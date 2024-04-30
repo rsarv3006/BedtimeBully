@@ -16,22 +16,21 @@ struct SettingsScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Button(action: {
-                        for bedtime in bedtimes {
-                            print("*** BEDTIME ***")
-                            print(bedtime.name)
-                            print(bedtime.id)
-                            print(bedtime.getPrettyDate())
-                            print(bedtime.notificationItems.count)
-                        }
-                    }, label: {
-                        Text("LOG BEDTIMES")
-                    })
+                    Text("[Contact Support](https://rjsappdev.wixsite.com/bedtime-bully/general-5)")
+                        .modifier(RoundedBorderView())
+                    
+                    Text("[Privacy Policy](https://rjsappdev.wixsite.com/bedtime-bully/privacy-policy)")
+                        .modifier(RoundedBorderView())
+                    
+                    Text("[EULA](https://rjsappdev.wixsite.com/bedtime-bully/eula)")
+                        .modifier(RoundedBorderView())
+
                     
                     HStack {
                         Spacer()
                     }
                 }
+                .padding(.horizontal)
             }
             .appBackground()
         }
