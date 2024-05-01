@@ -5,9 +5,8 @@
 //  Created by Robert J. Sarvis Jr on 12/18/23.
 //
 
-import BedtimeBullyData
-import SwiftData
 import SwiftUI
+import Notifications
 
 struct SettingsScreen: View {
     var body: some View {
@@ -29,6 +28,12 @@ struct SettingsScreen: View {
                     }
                 }
                 .padding(.horizontal)
+                
+                Button(action: {
+                    NotificationService.debugGetAllNotifications()
+                }, label: {
+                    Text("Notifications")
+                })
             }
             .appBackground()
         }

@@ -63,4 +63,11 @@ public extension Date {
     static var tomorrow: Date {
         return Date().addingTimeInterval(86400)
     }
+    
+    func getPrettyDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: self)
+    }
 }

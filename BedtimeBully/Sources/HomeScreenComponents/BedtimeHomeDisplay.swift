@@ -15,6 +15,8 @@ public struct BedtimeHomeDisplay: View {
     @State private var minutes = 0
     @State private var seconds = 0
     
+    var onDateTickOver: () -> Void
+    
     private var beginNotifyingString: String {
         return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your upcoming bedtime."
     }
@@ -40,7 +42,8 @@ public struct BedtimeHomeDisplay: View {
         
 
         if hasSetCorrectCountdownTime {
-            if (hours == 0 && minutes == 0 && seconds == 0) || hours == 23 {
+//            if (hours == 0 && minutes == 0 && seconds == 0) || hours == 23 {
+                if (hours == 0 && minutes == 0 && seconds == 0) {
                 Text("It's bedtime!")
                     .font(.title3)
                     .padding()
@@ -88,10 +91,8 @@ extension BedtimeHomeDisplay {
     private func updateCountdownComponents() {
         let now = Date()
 
-        guard var bedtime = DateComponents(calendar: .current, year: now.year, month: now.month, day: now.day, hour: bedtime.hour, minute: bedtime.minute, second: bedtime.second).date else { return }
-
         if bedtime < Date() {
-            bedtime = bedtime.addingTimeInterval(24 * 60 * 60)
+            onDateTickOver()
         }
 
         let bedtimeTimeInterval = bedtime.timeIntervalSince(Date())

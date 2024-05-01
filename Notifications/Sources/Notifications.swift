@@ -40,8 +40,7 @@ public enum NotificationService {
     public static func debugGetAllNotifications() {
         center.getPendingNotificationRequests { requests in
             for request in requests {
-                print(request.identifier)
-                print(request.content.title)
+                print("\(request.identifier) - \(request.content.title) - \(request.content.body) - \(String(describing: request.trigger)) - \(request.content.interruptionLevel) - \(String(describing: request.content.sound))")
             }
         }
     }

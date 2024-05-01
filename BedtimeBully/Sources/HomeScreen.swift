@@ -20,7 +20,16 @@ public struct HomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel)
+                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel) {
+                        DispatchQueue.main.async {
+                            do {
+                                try initializeBedtimeAndOtherData()
+                            } catch {
+                                hasError = true
+                                errorMessage = error.localizedDescription
+                            }
+                        }
+                    }
                     
                     NavigationLink("Customize") {
                         CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
