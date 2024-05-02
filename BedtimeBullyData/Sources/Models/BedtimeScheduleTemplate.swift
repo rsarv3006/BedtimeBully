@@ -45,7 +45,7 @@ public class BedtimeScheduleTemplate {
         try modelContext.save()
     }
 
-    public func getBedtime(dayOfWeek: Date.DayOfTheWeek) -> Time? {
+    public func getBedtime(dayOfWeek: Date.DayOfTheWeek?) -> Time? {
         switch dayOfWeek {
         case .Sunday:
             return sunday
@@ -61,6 +61,8 @@ public class BedtimeScheduleTemplate {
             return friday
         case .Saturday:
             return saturday
+        default:
+            return nil
         }
     }
 

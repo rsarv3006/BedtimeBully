@@ -74,22 +74,18 @@ public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) thr
     )
     let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
     
-    var inc = 0
-    if bedtimes.count < 7 {
-        let calendar = Calendar.current
-        let todayDayOfWeek = calendar.component(.weekday, from: now)
+    let calendar = Calendar.current
+    
+    for index in 0..<7 {
+        let dateSection = calendar.date(byAdding: .day, value: index, to: now)
+        let dayOfWeek = dateSection?.dayOfWeek
         
-        for index in todayDayOfWeek ... 7 {
-            let timeForBedtime = activeScheduleTemplate.getBedtime(dayOfWeek: index)
-            let dateSection = calendar.date(byAdding: .day, value: inc, to: now)
-            inc += 1
+        let timeForBedtime = activeScheduleTemplate.getBedtime(dayOfWeek: dayOfWeek)
+        if let timeForBedtime, let dateSection {
+            let bedtimeDate = calendar.date(bySettingHour: timeForBedtime.hour, minute: timeForBedtime.minute, second: 0, of: dateSection)
             
-            if let timeForBedtime, let dateSection {
-                let bedtimeDate = calendar.date(bySettingHour: timeForBedtime.hour, minute: timeForBedtime.minute, second: 0, of: dateSection)
-                
-                if let bedtimeDate, bedtimes.first(where: { $0.id == bedtimeDate.timeIntervalSince1970 }) == nil {
-                    datesToCreate.append(bedtimeDate)
-                }
+            if let bedtimeDate, bedtimes.first(where: { $0.id == bedtimeDate.timeIntervalSince1970 }) == nil {
+                datesToCreate.append(bedtimeDate)
             }
         }
     }
