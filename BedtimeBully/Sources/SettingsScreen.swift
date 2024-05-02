@@ -28,12 +28,6 @@ struct SettingsScreen: View {
                     }
                 }
                 .padding(.horizontal)
-                
-                Button(action: {
-                    NotificationService.debugGetAllNotifications()
-                }, label: {
-                    Text("Notifications")
-                })
             }
             .appBackground()
         }

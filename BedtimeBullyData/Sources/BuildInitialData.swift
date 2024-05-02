@@ -161,6 +161,7 @@ public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, 
     let notificationItemIds = notificationItems.map { $0.idToString() }
     
     NotificationService.cancelNotifications(ids: notificationItemIds)
+    try modelContext.save()
 }
 
 public func wipeAllData(modelContext: ModelContext) throws {

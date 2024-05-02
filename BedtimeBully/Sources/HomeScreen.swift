@@ -6,7 +6,7 @@ import SwiftUI
 public struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
 
-    @Query(filter: Bedtime.nextBedtimePredicate(Date()), sort: \.id, order: .forward) private var bedtimes: [Bedtime]
+    @State private var bedtimes: [Bedtime] = []
     @Query() private var configs: [Config]
 
     @State() private var bedtimeModel: Bedtime?
@@ -92,9 +92,16 @@ public struct HomeScreen: View {
     }
 
     func initializeBedtimeAndOtherData() throws {
-        try removeBedtimesAndNotificationsInThePast(modelContext: modelContext, currentDate: Date.now)
+        try removeBedtimesAndNotificationsInThePast(modelContext: modelContext, currentDate: Date())
 
         try addBedtimesFromSchedule(modelContext)
+        
+        let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
+            predicate: Bedtime.nextBedtimePredicate(Date()),
+            sortBy: [.init(\.id, order: .forward)]
+        )
+        
+        let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
 
         bedtimeModel = bedtimes.first
 

@@ -28,8 +28,9 @@ public struct RequestNotificationsPermissionView: View {
 
             Button("Accept") {
                 NotificationService.requestAuthorization { isAuthorized, error in
+                    DispatchQueue.main.async {
+                    viewModel.error = error
                     if isAuthorized {
-                        DispatchQueue.main.async {
                             isModalPresented = false
                             config?.isNotificationsEnabled = true
                             config?.hasSetBedtime = true

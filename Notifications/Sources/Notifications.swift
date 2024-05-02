@@ -11,7 +11,7 @@ public enum NotificationService {
     static let center = UNUserNotificationCenter.current()
 
     public static func requestAuthorization(completion: @escaping (Bool, (any Error)?) -> Void) {
-        center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay, .criticalAlert], completionHandler: completion)
+        center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay], completionHandler: completion)
     }
 
     public static func scheduleNotification(id: String, title: String, body: String, timestamp: Date) -> String {

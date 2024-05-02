@@ -35,6 +35,9 @@ struct CustomizeScreen: View {
                         
                         if hasLoadedBedtime {
                             DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
+#if os(macOS)
+                                .datePickerStyle(.graphical)
+#endif
                                 .labelsHidden()
                                 .padding(.bottom)
                         } else {
