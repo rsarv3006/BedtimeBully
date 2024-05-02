@@ -50,41 +50,59 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
     }
 }
 
-public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
+public struct BedtimeDatesAndActiveSchedule {
+    let datesToCreate: [Date]
+    let activeSchedule: BedtimeScheduleTemplate
+}
+
+public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) throws -> BedtimeDatesAndActiveSchedule {
+    var datesToCreate: [Date] = []
     let bedtimeScheduleTemplatesDescriptor: FetchDescriptor<BedtimeScheduleTemplate> = FetchDescriptor()
     let scheduleTemplates = try modelContext.fetch(bedtimeScheduleTemplatesDescriptor)
-
+    
     let activeScheduleTemplate = scheduleTemplates.first { $0.isActive == true }
     
-    if let activeScheduleTemplate = activeScheduleTemplate {
-        let notificationSchedule = activeScheduleTemplate.notificationSchedule
-
-        let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
-            predicate: #Predicate { $0.isActive == true },
-            sortBy: [
-                .init(\.id),
-            ]
-        )
-        let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
-
-        let now = Date()
+    guard let activeScheduleTemplate else {
+        throw BedtimeError.noActiveScheduleTemplate
+    }
+    
+    let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
+        predicate: #Predicate { $0.isActive == true },
+        sortBy: [
+            .init(\.id),
+        ]
+    )
+    let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
+    
+    var inc = 0
+    if bedtimes.count < 7 {
         let calendar = Calendar.current
         let todayDayOfWeek = calendar.component(.weekday, from: now)
-
-        for inc in 0 ..< 14 {
-            let dayOfWeek = (todayDayOfWeek + inc - 1) % 7 + 1
-            let timeForBedtime = activeScheduleTemplate.getBedtime(dayOfWeek: dayOfWeek)
+        
+        for index in todayDayOfWeek ... 7 {
+            let timeForBedtime = activeScheduleTemplate.getBedtime(dayOfWeek: index)
             let dateSection = calendar.date(byAdding: .day, value: inc, to: now)
-
+            inc += 1
+            
             if let timeForBedtime, let dateSection {
                 let bedtimeDate = calendar.date(bySettingHour: timeForBedtime.hour, minute: timeForBedtime.minute, second: 0, of: dateSection)
-
+                
                 if let bedtimeDate, bedtimes.first(where: { $0.id == bedtimeDate.timeIntervalSince1970 }) == nil {
-
-                    try createBedtimeAndNotificationsforDate(modelContext: modelContext, bedtimeDate: bedtimeDate, notificationSchedule: notificationSchedule)
+                    datesToCreate.append(bedtimeDate)
                 }
             }
         }
+    }
+    
+    return BedtimeDatesAndActiveSchedule(datesToCreate: datesToCreate, activeSchedule: activeScheduleTemplate)
+}
+
+public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
+    let now = Date()
+    let bedtimeDates = try getBedtimeDatesToCreate(modelContext, now: now)
+    
+    for bedtimeDate in bedtimeDates.datesToCreate {
+        try createBedtimeAndNotificationsforDate(modelContext: modelContext, bedtimeDate: bedtimeDate, notificationSchedule: bedtimeDates.activeSchedule.notificationSchedule)
     }
 }
 
@@ -93,7 +111,7 @@ func createBedtimeAndNotificationsforDate(modelContext: ModelContext, bedtimeDat
         throw BedtimeError.notificationScheduleNotSetOnBedtime
     }
     let bedtime = try Bedtime(date: bedtimeDate, notificationSchedule: notificationSchedule)
-
+    
     modelContext.insert(bedtime)
 }
 
