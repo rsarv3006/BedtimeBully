@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6f79806-8e73-4014-bba6-a9ecb06ab998" name="Changes" comment="date tick over">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBully/Sources/HomeScreen.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully/Sources/HomeScreen.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/BuildInitialData.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/BuildInitialData.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notifications/Tests/NotificationsTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Notifications/Tests/NotificationsTests.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,9 +121,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Shell Script.Tuist Run" />
       <item itemvalue="Shell Script.Tuist Edit" />
       <item itemvalue="Shell Script.Tuist Generate" />
+      <item itemvalue="Shell Script.Tuist Run" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -150,6 +148,7 @@
       <workItem from="1713232699381" duration="20980000" />
       <workItem from="1714443418236" duration="2487000" />
       <workItem from="1714562183612" duration="1101000" />
+      <workItem from="1714853008022" duration="199000" />
     </task>
     <task id="LOCAL-00001" summary="switch to tuist">
       <option name="closed" value="true" />
