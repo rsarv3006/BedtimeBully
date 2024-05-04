@@ -28,6 +28,10 @@ public enum NotificationService {
         let request = UNNotificationRequest(identifier: id,
                                             content: content, trigger: trigger)
 
+        if timestamp < Date() {
+            return ""
+        }
+
         center.add(request)
 
         return id

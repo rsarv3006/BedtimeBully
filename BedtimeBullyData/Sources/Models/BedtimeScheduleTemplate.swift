@@ -22,7 +22,7 @@ public class BedtimeScheduleTemplate {
     public var saturday: Time?
     public var sunday: Time?
 
-    @Relationship(deleteRule: .cascade) var notificationSchedule: NotificationSchedule?
+    @Relationship(deleteRule: .cascade) public var notificationSchedule: NotificationSchedule?
 
     init(name: String, isActive: Bool) {
         id = UUID()

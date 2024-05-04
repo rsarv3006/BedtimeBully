@@ -1,9 +1,7 @@
 [!]  --- xcodebuild: Using the first of multiple matching destinations:
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
-[Notifications] Processing Notifications-Info.plist
-[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
-[BedtimeBully] Processing BedtimeBully-Info.plist
+[BedtimeBully] Compiling NotificationScheduleScreen.swift
 Signing BedtimeBully.app (in target 'BedtimeBully' from project 'BedtimeBully')
 Build Succeeded
 

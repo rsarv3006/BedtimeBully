@@ -32,27 +32,27 @@ struct CustomizeScreen: View {
                         Text("Update Bedtime")
 
                         Spacer()
-                        
+
                         if hasLoadedBedtime {
                             DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
-#if os(macOS)
+                            #if os(macOS)
                                 .datePickerStyle(.graphical)
-#endif
+                            #endif
                                 .labelsHidden()
                                 .padding(.bottom)
                         } else {
                             Text("Bedtime not found")
                         }
                     }
-                    
+
                     HStack {
                         Spacer()
-                        
+
                         Button(action: {
                             do {
                                 try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
                                 bedtime = newBedtime
-                                
+
                             } catch {
                                 hasError = true
                                 errorMessage = error.localizedDescription
@@ -61,6 +61,15 @@ struct CustomizeScreen: View {
                             Text("Save")
                         })
                     }
+
+                    HStack {
+                        NavigationLink("Notification Schedule") {
+                            NotificationScheduleScreen()
+                        }
+                        .buttonStyle(.bordered)
+
+                        Spacer()
+                    }
                 }
                 .padding(.horizontal)
                 .alert("Error Encountered", isPresented: $hasError, actions: {}) {
@@ -68,7 +77,6 @@ struct CustomizeScreen: View {
                 }
             }
             .appBackground()
-
         }
         .navigationTitle("Customize")
         .navigationBarTitleDisplayMode(.inline)

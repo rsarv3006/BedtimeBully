@@ -6,6 +6,7 @@ struct ProjectTargets {
     static let Notifications = "Notifications"
     static let BedtimeBullyData = "BedtimeBullyData"
     static let BedtimeBullyDataTests = "BedtimeBullyDataTests"
+    static let NotificationsTests = "NotificationsTests"
 }
 
 let project = Project(
@@ -56,6 +57,13 @@ let project = Project(
             product: .framework,
             bundleId: "rjs.app.dev.Notifications",
             sources: ["Notifications/Sources/**"]
+        ),
+        .target(
+            name: ProjectTargets.NotificationsTests,
+            destinations: .iOS,
+            product: .framework,
+            bundleId: "rjs.app.dev.NotificationsTests",
+            sources: ["Notifications/Tests/**"]
         ),
         .target(
             name: ProjectTargets.BedtimeBullyData,
