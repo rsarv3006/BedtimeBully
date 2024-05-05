@@ -17,6 +17,7 @@ struct CustomizeScreen: View {
     @Binding var hasLoadedBedtime: Bool
     @State private var hasError = false
     @State private var errorMessage = ""
+    @State private var showBedtimeHasUpdated = false
 
     init(bedtime: Binding<Date>, hasLoadedBedtime: Binding<Bool>) {
         _bedtime = bedtime
@@ -52,6 +53,7 @@ struct CustomizeScreen: View {
                             do {
                                 try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
                                 bedtime = newBedtime
+                                showBedtimeHasUpdated = true
                                 
                             } catch {
                                 hasError = true
@@ -60,6 +62,9 @@ struct CustomizeScreen: View {
                         }, label: {
                             Text("Save")
                         })
+                        .alert("", isPresented: $showBedtimeHasUpdated, actions: {}) {
+                            Text("Bedtime has been updated.")
+                        }
                     }
                     
                     HStack {
