@@ -17,6 +17,8 @@ public struct BedtimeHomeDisplay: View {
     
     var onDateTickOver: () -> Void
     
+    @State private var shouldShowInBedModal = false
+    
     private var beginNotifyingString: String {
         return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your upcoming bedtime."
     }
@@ -60,19 +62,32 @@ public struct BedtimeHomeDisplay: View {
                 
                 if hours == 0 && minutes < 60 && !(bedtimeModel?.hasGoneToBed ?? true) {
                     Button {
-                        do {
-                            if let bedtimeModel {
-                                bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
-                                bedtimeModel.hasGoneToBed = true
-                                try modelContext.save()
-                            }
-                        } catch {
-                            print("Error: \(error)")
-                        }
+                        shouldShowInBedModal = true
                     } label: {
                         Text("I'm in Bed")
                     }
                     .buttonStyle(.bordered)
+                    .alert("Going to Bed?", isPresented: $shouldShowInBedModal) {
+                        Button("Yes") {
+                            do {
+                                if let bedtimeModel {
+                                    bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
+                                    bedtimeModel.hasGoneToBed = true
+                                    try modelContext.save()
+                                }
+                            } catch {
+                                print("Error: \(error)")
+                            }
+                        }
+                        
+                        Button("No") {}
+                    } message: {
+                        Text("""
+                             Are you sure you're in bed?
+                             Clicking Yes will silence further bedtime notifications for today.
+                             """)
+                    }
+                    
                 } else if hours == 0 && minutes < 60 && bedtimeModel?.hasGoneToBed ?? true {
                     Text("Good night! Sleep well!")
                         .padding(.top)
