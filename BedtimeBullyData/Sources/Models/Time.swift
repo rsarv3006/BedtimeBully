@@ -1,10 +1,3 @@
-//
-//  Time.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 12/15/23.
-//
-
 import Foundation
 
 public struct Time {

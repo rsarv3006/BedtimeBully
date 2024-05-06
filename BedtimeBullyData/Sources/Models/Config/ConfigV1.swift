@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+
 extension SchemaV1 {
     @Model
     public class Config {

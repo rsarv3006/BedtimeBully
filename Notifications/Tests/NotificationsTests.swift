@@ -1,10 +1,3 @@
-//
-//  NotificationsTests.swift
-//  BedtimeBullyTests
-//
-//  Created by Robert J. Sarvis Jr on 5/4/24.
-//
-
 import XCTest
 
 @testable import Notifications

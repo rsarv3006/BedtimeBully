@@ -1,10 +1,3 @@
-//
-//  SchemaV1.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 5/5/24.
-//
-
 import Foundation
 import SwiftData
 

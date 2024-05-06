@@ -1,10 +1,3 @@
-//
-//  AppBackground.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 4/28/24.
-//
-
 import SwiftUI
 
 struct AppBackgroundModifier: ViewModifier {

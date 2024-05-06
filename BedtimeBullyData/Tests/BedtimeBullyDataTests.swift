@@ -1,10 +1,3 @@
-//
-//  BedtimeBullyDataTests.swift
-//  BedtimeBullyDataTests
-//
-//  Created by Robert J. Sarvis Jr on 11/23/23.
-//
-
 import XCTest
 import SwiftData
 

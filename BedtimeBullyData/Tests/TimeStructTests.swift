@@ -1,10 +1,3 @@
-//
-//  TimeStructTests.swift
-//  BedtimeBullyDataTests
-//
-//  Created by Robert J. Sarvis Jr on 12/15/23.
-//
-
 import XCTest
 import BedtimeBullyData
 

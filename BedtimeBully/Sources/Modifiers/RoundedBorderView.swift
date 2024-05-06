@@ -1,10 +1,3 @@
-//
-//  RoundedBorderView.swift
-//  ConstructionEquations
-//
-//  Created by Robert J. Sarvis Jr on 3/19/24.
-//
-
 import SwiftUI
 
 struct CustomizableRoundedBorderView: ViewModifier {

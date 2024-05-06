@@ -1,10 +1,3 @@
-//
-//  TimeInterval+formatted.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/27/23.
-//
-
 import Foundation
 
 public extension TimeInterval {

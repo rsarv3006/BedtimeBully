@@ -1,10 +1,3 @@
-//
-//  Bedtime.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/28/23.
-//
-
 import Foundation
 import SwiftData
 import Notifications

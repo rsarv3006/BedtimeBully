@@ -1,10 +1,3 @@
-//
-//  Utils.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/23/23.
-//
-
 import Foundation
 
 public struct DataUtils {

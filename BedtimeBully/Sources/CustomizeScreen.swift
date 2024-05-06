@@ -1,10 +1,3 @@
-//
-//  CustomizeScreen.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/27/23.
-//
-
 import BedtimeBullyData
 import SwiftData
 import SwiftUI

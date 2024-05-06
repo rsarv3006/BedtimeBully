@@ -1,10 +1,3 @@
-//
-//  AppGroup.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/23/23.
-//
-
 import Foundation
 
 public enum AppGroup: String {

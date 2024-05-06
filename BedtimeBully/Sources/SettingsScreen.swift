@@ -1,10 +1,3 @@
-//
-//  SettingsScreen.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 12/18/23.
-//
-
 import Notifications
 import SwiftUI
 

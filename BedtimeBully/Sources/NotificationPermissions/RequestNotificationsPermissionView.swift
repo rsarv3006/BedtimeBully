@@ -1,4 +1,3 @@
-// RequestNotificationsPermissionView.swift
 import BedtimeBullyData
 import SwiftUI
 import Notifications

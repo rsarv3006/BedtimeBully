@@ -1,4 +1,3 @@
-// RequestNotificationPermissionsVM.swift
 import Foundation
 import Notifications
 

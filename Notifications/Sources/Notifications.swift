@@ -1,10 +1,3 @@
-//
-//  Notifications.swift
-//  BedtimeBully
-//
-//  Created by Robert J. Sarvis Jr on 11/12/23.
-//
-
 import UserNotifications
 
 public enum NotificationService {
