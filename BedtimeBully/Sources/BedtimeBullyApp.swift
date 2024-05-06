@@ -5,12 +5,8 @@ import SwiftUI
 @main
 struct BedtimeBullyApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            NotificationSchedule.self,
-            Bedtime.self,
-            BedtimeScheduleTemplate.self,
-            Config.self,
-        ])
+        let schema = Schema(versionedSchema: SchemaV1.self)
+        
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {

@@ -9,15 +9,7 @@ import Foundation
 import SwiftData
 import Notifications
 
-public typealias Bedtime = BedtimeSchemaV1.Bedtime
-
-public enum BedtimeSchemaV1 {
-    static var versionIdentifier = Schema.Version(1, 0, 0)
-    
-    static var models: [any PersistentModel.Type] {
-        [Bedtime.self]
-    }
-    
+extension SchemaV1 {
     @Model
     public class Bedtime {
         @Attribute(.unique) public let id: TimeInterval
