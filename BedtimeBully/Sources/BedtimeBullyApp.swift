@@ -5,7 +5,7 @@ import SwiftUI
 @main
 struct BedtimeBullyApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema(versionedSchema: SchemaV1.self)
+        let schema = Schema(versionedSchema: SchemaV1_0_1.self)
         
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

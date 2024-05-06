@@ -60,7 +60,7 @@ public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) thr
     }
     
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
-        predicate: #Predicate { $0.isActive == true },
+        predicate: #Predicate { $0.status == "active" },
         sortBy: [
             .init(\.id),
         ]
@@ -106,7 +106,7 @@ func createBedtimeAndNotificationsforDate(modelContext: ModelContext, bedtimeDat
 
 public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
-        predicate: #Predicate { $0.isActive == true },
+        predicate: #Predicate { $0.status == "active" },
         sortBy: [
             .init(\.id),
         ]
