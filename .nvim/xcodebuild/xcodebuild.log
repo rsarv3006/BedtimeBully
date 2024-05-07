@@ -1,13 +1,25 @@
 [!]  --- xcodebuild: Using the first of multiple matching destinations:
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
 { platform:iOS Simulator, id:12BB2086-E852-488F-B79F-66F2F3FB6B0D, OS:17.4, name:iPhone 15 }
-[BedtimeBully] Compiling NotificationScheduleScreen.swift
+[Notifications] Processing Notifications-Info.plist
+[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
+[BedtimeBully] Compiling BedtimeHomeDisplay.swift
+[!]  /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/HomeScreenComponents/BedtimeHomeDisplay.swift:62:82: left side of nil coalescing operator '??' has non-optional type 'Bool', so the right side is never used
+                    if hours == 0 && minutes < 60 && !(bedtimeModel.hasGoneToBed ?? true) {
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+[BedtimeBully] Processing BedtimeBully-Info.plist
 Signing BedtimeBully.app (in target 'BedtimeBully' from project 'BedtimeBully')
 Build Succeeded
 
 -----------------------------
 -- xcodebuild.nvim summary --
 -----------------------------
+
+Warnings:
+   /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/HomeScreenComponents/BedtimeHomeDisplay.swift:62:82
+    left side of nil coalescing operator '??' has non-optional type 'Bool', so the right side is never used
+                        if hours == 0 && minutes < 60 && !(bedtimeModel.hasGoneToBed ?? true) {
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
 
   ✔ Build Succeeded
 

@@ -10,18 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6f79806-8e73-4014-bba6-a9ecb06ab998" name="Changes" comment="date tick over">
-      <change afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Bedtime/BedtimeV1_0_1.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Config/ConfigV1_0_1.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/NotificationSchedule/NotificationScheduleV1_0_1.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/ScheduleTemplate/ScheduleTemplateV1_0_1.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/SchemaV1_0_1.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvim/xcodebuild/app_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/.nvim/xcodebuild/app_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvim/xcodebuild/original_logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/.nvim/xcodebuild/original_logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvim/xcodebuild/report.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nvim/xcodebuild/report.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvim/xcodebuild/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nvim/xcodebuild/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvim/xcodebuild/xcodebuild.log" beforeDir="false" afterPath="$PROJECT_DIR$/.nvim/xcodebuild/xcodebuild.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedtimeBully.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBully/Sources/BedtimeBullyApp.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully/Sources/BedtimeBullyApp.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedtimeBully/Sources/HomeScreenComponents/BedtimeHomeDisplay.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully/Sources/HomeScreenComponents/BedtimeHomeDisplay.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedtimeBully/Sources/SettingsScreen.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBully/Sources/SettingsScreen.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/BuildInitialData.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/BuildInitialData.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/Enums/BedtimeStatus.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Enums/BedtimeStatus.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/MigrationPlan.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/MigrationPlan.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Bedtime/BedtimeV1_0_1.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Bedtime/BedtimeV1_0_1.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/ModelTypes.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/ModelTypes.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/SchemaV1_0_1.swift" beforeDir="false" afterPath="$PROJECT_DIR$/BedtimeBullyData/Sources/Models/Schema/SchemaV1_0_1.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,9 +133,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Shell Script.Tuist Run" />
       <item itemvalue="Shell Script.Tuist Edit" />
       <item itemvalue="Shell Script.Tuist Generate" />
+      <item itemvalue="Shell Script.Tuist Run" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -160,6 +161,9 @@
       <workItem from="1714443418236" duration="2487000" />
       <workItem from="1714562183612" duration="1101000" />
       <workItem from="1714853008022" duration="199000" />
+      <workItem from="1715079267824" duration="29000" />
+      <workItem from="1715092996985" duration="102000" />
+      <workItem from="1715093105817" duration="724000" />
     </task>
     <task id="LOCAL-00001" summary="switch to tuist">
       <option name="closed" value="true" />

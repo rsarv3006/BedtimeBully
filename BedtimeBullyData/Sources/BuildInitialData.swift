@@ -138,6 +138,7 @@ public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws
     NotificationService.cancelNotifications(ids: notificationItemIds)
 }
 
+// TODO: update this to not delete and just mark as history
 public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, currentDate date: Date) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
         predicate: #Predicate { $0.id < date.timeIntervalSince1970 }
@@ -148,7 +149,7 @@ public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, 
     
     for bedtime in bedtimes {
         notificationItems.append(contentsOf: bedtime.notificationItems)
-        modelContext.delete(bedtime)
+        bedtime.status = BedtimeStatus.history.rawValue
     }
     
     let notificationItemIds = notificationItems.map { $0.idToString() }

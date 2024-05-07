@@ -73,6 +73,9 @@ public struct BedtimeHomeDisplay: View {
                                 if let bedtimeModel {
                                     bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
                                     bedtimeModel.hasGoneToBed = true
+                                    
+                                    let bedtimeHistory = BedtimeHistory(bedtimeTarget: bedtimeModel.id, inBedTime: Date().timeIntervalSince1970, status: .valid)
+                                    modelContext.insert(bedtimeHistory)
                                     try modelContext.save()
                                 }
                             } catch {

@@ -6,8 +6,9 @@ public enum SchemaV1_0_1: VersionedSchema {
         Bedtime.self,
         BedtimeScheduleTemplate.self,
         Config.self,
-        NotificationSchedule.self
+        NotificationSchedule.self,
+        BedtimeHistory.self,
     ]
-    
+
     public static var versionIdentifier: Schema.Version = .init(1, 0, 1)
 }

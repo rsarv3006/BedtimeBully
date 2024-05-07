@@ -38,7 +38,6 @@ extension SchemaV1_0_1 {
             return id.getPrettyDate()
         }
         
-        
         public func generateNotificationDates(notificationSchedule: NotificationSchedule?) throws -> [Date] {
             guard let notificationIntervals = notificationSchedule?.notificationIntervals else { throw BedtimeError.notificationScheduleNotSetOnBedtime }
             let bedtime = Date(timeIntervalSince1970: id)
@@ -55,8 +54,6 @@ extension SchemaV1_0_1 {
             let notificationItemIds = notificationItems.map { "\($0.id)" }
             
             NotificationService.cancelNotifications(ids: notificationItemIds)
-            
-            self.notificationItems = []
         }
         
         public static func nextBedtimePredicate(_ date: Date) -> Predicate<Bedtime> {

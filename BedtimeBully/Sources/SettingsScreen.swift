@@ -17,7 +17,7 @@ struct SettingsScreen: View {
                     Text("[EULA](https://rjsappdev.wixsite.com/bedtime-bully/eula)")
                         .modifier(RoundedBorderView())
                         .frame(maxWidth: 350)
-
+                    
                     HStack {
                         Spacer()
                     }
@@ -29,8 +29,4 @@ struct SettingsScreen: View {
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-#Preview {
-    SettingsScreen()
 }
