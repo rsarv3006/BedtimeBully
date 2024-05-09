@@ -3,6 +3,7 @@ import SwiftData
 import SwiftUI
 
 struct NotificationScheduleScreen: View {
+    @State private var openCustomizeSchedule = false
     @Query() private var bedtimeSchedules: [BedtimeScheduleTemplate]
 
     private var activeSchedule: NotificationSchedule? {
@@ -30,6 +31,15 @@ struct NotificationScheduleScreen: View {
                         Text("No active notification schedule found.")
                             .padding()
                     }
+
+                    Button(action: {
+                           openCustomizeSchedule.toggle() 
+                        }) {
+                        Text("Customize Notification Schedule")
+                    }
+                    .buttonStyle(.bordered)
+                    .alert("Coming Soon!", isPresented: $openCustomizeSchedule, actions: {})
+
 
                     Spacer()
                 }

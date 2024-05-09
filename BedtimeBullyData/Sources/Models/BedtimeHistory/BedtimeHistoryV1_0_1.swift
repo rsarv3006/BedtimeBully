@@ -13,7 +13,7 @@ extension SchemaV1_0_1 {
         public let inBedTime: TimeInterval
         public let status: String
 
-        public init(bedtimeTarget: TimeInterval, inBedTime: TimeInterval, status : BedtimeHistoryStatus) {
+        public init(bedtimeTarget: TimeInterval, inBedTime: TimeInterval, status: BedtimeHistoryStatus) {
             self.id = UUID()
             self.bedtimeTarget = bedtimeTarget
             self.inBedTime = inBedTime

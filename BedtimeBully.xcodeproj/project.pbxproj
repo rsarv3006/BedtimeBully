@@ -15,6 +15,7 @@
 		201CAA6F7EC2A937E844B137 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FF9074B0D2F709E9049DF8 /* NotificationItem.swift */; };
 		24285CB0C4A912D7FCCBE611 /* SchemaV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD38D6AB6CC56BF0ED7D7A5 /* SchemaV1_0_1.swift */; };
 		24EB7DA9A6C73941BC6B2229 /* NotificationScheduleV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA18A457AC292347D7C60A8C /* NotificationScheduleV1.swift */; };
+		29A5E431EB84BBA739BB74DE /* BedtimeScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */; };
 		29E25819421C56D74CB6A9A6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931ECBF36FB3FBDEAAE481A /* Time.swift */; };
 		2AC7E27A407D93AA71593FE3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838DEFB475C7EDDA5410D86 /* Utils.swift */; };
 		43E8C65783EE8FAB50B0B927 /* BedtimeBullyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */; };
@@ -201,6 +202,7 @@
 		83FC2B52FAE29253A712AD00 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		88B711A4DA6CCCC04A937EFE /* RequestNotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationsPermissionView.swift; sourceTree = "<group>"; };
 		8BBB64DFF5D8ED4147AF5AE0 /* CustomizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeScreen.swift; sourceTree = "<group>"; };
+		8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeScheduleScreen.swift; sourceTree = "<group>"; };
 		8D7393EBF3334235CBD7D9BB /* BedtimeV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeV1_0_1.swift; sourceTree = "<group>"; };
 		8E3B657D0C24B2E799364FCD /* NotificationScheduleV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleV1_0_1.swift; sourceTree = "<group>"; };
 		932BD2A21ECA777819EB2EF0 /* BedtimeHomeDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeHomeDisplay.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				3806DB2D30BCAEA57B7BE0E1 /* Modifiers */,
 				275A9FC2326B1709ABB9E89C /* NotificationPermissions */,
 				2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */,
+				8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */,
 				8BBB64DFF5D8ED4147AF5AE0 /* CustomizeScreen.swift */,
 				5E049DA27785953AB9C2AE0A /* HomeScreen.swift */,
 				7962A0B73F6F779597EBAC64 /* NotificationScheduleScreen.swift */,
@@ -826,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E8C65783EE8FAB50B0B927 /* BedtimeBullyApp.swift in Sources */,
+				29A5E431EB84BBA739BB74DE /* BedtimeScheduleScreen.swift in Sources */,
 				E2708834FB0464930B3393D4 /* AppBackground.swift in Sources */,
 				AF2EB6EF69D2188D5FF532F1 /* CustomizeScreen.swift in Sources */,
 				89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */,

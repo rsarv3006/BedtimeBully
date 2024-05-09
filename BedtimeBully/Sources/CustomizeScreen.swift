@@ -68,6 +68,15 @@ struct CustomizeScreen: View {
                         
                         Spacer()
                     }
+
+                    HStack {
+                        NavigationLink("Customize Bedtime Schedule") {
+                            BedtimeScheduleScreen()
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        Spacer()
+                    }
                 }
                 .alert("Error Encountered", isPresented: $hasError, actions: {}) {
                     Text(errorMessage)
