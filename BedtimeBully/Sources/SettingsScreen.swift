@@ -7,14 +7,12 @@ struct SettingsScreen: View {
 
     @State private var newBedtime: Date
     @Binding var bedtime: Date
-    @Binding var hasLoadedBedtime: Bool
     @State private var hasError = false
     @State private var errorMessage = ""
     @State private var showBedtimeHasUpdated = false
 
-    init(bedtime: Binding<Date>, hasLoadedBedtime: Binding<Bool>) {
+    init(bedtime: Binding<Date>) {
         _bedtime = bedtime
-        _hasLoadedBedtime = hasLoadedBedtime
         _newBedtime = State(initialValue: bedtime.wrappedValue)
     }
 
@@ -27,16 +25,12 @@ struct SettingsScreen: View {
                         
                         Spacer()
                         
-                        if hasLoadedBedtime {
                             DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
 #if os(macOS)
                                 .datePickerStyle(.graphical)
 #endif
                                 .labelsHidden()
                                 .padding(.bottom)
-                        } else {
-                            Text("Bedtime not found")
-                        }
                     }
                     
                     HStack {

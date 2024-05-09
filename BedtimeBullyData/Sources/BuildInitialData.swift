@@ -30,11 +30,17 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
         
         let defaultBedtime = try Time(hour: 21, minute: 45)
         
-        let defaultBedtimeScheduleTemplate = BedtimeScheduleTemplate(name: "Default Bedtime Schedule", isActive: true)
-        
-        try defaultBedtimeScheduleTemplate.setBedtimes(modelContext: modelContext, monday: defaultBedtime, tuesday: defaultBedtime, wednesday: defaultBedtime, thursday: defaultBedtime, friday: defaultBedtime, saturday: defaultBedtime, sunday: defaultBedtime)
-        
-        defaultBedtimeScheduleTemplate.notificationSchedule = defaultSchedule
+        let defaultBedtimeScheduleTemplate = BedtimeScheduleTemplate(
+            name: "Default Bedtime Schedule",
+            monday: defaultBedtime,
+            tuesday: defaultBedtime,
+            wednesday: defaultBedtime,
+            thursday: defaultBedtime,
+            friday: defaultBedtime,
+            saturday: defaultBedtime,
+            sunday: defaultBedtime,
+            notificationSchedule: defaultSchedule
+        )
         
         modelContext.insert(defaultBedtimeScheduleTemplate)
         
@@ -138,7 +144,6 @@ public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws
     NotificationService.cancelNotifications(ids: notificationItemIds)
 }
 
-// TODO: update this to not delete and just mark as history
 public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, currentDate date: Date) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
         predicate: #Predicate { $0.id < date.timeIntervalSince1970 }

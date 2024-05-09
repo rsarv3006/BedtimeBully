@@ -24,6 +24,20 @@ extension SchemaV1_0_1 {
             self.isActive = isActive
         }
         
+        init(name: String, monday: Time?, tuesday: Time?, wednesday: Time?, thursday: Time?, friday: Time?, saturday: Time?, sunday: Time?, notificationSchedule: NotificationSchedule?) {
+            self.id = UUID()
+            self.name = name
+            self.isActive = true
+            self.monday = monday
+            self.tuesday = tuesday
+            self.wednesday = wednesday
+            self.thursday = thursday
+            self.friday = friday
+            self.saturday = saturday
+            self.sunday = sunday
+            self.notificationSchedule = notificationSchedule
+        }
+        
         public func addNotificationSchedule(notificationSchedule: NotificationSchedule) {
             self.notificationSchedule = notificationSchedule
         }

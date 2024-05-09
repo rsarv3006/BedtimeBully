@@ -50,7 +50,7 @@ public struct HomeScreen: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: SettingsScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)) {
+                        NavigationLink(destination: SettingsScreen(bedtime: $bedtime)) {
                             Image(systemName: "gear")
                         }
                     }
