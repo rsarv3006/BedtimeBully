@@ -30,13 +30,6 @@ public struct HomeScreen: View {
                             }
                         }
                     }
-
-                    NavigationLink("Customize") {
-                        CustomizeScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)
-                    }
-                    .buttonStyle(.bordered)
-
-                    Spacer()
                 }
                 .navigationTitle("BedtimeBully")
                 .navigationBarTitleDisplayMode(.inline)
@@ -57,7 +50,7 @@ public struct HomeScreen: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: SettingsScreen()) {
+                        NavigationLink(destination: SettingsScreen(bedtime: $bedtime, hasLoadedBedtime: $hasBedtime)) {
                             Image(systemName: "gear")
                         }
                     }
