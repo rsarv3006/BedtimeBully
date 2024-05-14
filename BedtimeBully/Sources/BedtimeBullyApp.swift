@@ -4,6 +4,8 @@ import SwiftUI
 
 @main
 struct BedtimeBullyApp: App {
+    @StateObject var bedtimeStore = BedtimeStore()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema(versionedSchema: SchemaV1_0_1.self)
         
@@ -19,6 +21,7 @@ struct BedtimeBullyApp: App {
     var body: some Scene {
         WindowGroup {
             HomeScreen()
+                .environmentObject(bedtimeStore)
         }
         .modelContainer(sharedModelContainer)
     }

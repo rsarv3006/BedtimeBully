@@ -4,17 +4,12 @@ import BedtimeBullyData
 
 struct SettingsScreen: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
-    @State private var newBedtime: Date
-    @Binding var bedtime: Date
+    @State private var newBedtime: Date = .init()
     @State private var hasError = false
     @State private var errorMessage = ""
     @State private var showBedtimeHasUpdated = false
-
-    init(bedtime: Binding<Date>) {
-        _bedtime = bedtime
-        _newBedtime = State(initialValue: bedtime.wrappedValue)
-    }
 
     var body: some View {
         NavigationStack {
@@ -39,7 +34,7 @@ struct SettingsScreen: View {
                         Button(action: {
                             do {
                                 try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
-                                bedtime = newBedtime
+                                bedtimeStore.bedtime = newBedtime
                                 showBedtimeHasUpdated = true
                                 
                             } catch {
@@ -53,25 +48,22 @@ struct SettingsScreen: View {
                             Text("Bedtime has been updated.")
                         }
                     }
+
+                     HStack {
+                        NavigationLink("Customize Bedtime Schedule") {
+                            BedtimeScheduleScreen()
+                        }
+                        .modifier(RoundedBorderView())
+                    }
                     
                     HStack {
                         NavigationLink("Notification Schedule") {
                             NotificationScheduleScreen()
                         }
                         .modifier(RoundedBorderView())
-                        
-                        Spacer()
                     }
 
-                    HStack {
-                        NavigationLink("Customize Bedtime Schedule") {
-                            BedtimeScheduleScreen()
-                        }
-                        .modifier(RoundedBorderView())
-                        
-                        Spacer()
-                    }
-                    
+                   
                     Text("[Contact Support](https://rjsappdev.wixsite.com/bedtime-bully/general-5)")
                         .modifier(RoundedBorderView())
 
@@ -94,5 +86,8 @@ struct SettingsScreen: View {
         }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            newBedtime = bedtimeStore.bedtime
+        }
     }
 }

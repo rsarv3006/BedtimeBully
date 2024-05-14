@@ -4,9 +4,9 @@ import SwiftUI
 
 public struct BedtimeHomeDisplay: View {
     @Environment(\.modelContext) private var modelContext
-    
+    @EnvironmentObject() private var bedtimeStore: BedtimeStore
+
     @Binding var hasBedtime: Bool
-    @Binding var bedtime: Date
     @Binding var bedtimeModel: Bedtime?
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -20,7 +20,7 @@ public struct BedtimeHomeDisplay: View {
     @State private var shouldShowInBedModal = false
     
     private var beginNotifyingString: String {
-        return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your upcoming bedtime."
+        return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtimeStore.bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your upcoming bedtime."
     }
     
     public var body: some View {
@@ -38,7 +38,7 @@ public struct BedtimeHomeDisplay: View {
                 .font(.title2)
             
             if hasBedtime {
-                DatePicker("", selection: $bedtime, displayedComponents: .hourAndMinute)
+                DatePicker("", selection: $bedtimeStore.bedtime, displayedComponents: .hourAndMinute)
                     .labelsHidden()
                     .padding(.bottom)
                     .disabled(true)
@@ -113,11 +113,11 @@ extension BedtimeHomeDisplay {
     private func updateCountdownComponents() {
         let now = Date()
         
-        if bedtime < now {
+        if bedtimeStore.bedtime < now {
             onDateTickOver()
         }
         
-        let bedtimeTimeInterval = bedtime.timeIntervalSince(now)
+        let bedtimeTimeInterval = bedtimeStore.bedtime.timeIntervalSince(now)
         
         let hours = Int(bedtimeTimeInterval) / 3600
         if hours >= 24 {

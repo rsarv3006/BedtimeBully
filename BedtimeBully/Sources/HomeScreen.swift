@@ -5,12 +5,12 @@ import SwiftUI
 
 public struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
     @State private var bedtimes: [Bedtime] = []
     @Query() private var configs: [Config]
 
     @State() private var bedtimeModel: Bedtime?
-    @State() private var bedtime: Date = .init()
     @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false
     @State private var hasError = false
@@ -20,7 +20,7 @@ public struct HomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtime: $bedtime, bedtimeModel: $bedtimeModel) {
+                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtimeModel: $bedtimeModel) {
                         DispatchQueue.main.async {
                             do {
                                 try initializeBedtimeAndOtherData()
@@ -50,7 +50,7 @@ public struct HomeScreen: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: SettingsScreen(bedtime: $bedtime)) {
+                        NavigationLink(destination: SettingsScreen()) {
                             Image(systemName: "gear")
                         }
                     }
@@ -102,7 +102,7 @@ public struct HomeScreen: View {
             throw BedtimeError.unableToGetBedtime
         }
 
-        bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
+        bedtimeStore.bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
         hasBedtime = true
 
         try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
