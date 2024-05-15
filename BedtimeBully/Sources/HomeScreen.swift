@@ -88,12 +88,12 @@ public struct HomeScreen: View {
         try removeBedtimesAndNotificationsInThePast(modelContext: modelContext, currentDate: Date())
 
         try addBedtimesFromSchedule(modelContext)
-        
+
         let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
             predicate: Bedtime.nextBedtimePredicate(Date()),
             sortBy: [.init(\.id, order: .forward)]
         )
-        
+
         let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
 
         bedtimeModel = bedtimes.first

@@ -64,7 +64,7 @@ let project = Project(
         .target(
             name: ProjectTargets.NotificationsTests,
             destinations: .iOS,
-            product: .framework,
+            product: .unitTests,
             bundleId: "rjs.app.dev.NotificationsTests",
             deploymentTargets: DeploymentTargets.iOS("17.0"),
             sources: ["Notifications/Tests/**"]
