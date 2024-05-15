@@ -5,29 +5,24 @@ struct SettingsScreen: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 10) {
-                     HStack {
                         NavigationLink("Customize Bedtime Schedule") {
                             BedtimeScheduleScreen()
                         }
-                        .modifier(RoundedBorderView())
-                    }
-                    
-                    HStack {
+                        .padding(.vertical)
+
                         NavigationLink("Notification Schedule") {
                             NotificationScheduleScreen()
                         }
-                        .modifier(RoundedBorderView())
-                    }
-
+                        .padding(.bottom)
                    
                     Text("[Contact Support](https://rjsappdev.wixsite.com/bedtime-bully/general-5)")
-                        .modifier(RoundedBorderView())
+                        .padding(.bottom)
 
                     Text("[Privacy Policy](https://rjsappdev.wixsite.com/bedtime-bully/privacy-policy)")
-                        .modifier(RoundedBorderView())
+                        .padding(.bottom)
 
                     Text("[EULA](https://rjsappdev.wixsite.com/bedtime-bully/eula)")
-                        .modifier(RoundedBorderView())
+                        .padding(.bottom)
                 }
                .frame(maxWidth: 350)
                 
