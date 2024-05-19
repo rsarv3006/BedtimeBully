@@ -116,7 +116,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
 
             try updateNotificationsfromUpdatedBedtimeSchedule(modelContext: modelContext, newBedtimeSchedule: bedtimeSchedule)
             showBedtimeHasUpdated = true
-            
+
         } catch {
             errorUpdatingBedtimeSchedule = error.localizedDescription
             hasError = true

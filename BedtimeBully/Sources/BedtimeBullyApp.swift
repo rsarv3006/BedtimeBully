@@ -4,6 +4,7 @@ import SwiftUI
 
 @main
 struct BedtimeBullyApp: App {
+    @StateObject var storekitStore = StorekitStore()
     @StateObject var bedtimeStore = BedtimeStore()
     
     var sharedModelContainer: ModelContainer = {
@@ -22,6 +23,7 @@ struct BedtimeBullyApp: App {
         WindowGroup {
             HomeScreen()
                 .environmentObject(bedtimeStore)
+                .environmentObject(storekitStore)
         }
         .modelContainer(sharedModelContainer)
     }

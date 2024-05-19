@@ -5,11 +5,13 @@ import SwiftUI
 
 public struct HomeScreen: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject() private var storekitStore: StorekitStore
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
     @State private var bedtimes: [Bedtime] = []
     @Query() private var configs: [Config]
 
+    @State() private var isLoadingStorekit = true
     @State() private var bedtimeModel: Bedtime?
     @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false
@@ -78,6 +80,12 @@ public struct HomeScreen: View {
                 }
                 HStack {
                     Spacer()
+                }
+                .onAppear {
+                    Task {
+                        await storekitStore.updateCustomerProductStatus()
+                        isLoadingStorekit = false
+                    }
                 }
             }
             .appBackground()

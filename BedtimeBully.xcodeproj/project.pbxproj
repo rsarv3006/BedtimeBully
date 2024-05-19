@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		29E25819421C56D74CB6A9A6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931ECBF36FB3FBDEAAE481A /* Time.swift */; };
 		2AC7E27A407D93AA71593FE3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838DEFB475C7EDDA5410D86 /* Utils.swift */; };
 		43E8C65783EE8FAB50B0B927 /* BedtimeBullyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */; };
+		4ECB9702660F23022A723A06 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF2775EFD4C10C331E099F /* StoreKit.swift */; };
 		511DF11DE6A3239A21C6ECA7 /* ScheduleTemplateV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE24965FCC9C7ADD95C6A4F /* ScheduleTemplateV1_0_1.swift */; };
 		53E6AE21BF06F9C89D9857CB /* WeeklyBedtimeScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0F3AECD126EBBB1BB2AB4 /* WeeklyBedtimeScheduleViewModel.swift */; };
 		57ABD04BCA7C19922807E460 /* BedtimeScheduleWeekSectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8B3BE1B49C94A9E3C254A /* BedtimeScheduleWeekSectionUpdate.swift */; };
@@ -30,6 +31,8 @@
 		6DDC19FBD3316BA148EAF12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */; };
 		6EF116447DE6E0021253BFD0 /* BedtimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CDF8D9ED24B7A30CAC709 /* BedtimeError.swift */; };
 		76499E1D270F01280C2BEC6C /* BedtimeBullyData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		78040AAA2BFA17340025927E /* Bedtime Bully.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 78040AA92BFA17340025927E /* Bedtime Bully.storekit */; };
+		78040AAD2BFA183C0025927E /* PurchasesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78040AAC2BFA183C0025927E /* PurchasesScreen.swift */; };
 		80E6B964F2F1B59DFF7DCDC7 /* BedtimeBullyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DC25BF39646712D643956 /* BedtimeBullyTests.swift */; };
 		8585A8FEF0B0952FB15EF82E /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571A175D7F3B025341A2D20B /* Notifications.framework */; };
 		867E09EA8374B3B7C9D5E37E /* ConfigV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340725DCF16D2EFEA21AEE6C /* ConfigV1.swift */; };
@@ -45,7 +48,6 @@
 		A24C1C5F0509C7AB6E78B030 /* ConfigV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5415B80BAEC2361E289F26 /* ConfigV1_0_1.swift */; };
 		AD2927665AFCB1E969BEB1A4 /* ScheduleTemplateV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D215F7CC50912444EDC4F79F /* ScheduleTemplateV1.swift */; };
 		AE63C9F5B9311BA745025E02 /* TimeStructTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3BDF3B3264B964BF9AF9FF /* TimeStructTests.swift */; };
-		AF2EB6EF69D2188D5FF532F1 /* CustomizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB64DFF5D8ED4147AF5AE0 /* CustomizeScreen.swift */; };
 		AF3D1733F25351B805B6253C /* SchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D34EE21D5A984B1EBC2429 /* SchemaV1.swift */; };
 		AFC63DDC052567A7F9C4359B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C399B869169DFFC09A5DB /* Notifications.swift */; };
 		B02B7B265D7C8FBC9FB2C3BB /* BedtimeBullyData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */; };
@@ -207,13 +209,14 @@
 		70409EA1FF5202466584B60B /* BedtimeBullyDataTestsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyDataTestsUtils.swift; sourceTree = "<group>"; };
 		73258C6F0678F2F9AAAFF00E /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		73C2D1331CA6DF7319F40EF8 /* BedtimeHistoryV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeHistoryV1_0_1.swift; sourceTree = "<group>"; };
+		78040AA92BFA17340025927E /* Bedtime Bully.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
+		78040AAC2BFA183C0025927E /* PurchasesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreen.swift; sourceTree = "<group>"; };
 		7962A0B73F6F779597EBAC64 /* NotificationScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleScreen.swift; sourceTree = "<group>"; };
 		81FF9074B0D2F709E9049DF8 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		837CA9A2366F181F52E9D726 /* BedtimeBullyDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyDataTests.swift; sourceTree = "<group>"; };
 		83FC2B52FAE29253A712AD00 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		88AD823439052CEA13F47112 /* WeeklyBedtimeSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBedtimeSchedule.swift; sourceTree = "<group>"; };
 		88B711A4DA6CCCC04A937EFE /* RequestNotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationsPermissionView.swift; sourceTree = "<group>"; };
-		8BBB64DFF5D8ED4147AF5AE0 /* CustomizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeScreen.swift; sourceTree = "<group>"; };
 		8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeScheduleScreen.swift; sourceTree = "<group>"; };
 		8D7393EBF3334235CBD7D9BB /* BedtimeV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeV1_0_1.swift; sourceTree = "<group>"; };
 		8E3B657D0C24B2E799364FCD /* NotificationScheduleV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleV1_0_1.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 		B6A3816576EFBA2617ADC814 /* BedtimeBully-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BedtimeBully-Info.plist"; sourceTree = "<group>"; };
 		B931ECBF36FB3FBDEAAE481A /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BAF466D1BBDF6000389253EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBAF2775EFD4C10C331E099F /* StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit.swift; sourceTree = "<group>"; };
 		BCD38D6AB6CC56BF0ED7D7A5 /* SchemaV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaV1_0_1.swift; sourceTree = "<group>"; };
 		BCE85744F51DA48C4D4934CD /* SingleBedtimeUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBedtimeUpdateView.swift; sourceTree = "<group>"; };
 		C1AECC99D4EA46D8DBE6AB3D /* TuistAssets+BedtimeBully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+BedtimeBully.swift"; sourceTree = "<group>"; };
@@ -433,6 +437,17 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		78040AAB2BFA18140025927E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */,
+				7962A0B73F6F779597EBAC64 /* NotificationScheduleScreen.swift */,
+				FBADCBF868C89414AEEB1A5B /* SettingsScreen.swift */,
+				78040AAC2BFA183C0025927E /* PurchasesScreen.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		9CD372E5E6966E1068358A94 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +482,7 @@
 		A23C490E55161A345C187D89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				78040AA92BFA17340025927E /* Bedtime Bully.storekit */,
 				14A45DAE758BE6766DA0014C /* Preview Content */,
 				BAF466D1BBDF6000389253EA /* Assets.xcassets */,
 				67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */,
@@ -513,6 +529,7 @@
 		C2DC39799CC463236F1E20D5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				78040AAB2BFA18140025927E /* Settings */,
 				31161862F2C06D7768C03FC0 /* BedtimeScheduleScreenComponents */,
 				087EDE09ABBD163505EB019B /* Common */,
 				B9FE090AD68434917EAA79E5 /* HomeScreenComponents */,
@@ -520,11 +537,8 @@
 				275A9FC2326B1709ABB9E89C /* NotificationPermissions */,
 				A034C02E3F96774BC141D6AD /* Stores */,
 				2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */,
-				8CF4C13177F530E7C97BD0E5 /* BedtimeScheduleScreen.swift */,
-				8BBB64DFF5D8ED4147AF5AE0 /* CustomizeScreen.swift */,
 				5E049DA27785953AB9C2AE0A /* HomeScreen.swift */,
-				7962A0B73F6F779597EBAC64 /* NotificationScheduleScreen.swift */,
-				FBADCBF868C89414AEEB1A5B /* SettingsScreen.swift */,
+				BBAF2775EFD4C10C331E099F /* StoreKit.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -770,6 +784,7 @@
 				EC27347AEB1F445231215819 /* Assets.xcassets in Resources */,
 				6DDC19FBD3316BA148EAF12E /* LaunchScreen.storyboard in Resources */,
 				ECB1D99EB1531473A5CA94F1 /* Preview Assets.xcassets in Resources */,
+				78040AAA2BFA17340025927E /* Bedtime Bully.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,8 +888,8 @@
 				D5B5A7AD5EA5BAD7FAA8C1C5 /* SingleBedtimeUpdateView.swift in Sources */,
 				C1DB0BE14EE7D5144C526172 /* WeeklyBedtimeSchedule.swift in Sources */,
 				53E6AE21BF06F9C89D9857CB /* WeeklyBedtimeScheduleViewModel.swift in Sources */,
+				78040AAD2BFA183C0025927E /* PurchasesScreen.swift in Sources */,
 				E2708834FB0464930B3393D4 /* AppBackground.swift in Sources */,
-				AF2EB6EF69D2188D5FF532F1 /* CustomizeScreen.swift in Sources */,
 				89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */,
 				CEEC1F1C807552E1CC43AF1E /* BedtimeHomeDisplay.swift in Sources */,
 				947695EA55864D316215BD4E /* CountdownUntilBedtimeView.swift in Sources */,
@@ -883,6 +898,7 @@
 				1B037CC0B14F1A47374DF76E /* RequestNotificationsPermissionView.swift in Sources */,
 				12C11CAE27668C3DFAD84F07 /* NotificationScheduleScreen.swift in Sources */,
 				A082FD54FA4D97FC1201675B /* SettingsScreen.swift in Sources */,
+				4ECB9702660F23022A723A06 /* StoreKit.swift in Sources */,
 				5875125BE75CE761C2D1C739 /* BedtimeStore.swift in Sources */,
 				DDB27558E1B77600084EAEA3 /* TuistAssets+BedtimeBully.swift in Sources */,
 				1E9A11D90168859D1B4319C3 /* TuistBundle+BedtimeBully.swift in Sources */,
@@ -981,10 +997,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1073,10 +1086,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1126,10 +1136,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1155,10 +1162,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1192,10 +1196,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1280,10 +1281,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
