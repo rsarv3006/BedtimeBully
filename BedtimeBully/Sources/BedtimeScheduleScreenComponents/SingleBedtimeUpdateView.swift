@@ -14,7 +14,7 @@ public struct SingleBedtimeUpdateView: View {
     public var body: some View {
         VStack {
             HStack {
-                    Text("Update Bedtime")
+                    Text("Update All Bedtimes")
 
                     Spacer()
 

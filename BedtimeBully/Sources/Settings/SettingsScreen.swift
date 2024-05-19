@@ -4,7 +4,7 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 10) {
+                VStack {
                     NavigationLink("Customize Bedtime Schedule") {
                         BedtimeScheduleScreen()
                     }
@@ -28,6 +28,14 @@ struct SettingsScreen: View {
 
                     Text("[Privacy Policy](https://rjsappdev.wixsite.com/bedtime-bully/privacy-policy)")
                         .padding(.bottom)
+
+                    Button {
+                        if let url = URL(string: "https://shiner.rjs-app-dev.us/") {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Image(systemName: "pawprint.circle")
+                    }
                 }
                 .frame(maxWidth: 350)
 

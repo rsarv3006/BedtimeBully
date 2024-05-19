@@ -20,6 +20,7 @@ public struct WeeklyBedtimeSceduleScreen: View {
                     }) {
                         Text("Save Bedtimes")
                     }
+                    .padding(.vertical)
                     .alert("Weekly Bedtime Schedule has been updated", isPresented: $viewModel.showBedtimeHasUpdated) {}
 
                     BedtimeScheduleWeekSectionUpdate(title: "Sunday", bedtimeDate: $viewModel.sundayBedtime, isDateEnabled: $viewModel.isSundayEnabled)
@@ -30,7 +31,6 @@ public struct WeeklyBedtimeSceduleScreen: View {
                     BedtimeScheduleWeekSectionUpdate(title: "Friday", bedtimeDate: $viewModel.fridayBedtime, isDateEnabled: $viewModel.isFridayEnabled)
                     BedtimeScheduleWeekSectionUpdate(title: "Saturday", bedtimeDate: $viewModel.saturdayBedtime, isDateEnabled: $viewModel.isSaturdayEnabled)
                 }
-//                .allowsHitTesting(storekitStore.hasPurchasedUnlockBedtimeSchedule)
                 .frame(maxWidth: 350)
 
                 if !storekitStore.hasPurchasedUnlockBedtimeSchedule {

@@ -12,7 +12,7 @@ struct PurchasesScreen: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
+                VStack(spacing: 10) {
                     Button(action: {
                         Task {
                             if let product = storekitStore.unlockBedtimeSchedule {
