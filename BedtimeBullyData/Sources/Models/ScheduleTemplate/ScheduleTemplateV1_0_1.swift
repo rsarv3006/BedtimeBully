@@ -7,7 +7,7 @@ extension SchemaV1_0_1 {
         public let id: UUID
         public let name: String
         public let isActive: Bool
-        
+
         public var monday: Time?
         public var tuesday: Time?
         public var wednesday: Time?
@@ -15,19 +15,19 @@ extension SchemaV1_0_1 {
         public var friday: Time?
         public var saturday: Time?
         public var sunday: Time?
-        
+
         @Relationship(deleteRule: .cascade) public var notificationSchedule: NotificationSchedule?
-        
+
         init(name: String, isActive: Bool) {
             id = UUID()
             self.name = name
             self.isActive = isActive
         }
-        
+
         init(name: String, monday: Time?, tuesday: Time?, wednesday: Time?, thursday: Time?, friday: Time?, saturday: Time?, sunday: Time?, notificationSchedule: NotificationSchedule?) {
-            self.id = UUID()
+            id = UUID()
             self.name = name
-            self.isActive = true
+            isActive = true
             self.monday = monday
             self.tuesday = tuesday
             self.wednesday = wednesday
@@ -37,12 +37,21 @@ extension SchemaV1_0_1 {
             self.sunday = sunday
             self.notificationSchedule = notificationSchedule
         }
-        
+
         public func addNotificationSchedule(notificationSchedule: NotificationSchedule) {
             self.notificationSchedule = notificationSchedule
         }
-        
-        public func setBedtimes(modelContext: ModelContext, monday: Time, tuesday: Time, wednesday: Time, thursday: Time, friday: Time, saturday: Time, sunday: Time) throws {
+
+        public func setBedtimes(
+            modelContext: ModelContext,
+            monday: Time?,
+            tuesday: Time?,
+            wednesday: Time?,
+            thursday: Time?,
+            friday: Time?,
+            saturday: Time?,
+            sunday: Time?
+        ) throws {
             self.monday = monday
             self.tuesday = tuesday
             self.wednesday = wednesday
@@ -52,7 +61,7 @@ extension SchemaV1_0_1 {
             self.sunday = sunday
             try modelContext.save()
         }
-        
+
         public func getBedtime(dayOfWeek: Date.DayOfTheWeek?) -> Time? {
             switch dayOfWeek {
             case .Sunday:
@@ -73,7 +82,7 @@ extension SchemaV1_0_1 {
                 return nil
             }
         }
-        
+
         public func getBedtime(dayOfWeek: Int) -> Time? {
             switch dayOfWeek {
             case 1:
@@ -94,7 +103,7 @@ extension SchemaV1_0_1 {
                 return nil
             }
         }
-        
+
         static func activeBedtimeSchedulePredicate() -> Predicate<BedtimeScheduleTemplate> {
             let activeBedtimeSchedulePredicate = #Predicate<BedtimeScheduleTemplate> { schedule in
                 schedule.isActive == true

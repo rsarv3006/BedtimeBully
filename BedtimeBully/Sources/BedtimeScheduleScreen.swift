@@ -1,63 +1,40 @@
 import BedtimeBullyData
-import Notifications
+import SwiftData
 import SwiftUI
 
 public struct BedtimeScheduleScreen: View {
     @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject() private var bedtimeStore: BedtimeStore
+    @State private var segmentedControlSelected = 0
 
-    @State private var newBedtime: Date = .init()
-    @State private var hasError = false
-    @State private var errorMessage = ""
-    @State private var showBedtimeHasUpdated = false
+    @Query(filter: #Predicate<BedtimeScheduleTemplate> { schedule in
+        schedule.isActive == true
+    }) private var activeBedtimeSchedules: [BedtimeScheduleTemplate]
 
     public var body: some View {
         NavigationStack {
             VStack {
-                HStack {
-                    Text("Update Bedtime")
-
-                    Spacer()
-
-                    DatePicker("", selection: $newBedtime, displayedComponents: .hourAndMinute)
-                    #if os(macOS)
-                        .datePickerStyle(.graphical)
-                    #endif
-                        .labelsHidden()
-                        .padding(.bottom)
+                Picker("Select Bedtime", selection: $segmentedControlSelected) {
+                    Text("Global Bedtime").tag(0)
+                    Text("Weekly Bedtime Schedule").tag(1)
                 }
+                .pickerStyle(.segmented)
+                .padding(.top)
+                .frame(maxWidth: 350)
 
-                HStack {
-                    Spacer()
-
-                    Button(action: {
-                        do {
-                            try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
-                            bedtimeStore.bedtime = newBedtime
-                            showBedtimeHasUpdated = true
-
-                        } catch {
-                            hasError = true
-                            errorMessage = error.localizedDescription
-                        }
-                    }, label: {
-                        Text("Save")
-                    })
-                    .alert("", isPresented: $showBedtimeHasUpdated, actions: {}) {
-                        Text("Bedtime has been updated.")
+                if segmentedControlSelected == 0 {
+                    SingleBedtimeUpdateView()
+                        .frame(maxWidth: 350)
+                } else {
+                    if let schedule = activeBedtimeSchedules.first {
+                        WeeklyBedtimeSceduleScreen(bedtimeSchedule: schedule)
+                    } else {
+                        Text("No bedtime schedule found")
                     }
-                }
-                .alert("Error Encountered", isPresented: $hasError, actions: {}) {
-                    Text(errorMessage)
-                }
-                .onAppear {
-                    newBedtime = bedtimeStore.bedtime
                 }
 
                 Spacer()
             }
             .navigationTitle("Bedtime Schedule")
-            .frame(maxWidth: 350)
 
             HStack {
                 Spacer()

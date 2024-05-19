@@ -15,7 +15,7 @@ public struct CountdownUntilBedtimeView: View {
         """
         You have
         \(hours) hours, \(minutes) minutes and \(seconds) seconds
-        until bedtime.
+        until your next bedtime.
         """
     }
 }

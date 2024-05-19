@@ -211,3 +211,11 @@ public func updateBedtimeAndNotifications(modelContext: ModelContext, newBedtime
     
     try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
 }
+
+public func updateNotificationsfromUpdatedBedtimeSchedule(modelContext: ModelContext, newBedtimeSchedule: BedtimeScheduleTemplate) throws {
+    try removeAllBedtimesAndNotifications(modelContext: modelContext)
+
+    try addBedtimesFromSchedule(modelContext)
+
+    try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
+}

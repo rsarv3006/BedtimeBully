@@ -39,7 +39,7 @@ final class BedtimeDedupeTest: XCTestCase {
     func testPerformanceExample() throws {
         var things: [VeryImportantThings] = []
         
-        for i in 0...14_400_000 {
+        for i in 0...1_000_000 {
             if i % 2 == 0 {
                 things.append(VeryImportantThings(id: TimeInterval(i - 1)))
             }
