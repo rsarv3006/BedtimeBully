@@ -1,5 +1,18 @@
 import ProjectDescription
 
+extension SettingsDictionary {
+    func setProjectVersions() -> SettingsDictionary {
+        let currentProjectversion = "1.0.2"
+        let markettingVersion = "1"
+        return appleGenericVersioningSystem().merging([
+            "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
+            "CURRENT_PROJECT_VERSION": SettingValue(stringLiteral: currentProjectversion),
+            "MARKETING_VERSION": SettingValue(stringLiteral: markettingVersion)
+            
+        ])
+    }
+}
+
 struct ProjectTargets {
    static let BedtimeBully = "BedtimeBully"
     static let BedtimeBullyTests = "BedtimeBullyTests"
@@ -12,9 +25,7 @@ struct ProjectTargets {
 let project = Project(
     name: "BedtimeBully",
     settings: Settings.settings(
-        base: [
-            "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor"
-        ],
+        base: SettingsDictionary().setProjectVersions(),
         configurations: [
             Configuration.debug(
                 name: "Debug",
