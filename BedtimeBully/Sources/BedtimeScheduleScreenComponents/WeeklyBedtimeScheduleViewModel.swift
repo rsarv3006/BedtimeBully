@@ -55,7 +55,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
             isTuesdayEnabled = true
         } else {
             tuesdayBedtime = now
-            isTuesdayEnabled = true
+            isTuesdayEnabled = false
         }
 
         if let wednesdayBuiltDate = try? schedule.wednesday?.toDate(baseDate: now) {
@@ -63,7 +63,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
             isWednesdayEnabled = true
         } else {
             wednesdayBedtime = now
-            isWednesdayEnabled = true
+            isWednesdayEnabled = false
         }
 
         if let thursdayBuiltDate = try? schedule.thursday?.toDate(baseDate: now) {
@@ -71,7 +71,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
             isThursdayEnabled = true
         } else {
             thursdayBedtime = now
-            isThursdayEnabled = true
+            isThursdayEnabled = false
         }
 
         if let fridayBuiltDate = try? schedule.friday?.toDate(baseDate: now) {
@@ -79,7 +79,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
             isFridayEnabled = true
         } else {
             fridayBedtime = now
-            isFridayEnabled = true
+            isFridayEnabled = false
         }
 
         if let saturdayBuiltDate = try? schedule.saturday?.toDate(baseDate: now) {
@@ -87,7 +87,7 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
             isSaturdayEnabled = true
         } else {
             saturdayBedtime = now
-            isSaturdayEnabled = true
+            isSaturdayEnabled = false
         }
     }
 
