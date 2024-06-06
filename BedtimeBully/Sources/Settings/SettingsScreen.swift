@@ -1,5 +1,11 @@
 import SwiftUI
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+}
+
 struct SettingsScreen: View {
     var body: some View {
         NavigationStack {
@@ -36,6 +42,11 @@ struct SettingsScreen: View {
                     } label: {
                         Image(systemName: "pawprint.circle")
                     }
+                   .padding(.bottom)
+
+                   Text("Version \(UIApplication.appVersion ?? "Unknown")")
+                   .foregroundColor(.accentColor)
+
                 }
                 .frame(maxWidth: 350)
 
