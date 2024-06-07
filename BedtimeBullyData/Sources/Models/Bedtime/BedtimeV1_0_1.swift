@@ -58,7 +58,7 @@ extension SchemaV1_0_1 {
         
         public static func nextBedtimePredicate(_ date: Date) -> Predicate<Bedtime> {
             let nextBedtimePredicate = #Predicate<Bedtime> { bedtime in
-                bedtime.status == "active" && bedtime.id > date.timeIntervalSince1970
+                bedtime.status == "active" && bedtime.id > date.timeIntervalSince1970 && bedtime.hasGoneToBed == false
             }
             return nextBedtimePredicate
         }
