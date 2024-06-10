@@ -10,5 +10,5 @@ public enum SchemaV1_0_1: VersionedSchema {
         BedtimeHistory.self,
     ]
 
-    public static var versionIdentifier: Schema.Version = .init(1, 0, 1)
+    public static var versionIdentifier: Schema.Version = .init(1, 0, 2)
 }
