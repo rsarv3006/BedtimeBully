@@ -62,5 +62,13 @@ extension SchemaV1_0_1 {
             }
             return nextBedtimePredicate
         }
+        
+        public static func bedtimeByIdPredicate(_ id: TimeInterval) -> Predicate<Bedtime> {
+            let bedtimeByIdPredicate = #Predicate<Bedtime> { bedtime in
+                bedtime.id == id
+            }
+            
+            return bedtimeByIdPredicate
+        }
     }
 }

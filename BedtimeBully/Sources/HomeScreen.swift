@@ -12,8 +12,6 @@ public struct HomeScreen: View {
     @Query() private var configs: [Config]
 
     @State() private var isLoadingStorekit = true
-    @State() private var bedtimeModel: Bedtime?
-    @State() private var hasBedtime = false
     @State() private var shouldShowRequestNotificationPermissions = false
     @State private var hasError = false
     @State private var errorMessage = ""
@@ -22,7 +20,7 @@ public struct HomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    BedtimeHomeDisplay(hasBedtime: $hasBedtime, bedtimeModel: $bedtimeModel) {
+                    BedtimeHomeDisplay() {
                         DispatchQueue.main.async {
                             do {
                                 try initializeBedtimeAndOtherData()
@@ -65,7 +63,7 @@ public struct HomeScreen: View {
                         try buildInitialData(modelContext)
 
                         if let config = configs.first {
-                            hasBedtime = config.hasSetBedtime
+                            bedtimeStore.hasBedtime = config.hasSetBedtime
                             shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
 
                             if config.isNotificationsEnabled && config.hasSetBedtime {
@@ -104,14 +102,14 @@ public struct HomeScreen: View {
 
         let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
 
-        bedtimeModel = bedtimes.first
+        bedtimeStore.bedtimeModel = bedtimes.first
 
-        guard let bedtimeModel else {
+        guard let bedtimeModel = bedtimeStore.bedtimeModel else {
             throw BedtimeError.unableToGetBedtime
         }
 
         bedtimeStore.bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
-        hasBedtime = true
+        bedtimeStore.hasBedtime = true
 
         try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
     }

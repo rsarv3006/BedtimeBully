@@ -6,9 +6,6 @@ public struct BedtimeHomeDisplay: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
-    @Binding var hasBedtime: Bool
-    @Binding var bedtimeModel: Bedtime?
-
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var hasSetCorrectCountdownTime = false
     @State private var hours = 0
@@ -29,7 +26,7 @@ public struct BedtimeHomeDisplay: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 .onReceive(timer) { _ in
-                    if hasBedtime {
+                    if bedtimeStore.hasBedtime {
                         updateCountdownComponents()
                     }
                 }
@@ -37,7 +34,7 @@ public struct BedtimeHomeDisplay: View {
             Text("Today's Bedtime")
                 .font(.title2)
 
-            if hasBedtime && hours <= 24 {
+            if bedtimeStore.hasBedtime && hours <= 24 {
                 DatePicker("", selection: $bedtimeStore.bedtime, displayedComponents: .hourAndMinute)
                     .labelsHidden()
                     .padding(.bottom)
@@ -59,7 +56,7 @@ public struct BedtimeHomeDisplay: View {
                         .padding(.horizontal)
                 }
 
-                if hours == 0 && minutes < 60 && !(bedtimeModel?.hasGoneToBed ?? true) {
+                if hours == 0 && minutes < 60, !(bedtimeStore.bedtimeModel?.hasGoneToBed ?? true) {
                     Button {
                         shouldShowInBedModal = true
                     } label: {
@@ -69,7 +66,7 @@ public struct BedtimeHomeDisplay: View {
                     .alert("Going to Bed?", isPresented: $shouldShowInBedModal) {
                         Button("Yes") {
                             do {
-                                if let bedtimeModel {
+                                if let bedtimeModel = bedtimeStore.bedtimeModel {
                                     bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
                                     bedtimeModel.hasGoneToBed = true
                                     bedtimeModel.notificationItems = []
@@ -91,13 +88,13 @@ public struct BedtimeHomeDisplay: View {
                         """)
                     }
 
-                } else if hours == 0 && minutes < 60 && bedtimeModel?.hasGoneToBed ?? true {
+                } else if hours == 0 && minutes < 60 && bedtimeStore.bedtimeModel?.hasGoneToBed ?? true {
                     Text("Good night! Sleep well!")
                         .padding(.top)
                 }
             }
 
-            if hasBedtime {
+            if bedtimeStore.hasBedtime {
                 Text(beginNotifyingString)
                     .multilineTextAlignment(.center)
                     .padding()
