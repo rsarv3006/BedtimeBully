@@ -1,6 +1,6 @@
 import Foundation
 
 public enum BedtimeStatus: String, Codable {
-    case active
-    case history
+    case active = "active"
+    case history = "history"
 }

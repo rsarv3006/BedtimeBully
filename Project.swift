@@ -7,14 +7,14 @@ extension SettingsDictionary {
         return appleGenericVersioningSystem().merging([
             "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
             "CURRENT_PROJECT_VERSION": SettingValue(stringLiteral: currentProjectversion),
-            "MARKETING_VERSION": SettingValue(stringLiteral: markettingVersion)
-            
+            "MARKETING_VERSION": SettingValue(stringLiteral: markettingVersion),
+
         ])
     }
 }
 
-struct ProjectTargets {
-   static let BedtimeBully = "BedtimeBully"
+enum ProjectTargets {
+    static let BedtimeBully = "BedtimeBully"
     static let BedtimeBullyTests = "BedtimeBullyTests"
     static let Notifications = "Notifications"
     static let BedtimeBullyData = "BedtimeBullyData"
@@ -34,7 +34,7 @@ let project = Project(
             Configuration.release(
                 name: "Release",
                 settings: SettingsDictionary().automaticCodeSigning(devTeam: "4QGR522B9M")
-            )
+            ),
         ], defaultSettings: .recommended()
     ),
     targets: [
@@ -46,12 +46,16 @@ let project = Project(
             deploymentTargets: DeploymentTargets.iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
-                    "UILaunchStoryboardName": "LaunchScreen"
+                    "UILaunchStoryboardName": "LaunchScreen",
                 ]
             ),
             sources: ["BedtimeBully/Sources/**"],
             resources: ["BedtimeBully/Resources/**"],
-            dependencies: [.target(name: ProjectTargets.Notifications), .target(name: ProjectTargets.BedtimeBullyData)]
+            dependencies: [
+                .target(name: ProjectTargets.Notifications),
+                .target(name: ProjectTargets.BedtimeBullyData),
+                .external(name: "GRDBQuery"),
+            ]
         ),
         .target(
             name: ProjectTargets.BedtimeBullyTests,
@@ -88,7 +92,8 @@ let project = Project(
             deploymentTargets: DeploymentTargets.iOS("17.0"),
             sources: ["BedtimeBullyData/Sources/**"],
             dependencies: [
-                .target(name: ProjectTargets.Notifications)
+                .target(name: ProjectTargets.Notifications),
+                .external(name: "GRDB"),
             ]
         ),
         .target(
@@ -99,8 +104,8 @@ let project = Project(
             deploymentTargets: DeploymentTargets.iOS("17.0"),
             sources: ["BedtimeBullyData/Tests/**"],
             dependencies: [
-                .target(name: ProjectTargets.BedtimeBullyData)
+                .target(name: ProjectTargets.BedtimeBullyData),
             ]
-        )
+        ),
     ]
 )

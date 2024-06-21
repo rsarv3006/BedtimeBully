@@ -6,6 +6,7 @@ public enum BedtimeError: Error, LocalizedError {
     case noBedtimeSchedule
     case unableToGetBedtime
     case noActiveScheduleTemplate
+    case unableToCreateNotificationSchedule
     
     public var errorDescription: String? {
         switch self {
@@ -19,6 +20,8 @@ public enum BedtimeError: Error, LocalizedError {
             return "Unable to get bedtime"
         case .noActiveScheduleTemplate:
             return "No active schedule template"
+        case .unableToCreateNotificationSchedule:
+            return "Uable to create a notificationSchedule"
         }
     }
 }
