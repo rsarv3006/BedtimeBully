@@ -71,4 +71,6 @@ Tuist/.build
 
 .nvim/**/*.log
 
+.idea
+
 
