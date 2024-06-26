@@ -54,6 +54,7 @@ public struct BedtimeDatesAndActiveSchedule {
     let activeSchedule: BedtimeScheduleTemplate
 }
 
+// TODO: move this function and addBedtimesFromSchedule to GRDB
 public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) throws -> BedtimeDatesAndActiveSchedule {
     var datesToCreate: [Date] = []
     let bedtimeScheduleTemplatesDescriptor: FetchDescriptor<BedtimeScheduleTemplate> = FetchDescriptor()

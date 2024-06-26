@@ -2,11 +2,12 @@ import BedtimeBullyData
 import SwiftData
 import SwiftUI
 
+
 @main
 struct BedtimeBullyApp: App {
     @StateObject var storekitStore = StorekitStore()
     @StateObject var bedtimeStore = BedtimeStore()
-    
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema(versionedSchema: SchemaV1_0_1.self)
         
