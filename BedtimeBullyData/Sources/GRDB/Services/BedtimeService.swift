@@ -33,7 +33,7 @@ public extension AppDatabase {
 
         let calendar = Calendar.current
 
-        for index in 0 ..< 7 {
+        for index in 0 ..< 30 {
             let dateSection = calendar.date(byAdding: .day, value: index, to: now)
             let dayOfWeek = dateSection?.dayOfWeek
 
@@ -79,7 +79,7 @@ public extension AppDatabase {
         let now = Date()
         let bedtimeDates = try getBedtimeDatesToCreate(now: now)
 
-        let scheduleId = bedtimeDates.activeSchedule.id
+        let scheduleId = bedtimeDates.activeSchedule.notificationScheduleId
 
         let notificationSchedule = try getNotificationScheduleById(scheduleId)
 

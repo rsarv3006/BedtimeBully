@@ -49,6 +49,7 @@ public extension AppDatabase {
             try appDatabase.createDefaultNotificationSchedule()
             try appDatabase.createDefaultScheduleTemplate()
             
+            try appDatabase.addBedtimesFromSchedule()
             return appDatabase
         } catch {
             // Replace this implementation with code to handle the error appropriately.

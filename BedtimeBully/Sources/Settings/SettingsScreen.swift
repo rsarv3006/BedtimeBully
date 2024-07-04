@@ -1,6 +1,6 @@
-import SwiftUI
 import BedtimeBullyData
 import GRDBQuery
+import SwiftUI
 
 extension UIApplication {
     static var appVersion: String? {
@@ -11,8 +11,9 @@ extension UIApplication {
 struct SettingsScreen: View {
 //    @Query(ConfigRequest()) private var config: GRDBConfig?
 //    @Query(BedtimeHistoryRequest()) private var bedtimeHistories: [GRDBBedtimeHistory]
-    @Query(ScheduleTemplateRequest()) private var scheduleTemplates: [GRDBScheduleTemplate]
-    
+//    @Query(ScheduleTemplateRequest()) private var scheduleTemplates: [GRDBScheduleTemplate]
+    @Query(BedtimeRequest()) private var allBedtimes: [GRDBBedtime]
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -21,26 +22,26 @@ struct SettingsScreen: View {
                         BedtimeScheduleScreen()
                     }
                     .padding(.vertical)
-                    
+
                     NavigationLink("Notification Schedule") {
                         NotificationScheduleScreen()
                     }
                     .padding(.bottom)
-                    
+
                     NavigationLink("Purchases") {
                         PurchasesScreen()
                     }
                     .padding(.bottom)
-                    
+
                     Text("[Contact Support](https://rjsappdev.wixsite.com/bedtime-bully/general-5)")
                         .padding(.bottom)
-                    
+
                     Text("[EULA](https://rjsappdev.wixsite.com/bedtime-bully/eula)")
                         .padding(.bottom)
-                    
+
                     Text("[Privacy Policy](https://rjsappdev.wixsite.com/bedtime-bully/privacy-policy)")
                         .padding(.bottom)
-                    
+
                     Button {
                         if let url = URL(string: "https://shiner.rjs-app-dev.us/") {
                             UIApplication.shared.open(url)
@@ -49,13 +50,16 @@ struct SettingsScreen: View {
                         Image(systemName: "pawprint.circle")
                     }
                     .padding(.bottom)
-                    
+
                     Text("Version \(UIApplication.appVersion ?? "Unknown")")
                         .foregroundColor(.accentColor)
-                    
-                    Text("\(scheduleTemplates.count)")
-                    Text("\(scheduleTemplates.first?.name)")
-                    Text("\(try? scheduleTemplates.first?.monday.time.toDate(baseDate: Date()))")
+
+                    Text("\(allBedtimes.count)")
+                        .onAppear {
+                            for bedtime in allBedtimes {
+                                print(bedtime.getPrettyDate())
+                            }
+                        }
                 }
                 .frame(maxWidth: 350)
 
