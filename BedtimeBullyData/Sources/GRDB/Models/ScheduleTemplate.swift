@@ -58,7 +58,7 @@ extension GRDBScheduleTemplate {
 
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
 extension GRDBScheduleTemplate: Codable, FetchableRecord, PersistableRecord {
-    fileprivate enum Columns {
+    enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
         static let isActive = Column(CodingKeys.isActive)
@@ -78,3 +78,48 @@ extension GRDBScheduleTemplate: Codable, FetchableRecord, PersistableRecord {
 
 extension DerivableRequest<GRDBScheduleTemplate> {
 }
+
+extension GRDBScheduleTemplate {
+        public func getBedtime(dayOfWeek: Date.DayOfTheWeek?) -> ScheduleTemplateDayItem? {
+            switch dayOfWeek {
+            case .Sunday:
+                return sunday
+            case .Monday:
+                return monday
+            case .Tuesday:
+                return tuesday
+            case .Wednesday:
+                return wednesday
+            case .Thursday:
+                return thursday
+            case .Friday:
+                return friday
+            case .Saturday:
+                return saturday
+            default:
+                return nil
+            }
+        }
+        
+        public func getBedtime(dayOfWeek: Int) -> ScheduleTemplateDayItem? {
+            switch dayOfWeek {
+            case 1:
+                return sunday
+            case 2:
+                return monday
+            case 3:
+                return tuesday
+            case 4:
+                return wednesday
+            case 5:
+                return thursday
+            case 6:
+                return friday
+            case 7:
+                return saturday
+            default:
+                return nil
+            }
+        }
+ 
+    }

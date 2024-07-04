@@ -19,5 +19,11 @@ public extension AppDatabase {
             }
         }
     }
+
+    func getNotificationScheduleById(_ id: String) throws -> GRDBNotificationSchedule? {
+        return try dbWriter.read { db in
+            try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.id == id).fetchOne(db)
+        }
+    }
 }
 

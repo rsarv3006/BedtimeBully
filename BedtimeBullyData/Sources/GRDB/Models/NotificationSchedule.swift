@@ -27,7 +27,7 @@ extension GRDBNotificationSchedule {
 
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
 extension GRDBNotificationSchedule: Codable, FetchableRecord, PersistableRecord {
-    fileprivate enum Columns {
+    enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
         static let notificationItems = Column(CodingKeys.notificationItems)

@@ -32,5 +32,11 @@ public extension AppDatabase {
             }
         }
     }
+
+    func getActiveScheduleTemplate() throws -> GRDBScheduleTemplate? {
+        return try dbWriter.read { db in
+            try GRDBScheduleTemplate.all().filter(GRDBScheduleTemplate.Columns.isActive == true).fetchOne(db)
+        }
+    }
 }
 

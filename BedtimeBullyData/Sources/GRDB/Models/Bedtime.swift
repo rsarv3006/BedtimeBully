@@ -69,10 +69,11 @@ extension GRDBBedtime {
 
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
 extension GRDBBedtime: Codable, FetchableRecord, PersistableRecord {
-    fileprivate enum Columns {
+    enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
         static let notificationItems = Column(CodingKeys.notificationItems)
+        static let status = Column(CodingKeys.status)
     }
 }
 
