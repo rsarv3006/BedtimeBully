@@ -3,6 +3,7 @@ import SwiftData
 import SwiftUI
 
 public struct BedtimeHomeDisplay: View {
+    @Environment(\.appDatabase) private var appDatabase
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
@@ -56,7 +57,7 @@ public struct BedtimeHomeDisplay: View {
                         .padding(.horizontal)
                 }
 
-                if hours == 0 && minutes < 60, !(bedtimeStore.bedtimeModel?.hasGoneToBed ?? true) {
+                if hours == 0 && minutes < 60 {
                     Button {
                         shouldShowInBedModal = true
                     } label: {
@@ -67,13 +68,8 @@ public struct BedtimeHomeDisplay: View {
                         Button("Yes") {
                             do {
                                 if let bedtimeModel = bedtimeStore.bedtimeModel {
-                                    bedtimeModel.removeUpcomingNotificationsForCurrentBedtime()
-                                    bedtimeModel.hasGoneToBed = true
-                                    bedtimeModel.notificationItems = []
-
-                                    let bedtimeHistory = BedtimeHistory(bedtimeTarget: bedtimeModel.id, inBedTime: Date().timeIntervalSince1970, status: .valid)
-                                    modelContext.insert(bedtimeHistory)
-                                    try modelContext.save()
+                                    let _ = try appDatabase.convertBedtimeToHistory(bedtimeModel)
+                                    bedtimeStore.bedtimeModel = nil
                                 }
                             } catch {
                                 print("Error: \(error)")
@@ -88,7 +84,7 @@ public struct BedtimeHomeDisplay: View {
                         """)
                     }
 
-                } else if hours == 0 && minutes < 60 && bedtimeStore.bedtimeModel?.hasGoneToBed ?? true {
+                } else if hours == 0 && minutes < 60 {
                     Text("Good night! Sleep well!")
                         .padding(.top)
                 }

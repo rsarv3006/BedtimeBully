@@ -8,25 +8,24 @@ public struct GRDBBedtimeHistory: Identifiable, Equatable {
 
     public var id: String
     public var bedtimeTarget: TimeInterval
-    public let inBedTime: TimeInterval
+    public let inBedTime: TimeInterval?
     public let status: BedtimeHistoryStatus
-    
-    init(bedtimeTarget: TimeInterval, inBedTime: TimeInterval, status: BedtimeHistoryStatus) {
-        self.id = UUID().uuidString
+
+    init(bedtimeTarget: TimeInterval, status: BedtimeHistoryStatus, inBedTime: TimeInterval?) {
+        id = UUID().uuidString
         self.bedtimeTarget = bedtimeTarget
         self.inBedTime = inBedTime
-        self.status = BedtimeHistoryStatus.valid
+        self.status = status
     }
-    
 }
 
 extension GRDBBedtimeHistory: TableRecord {
     public static let databaseTableName = TableNames.bedtimeHistory.rawValue
 }
 
-extension GRDBBedtimeHistory {
-    public static func new(bedtimeTarget: TimeInterval, inBedTime: TimeInterval, status: BedtimeHistoryStatus) -> GRDBBedtimeHistory {
-        GRDBBedtimeHistory(bedtimeTarget: bedtimeTarget, inBedTime: inBedTime, status: status)
+public extension GRDBBedtimeHistory {
+    static func new(bedtimeTarget: TimeInterval, status: BedtimeHistoryStatus, inBedTime: TimeInterval?) -> GRDBBedtimeHistory {
+        GRDBBedtimeHistory(bedtimeTarget: bedtimeTarget, status: status, inBedTime: inBedTime)
     }
 }
 
@@ -40,6 +39,4 @@ extension GRDBBedtimeHistory: Codable, FetchableRecord, PersistableRecord {
     }
 }
 
-extension DerivableRequest<GRDBBedtimeHistory> {
-}
-
+extension DerivableRequest<GRDBBedtimeHistory> {}

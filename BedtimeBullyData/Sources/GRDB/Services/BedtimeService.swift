@@ -58,19 +58,20 @@ public extension AppDatabase {
         try dbWriter.write { db in
             let testBedtime = GRDBBedtime.new(date: bedtimeDate, notificationSchedule: notificationSchedule)
             try testBedtime.insert(db)
-            
+
             let notificationItems = notificationSchedule.notificationItems.items
-            
+
             for notificationItem in notificationItems {
                 let notificationItemId = notificationItem.idToString()
                 let notificationItem = NotificationItem(id: notificationItem.id, message: notificationItem.message)
                 let notificationDate = Date(timeIntervalSince1970: notificationItem.id)
-                
-                let _ = NotificationService.scheduleNotification(
-                id: notificationItemId,
-                title: "Bedtime Bully",
-                body: notificationItem.message,
-                timestamp: notificationDate)
+
+                _ = NotificationService.scheduleNotification(
+                    id: notificationItemId,
+                    title: "Bedtime Bully",
+                    body: notificationItem.message,
+                    timestamp: notificationDate
+                )
             }
         }
     }
@@ -91,6 +92,31 @@ public extension AppDatabase {
             if bedtimeDate.timeIntervalSince1970 > now.timeIntervalSince1970 {
                 try grdbCreateBedtimeAndNotificationsForDate(bedtimeDate: bedtimeDate, notificationSchedule: notificationSchedule)
             }
+        }
+    }
+
+    func removeBedtimesAndNotificationsInThePast(currentDate date: Date) throws {
+        try dbWriter.write { db in
+            let bedtimes = try GRDBBedtime.all().filter(GRDBBedtime.Columns.id < date.timeIntervalSince1970).fetchAll(db)
+            var notificationsItems: [NotificationItem] = []
+            bedtimes.forEach { notificationsItems.append(contentsOf: $0.notificationItems.items) }
+            let notificationsItemIds = notificationsItems.map { $0.idToString() }
+            NotificationService.cancelNotifications(ids: notificationsItemIds)
+
+            try bedtimes.forEach { bedtime in
+                let _ = try createBedtimeHistory(db: db, bedtime: bedtime)
+                try bedtime.delete(db)
+            }
+        }
+    }
+
+    func convertBedtimeToHistory(_ bedtime: GRDBBedtime) throws -> GRDBBedtimeHistory {
+        try dbWriter.write { db in
+            let history = try createBedtimeHistory(db: db, bedtime: bedtime)
+            let notificationItemIds = bedtime.notificationItems.items.map { $0.idToString() }
+            NotificationService.cancelNotifications(ids: notificationItemIds)
+            try bedtime.delete(db)
+            return history
         }
     }
 }

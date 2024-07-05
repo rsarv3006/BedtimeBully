@@ -3,13 +3,14 @@ import Notifications
 import SwiftUI
 
 public struct RequestNotificationsPermissionView: View {
+    @Environment(\.appDatabase) private var appDatabase
     @ObservedObject private var viewModel: RequestNotificationPermissionsVM
     @Binding public var isModalPresented: Bool
     public let onAccept: () -> Void
-    public var config: Config?
+    public var config: GRDBConfig?
 
     public init(isModalPresented: Binding<Bool>,
-                config: Config?,
+                config: GRDBConfig?,
                 onAccept: @escaping () -> Void)
     {
         viewModel = RequestNotificationPermissionsVM()
@@ -29,11 +30,15 @@ public struct RequestNotificationsPermissionView: View {
                 NotificationService.requestAuthorization { isAuthorized, error in
                     DispatchQueue.main.async {
                         viewModel.error = error
+                        
+                        do {
                         if isAuthorized {
+                            try appDatabase.updateConfig(isNotificationsEnabled: true, hasSetBedtime: true)
                             isModalPresented = false
-                            config?.isNotificationsEnabled = true
-                            config?.hasSetBedtime = true
                             onAccept()
+                        }
+                        } catch {
+                            viewModel.error = error
                         }
                     }
                 }

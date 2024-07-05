@@ -10,4 +10,16 @@ public extension AppDatabase {
             }
         }
     }
+
+    func updateConfig(isNotificationsEnabled: Bool, hasSetBedtime: Bool) throws {
+        try dbWriter.write { db in
+            guard var config = try GRDBConfig.all().fetchOne(db) else {
+                    throw BedtimeError.noConfig
+                }
+            
+            config.isNotificationsEnabled = isNotificationsEnabled
+            config.hasSetBedtime = hasSetBedtime
+            try config.update(db)
+        }
+    }
 }

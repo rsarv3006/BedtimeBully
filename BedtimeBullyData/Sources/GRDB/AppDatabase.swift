@@ -102,45 +102,45 @@ extension AppDatabase {
             // Create a table
             // See <https://swiftpackageindex.com/groue/grdb.swift/documentation/grdb/databaseschema>
             try db.create(table: TableNames.config.rawValue) { t in
-                t.primaryKey("id", .text)
+                t.primaryKey("id", .text).notNull()
                 t.column("isNotificationsEnabled", .boolean).notNull()
                 t.column("hasSetBedtime", .boolean).notNull()
             }
             
             try db.create(table: TableNames.bedtimeHistory.rawValue) { t in
-                t.primaryKey("id", .text)
-                t.column("bedtimeTarget", .double)
+                t.primaryKey("id", .text).notNull()
+                t.column("bedtimeTarget", .double).notNull()
                 t.column("inBedTime", .double)
-                t.column("status", .text)
+                t.column("status", .text).notNull()
             }
             
             try db.create(table: TableNames.notificationSchedule.rawValue) { t in
-                t.primaryKey("id", .text)
-                t.column("name", .text)
-                t.column("notificationItems", .jsonText)
+                t.primaryKey("id", .text).notNull()
+                t.column("name", .text).notNull()
+                t.column("notificationItems", .jsonText).notNull()
             }
             
             try db.create(table: TableNames.ScheduleTemplate.rawValue) { t in
-                t.primaryKey("id", .text)
-                t.column("name", .text)
-                t.column("isActive", .boolean)
+                t.primaryKey("id", .text).notNull()
+                t.column("name", .text).notNull()
+                t.column("isActive", .boolean).notNull()
                 
-                t.column("monday", .jsonText)
-                t.column("tuesday", .jsonText)
-                t.column("wednesday", .jsonText)
-                t.column("thursday", .jsonText)
-                t.column("friday", .jsonText)
-                t.column("saturday", .jsonText)
-                t.column("sunday", .jsonText)
+                t.column("monday", .jsonText).notNull()
+                t.column("tuesday", .jsonText).notNull()
+                t.column("wednesday", .jsonText).notNull()
+                t.column("thursday", .jsonText).notNull()
+                t.column("friday", .jsonText).notNull()
+                t.column("saturday", .jsonText).notNull()
+                t.column("sunday", .jsonText).notNull()
                 
-                t.column("notificationScheduleId", .text)
+                t.column("notificationScheduleId", .text).notNull()
             }
             
             try db.create(table: TableNames.bedtime.rawValue) {t in
-                t.primaryKey("id", .double)
-                t.column("name", .text)
-                t.column("status", .text)
-                t.column("notificationItems", .jsonText)
+                t.primaryKey("id", .double).notNull()
+                t.column("name", .text).notNull()
+                t.column("status", .text).notNull()
+                t.column("notificationItems", .jsonText).notNull()
             }
         }
         

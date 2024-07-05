@@ -1,15 +1,16 @@
 import BedtimeBullyData
+import GRDBQuery
 import Notifications
-import SwiftData
 import SwiftUI
 
 public struct HomeScreen: View {
+    @Environment(\.appDatabase) private var appDatabase
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var storekitStore: StorekitStore
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
     @State private var bedtimes: [Bedtime] = []
-    @Query() private var configs: [Config]
+    @Query(ConfigRequest()) private var config: GRDBConfig?
 
     @State() private var isLoadingStorekit = true
     @State() private var shouldShowRequestNotificationPermissions = false
@@ -20,7 +21,7 @@ public struct HomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    BedtimeHomeDisplay() {
+                    BedtimeHomeDisplay {
                         DispatchQueue.main.async {
                             do {
                                 try initializeBedtimeAndOtherData()
@@ -35,7 +36,7 @@ public struct HomeScreen: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .sheet(isPresented: $shouldShowRequestNotificationPermissions) {
                     RequestNotificationsPermissionView(
-                        isModalPresented: $shouldShowRequestNotificationPermissions, config: configs.first
+                        isModalPresented: $shouldShowRequestNotificationPermissions, config: config
                     ) {
                         DispatchQueue.main.async {
                             do {
@@ -62,7 +63,7 @@ public struct HomeScreen: View {
                     do {
                         try buildInitialData(modelContext)
 
-                        if let config = configs.first {
+                        if let config {
                             bedtimeStore.hasBedtime = config.hasSetBedtime
                             shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
 
@@ -91,17 +92,12 @@ public struct HomeScreen: View {
     }
 
     func initializeBedtimeAndOtherData() throws {
-        try removeBedtimesAndNotificationsInThePast(modelContext: modelContext, currentDate: Date())
+        try appDatabase.removeBedtimesAndNotificationsInThePast(currentDate: Date())
 
-        try addBedtimesFromSchedule(modelContext)
+        try appDatabase.addBedtimesFromSchedule()
 
-        let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
-            predicate: Bedtime.nextBedtimePredicate(Date()),
-            sortBy: [.init(\.id, order: .forward)]
-        )
 
-        let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
-
+        let bedtimes = try appDatabase.getActiveBedtimes()
         bedtimeStore.bedtimeModel = bedtimes.first
 
         guard let bedtimeModel = bedtimeStore.bedtimeModel else {

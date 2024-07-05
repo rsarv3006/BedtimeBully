@@ -53,13 +53,6 @@ struct SettingsScreen: View {
 
                     Text("Version \(UIApplication.appVersion ?? "Unknown")")
                         .foregroundColor(.accentColor)
-
-                    Text("\(allBedtimes.count)")
-                        .onAppear {
-                            for bedtime in allBedtimes {
-                                print(bedtime.getPrettyDate())
-                            }
-                        }
                 }
                 .frame(maxWidth: 350)
 
