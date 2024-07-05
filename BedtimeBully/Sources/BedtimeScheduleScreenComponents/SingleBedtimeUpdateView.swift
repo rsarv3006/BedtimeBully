@@ -3,6 +3,7 @@ import Notifications
 import SwiftUI
 
 public struct SingleBedtimeUpdateView: View {
+    @Environment(\.appDatabase) private var appDatabase
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
@@ -31,7 +32,7 @@ public struct SingleBedtimeUpdateView: View {
 
                     Button(action: {
                         do {
-                            try updateBedtimeAndNotifications(modelContext: modelContext, newBedtime: newBedtime)
+                            try appDatabase.updateBedtimeAndNotifications(newBedtime: newBedtime)
                             bedtimeStore.bedtime = newBedtime
                             showBedtimeHasUpdated = true
 

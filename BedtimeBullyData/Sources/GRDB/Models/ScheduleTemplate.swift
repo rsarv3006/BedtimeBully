@@ -14,7 +14,7 @@ public struct GRDBScheduleTemplate: Identifiable, Equatable {
     public var id: String
     public let name: String
     public let isActive: Bool
-    
+
     public var monday: ScheduleTemplateDayItem
     public var tuesday: ScheduleTemplateDayItem
     public var wednesday: ScheduleTemplateDayItem
@@ -22,7 +22,7 @@ public struct GRDBScheduleTemplate: Identifiable, Equatable {
     public var friday: ScheduleTemplateDayItem
     public var saturday: ScheduleTemplateDayItem
     public var sunday: ScheduleTemplateDayItem
-    
+
     public var notificationScheduleId: String
 }
 
@@ -39,8 +39,8 @@ extension GRDBScheduleTemplate {
                     friday: ScheduleTemplateDayItem,
                     saturday: ScheduleTemplateDayItem,
                     sunday: ScheduleTemplateDayItem,
-                    notificationScheduleId: String
-    ) -> GRDBScheduleTemplate {
+                    notificationScheduleId: String) -> GRDBScheduleTemplate
+    {
         GRDBScheduleTemplate(
             id: UUID().uuidString,
             name: name,
@@ -52,7 +52,8 @@ extension GRDBScheduleTemplate {
             friday: friday,
             saturday: saturday,
             sunday: sunday,
-            notificationScheduleId: notificationScheduleId)
+            notificationScheduleId: notificationScheduleId
+        )
     }
 }
 
@@ -62,7 +63,7 @@ extension GRDBScheduleTemplate: Codable, FetchableRecord, PersistableRecord {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
         static let isActive = Column(CodingKeys.isActive)
-        
+
         static let monday = Column(CodingKeys.isActive)
         static let tuesday = Column(CodingKeys.isActive)
         static let wednesday = Column(CodingKeys.isActive)
@@ -70,56 +71,67 @@ extension GRDBScheduleTemplate: Codable, FetchableRecord, PersistableRecord {
         static let friday = Column(CodingKeys.isActive)
         static let saturday = Column(CodingKeys.isActive)
         static let sunday = Column(CodingKeys.isActive)
-        
+
         static let notificationScheduleId = Column(CodingKeys.isActive)
-        
     }
 }
 
-extension DerivableRequest<GRDBScheduleTemplate> {
+extension DerivableRequest<GRDBScheduleTemplate> {}
+
+public extension GRDBScheduleTemplate {
+    func getBedtime(dayOfWeek: Date.DayOfTheWeek?) -> ScheduleTemplateDayItem? {
+        switch dayOfWeek {
+        case .Sunday:
+            return sunday
+        case .Monday:
+            return monday
+        case .Tuesday:
+            return tuesday
+        case .Wednesday:
+            return wednesday
+        case .Thursday:
+            return thursday
+        case .Friday:
+            return friday
+        case .Saturday:
+            return saturday
+        default:
+            return nil
+        }
+    }
+
+    func getBedtime(dayOfWeek: Int) -> ScheduleTemplateDayItem? {
+        switch dayOfWeek {
+        case 1:
+            return sunday
+        case 2:
+            return monday
+        case 3:
+            return tuesday
+        case 4:
+            return wednesday
+        case 5:
+            return thursday
+        case 6:
+            return friday
+        case 7:
+            return saturday
+        default:
+            return nil
+        }
+    }
 }
 
-extension GRDBScheduleTemplate {
-        public func getBedtime(dayOfWeek: Date.DayOfTheWeek?) -> ScheduleTemplateDayItem? {
-            switch dayOfWeek {
-            case .Sunday:
-                return sunday
-            case .Monday:
-                return monday
-            case .Tuesday:
-                return tuesday
-            case .Wednesday:
-                return wednesday
-            case .Thursday:
-                return thursday
-            case .Friday:
-                return friday
-            case .Saturday:
-                return saturday
-            default:
-                return nil
-            }
-        }
+public extension GRDBScheduleTemplate {
+    mutating func setBedtimes(db: Database, monday: Time, tuesday: Time, wednesday: Time, thursday: Time, friday: Time, saturday: Time, sunday: Time) throws {
+            self.monday.time = monday
+            self.tuesday.time = tuesday
+            self.wednesday.time = wednesday
+            self.thursday.time = thursday
+            self.friday.time = friday
+            self.saturday.time = saturday
+            self.sunday.time = sunday
         
-        public func getBedtime(dayOfWeek: Int) -> ScheduleTemplateDayItem? {
-            switch dayOfWeek {
-            case 1:
-                return sunday
-            case 2:
-                return monday
-            case 3:
-                return tuesday
-            case 4:
-                return wednesday
-            case 5:
-                return thursday
-            case 6:
-                return friday
-            case 7:
-                return saturday
-            default:
-                return nil
-            }
-        }
- 
+        try self.update(db)
     }
+}

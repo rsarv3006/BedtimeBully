@@ -104,7 +104,7 @@ public extension AppDatabase {
             NotificationService.cancelNotifications(ids: notificationsItemIds)
 
             try bedtimes.forEach { bedtime in
-                let _ = try createBedtimeHistory(db: db, bedtime: bedtime)
+                _ = try createBedtimeHistory(db: db, bedtime: bedtime)
                 try bedtime.delete(db)
             }
         }
@@ -117,6 +117,48 @@ public extension AppDatabase {
             NotificationService.cancelNotifications(ids: notificationItemIds)
             try bedtime.delete(db)
             return history
+        }
+    }
+
+    func updateBedtimeAndNotifications(newBedtime: Date) throws {
+            let bedtimeTime = try newBedtime.getTime()
+
+            let bedtimeSchedule = try getActiveScheduleTemplate()
+
+            guard var bedtimeSchedule else {
+                throw BedtimeError.noActiveScheduleTemplate
+            }
+
+            try removeAllBedtimesAndNotifications()
+
+        try dbWriter.write { db in
+            try bedtimeSchedule.setBedtimes(db: db,
+                                            monday: bedtimeTime,
+                                            tuesday: bedtimeTime,
+                                            wednesday: bedtimeTime,
+                                            thursday: bedtimeTime,
+                                            friday: bedtimeTime,
+                                            saturday: bedtimeTime,
+                                            sunday: bedtimeTime)
+
+        }
+            try addBedtimesFromSchedule()
+    }
+
+    func removeAllBedtimesAndNotifications() throws {
+        try dbWriter.write { db in
+            let bedtimes = try GRDBBedtime.all().fetchAll(db)
+
+            var notificationItems: [NotificationItem] = []
+
+            for bedtime in bedtimes {
+                notificationItems.append(contentsOf: bedtime.notificationItems.items)
+                try bedtime.delete(db)
+            }
+
+            let notificationItemIds = notificationItems.map { $0.idToString() }
+
+            NotificationService.cancelNotifications(ids: notificationItemIds)
         }
     }
 }
