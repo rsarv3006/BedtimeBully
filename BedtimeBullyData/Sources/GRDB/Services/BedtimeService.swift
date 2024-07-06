@@ -59,19 +59,17 @@ public extension AppDatabase {
             let bedtime = GRDBBedtime.new(date: bedtimeDate, notificationSchedule: notificationSchedule)
             try bedtime.insert(db)
 
-            let notificationItems = notificationSchedule.notificationItems.items
-
-            for notificationItem in notificationItems {
-                let notificationItemId = bedtimeDate.timeIntervalSince1970 - notificationItem.id
+            
+            for notificationItem in bedtime.notificationItems.items {
+                let notificationItemId = notificationItem.id
                 let notificationDate = Date(timeIntervalSince1970: notificationItemId)
 
                 _ = NotificationService.scheduleNotification(
-                    id: notificationItemId.formatted(),
+                    id: String("\(notificationItemId)"),
                     title: "Bedtime Bully",
                     body: notificationItem.message,
                     timestamp: notificationDate
                 )
-                // TODO: Attach created notifications to the bedtime
             }
         }
     }

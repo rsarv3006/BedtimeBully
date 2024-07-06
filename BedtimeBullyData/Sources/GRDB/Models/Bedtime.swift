@@ -43,15 +43,6 @@ public struct GRDBBedtime: Identifiable, Equatable {
         }
     }
     
-    public func removeUpcomingNotificationsForCurrentBedtime(db: Database) throws {
-        let notificationItems = self.notificationItems
-        
-        let notificationItemIds = notificationItems.items.map { "\($0.id)" }
-        
-        NotificationService.cancelNotifications(ids: notificationItemIds)
-        try self.upsert(db)
-    }
-    
     public func getPrettyDate() -> String {
         return id.getPrettyDate()
     }
