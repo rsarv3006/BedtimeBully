@@ -33,7 +33,7 @@ public extension AppDatabase {
 
         let calendar = Calendar.current
 
-        for index in 0 ..< 30 {
+        for index in 0 ..< 7 {
             let dateSection = calendar.date(byAdding: .day, value: index, to: now)
             let dayOfWeek = dateSection?.dayOfWeek
 
@@ -56,22 +56,22 @@ public extension AppDatabase {
 
     func grdbCreateBedtimeAndNotificationsForDate(bedtimeDate: Date, notificationSchedule: GRDBNotificationSchedule) throws {
         try dbWriter.write { db in
-            let testBedtime = GRDBBedtime.new(date: bedtimeDate, notificationSchedule: notificationSchedule)
-            try testBedtime.insert(db)
+            let bedtime = GRDBBedtime.new(date: bedtimeDate, notificationSchedule: notificationSchedule)
+            try bedtime.insert(db)
 
             let notificationItems = notificationSchedule.notificationItems.items
 
             for notificationItem in notificationItems {
-                let notificationItemId = notificationItem.idToString()
-                let notificationItem = NotificationItem(id: notificationItem.id, message: notificationItem.message)
-                let notificationDate = Date(timeIntervalSince1970: notificationItem.id)
+                let notificationItemId = bedtimeDate.timeIntervalSince1970 - notificationItem.id
+                let notificationDate = Date(timeIntervalSince1970: notificationItemId)
 
                 _ = NotificationService.scheduleNotification(
-                    id: notificationItemId,
+                    id: notificationItemId.formatted(),
                     title: "Bedtime Bully",
                     body: notificationItem.message,
                     timestamp: notificationDate
                 )
+                // TODO: Attach created notifications to the bedtime
             }
         }
     }

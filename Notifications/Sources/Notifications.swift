@@ -31,7 +31,9 @@ public enum NotificationService {
     }
 
     public static func cancelNotifications(ids: [String]) {
-        center.removePendingNotificationRequests(withIdentifiers: ids)
+        if !ids.isEmpty {
+            center.removePendingNotificationRequests(withIdentifiers: ids)
+        }
     }
 
     public static func debugGetAllNotifications() {
