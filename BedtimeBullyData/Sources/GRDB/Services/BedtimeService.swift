@@ -21,6 +21,13 @@ public extension AppDatabase {
         }
     }
 
+    func getAllBedtimes() throws -> [GRDBBedtime] {
+        try dbWriter.read { db in
+            let bedtimes = try GRDBBedtime.all().fetchAll(db)
+            return bedtimes
+        }
+    }
+
     func getBedtimeDatesToCreate(now: Date) throws -> GRDBBedtimeDatesAndActiveSchedule {
         let schedule = try getActiveScheduleTemplate()
         var datesToCreate: [Date] = []
@@ -29,7 +36,7 @@ public extension AppDatabase {
             throw BedtimeError.noActiveScheduleTemplate
         }
 
-        let bedtimes = try getActiveBedtimes()
+        let bedtimes = try getAllBedtimes()
 
         let calendar = Calendar.current
 
@@ -101,19 +108,21 @@ public extension AppDatabase {
             NotificationService.cancelNotifications(ids: notificationsItemIds)
 
             try bedtimes.forEach { bedtime in
-                _ = try createBedtimeHistory(db: db, bedtime: bedtime)
-                try bedtime.delete(db)
+                var bedtime = bedtime
+                bedtime.status = .history
+                try bedtime.update(db)
             }
         }
     }
 
-    func convertBedtimeToHistory(_ bedtime: GRDBBedtime) throws -> GRDBBedtimeHistory {
+    func convertBedtimeToHistory(_ bedtime: GRDBBedtime) throws {
         try dbWriter.write { db in
-            let history = try createBedtimeHistory(db: db, bedtime: bedtime)
+            var bedtime = bedtime
             let notificationItemIds = bedtime.notificationItems.items.map { $0.idToString() }
+            bedtime.timeWentToBed = Date().timeIntervalSince1970
+            bedtime.status = .history
             NotificationService.cancelNotifications(ids: notificationItemIds)
-            try bedtime.delete(db)
-            return history
+            try bedtime.update(db)
         }
     }
 

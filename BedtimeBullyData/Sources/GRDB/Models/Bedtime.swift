@@ -9,8 +9,9 @@ public struct GRDBBedtime: Identifiable, Equatable {
     
     public var id: TimeInterval
     public let name: String
-    public let status: BedtimeStatus
+    public var status: BedtimeStatus
     public let notificationItems: NotificationItems
+    public var timeWentToBed: TimeInterval?
     
     init(date: Date, notificationSchedule: GRDBNotificationSchedule) {
         self.id = date.timeIntervalSince1970
@@ -46,6 +47,10 @@ public struct GRDBBedtime: Identifiable, Equatable {
     public func getPrettyDate() -> String {
         return id.getPrettyDate()
     }
+
+    public func isBedtimeToday() -> Bool {
+        return Calendar.current.isDateInToday(Date(timeIntervalSince1970: id))
+    }
 }
 
 extension GRDBBedtime: TableRecord {
@@ -65,6 +70,7 @@ extension GRDBBedtime: Codable, FetchableRecord, PersistableRecord {
         static let name = Column(CodingKeys.name)
         static let notificationItems = Column(CodingKeys.notificationItems)
         static let status = Column(CodingKeys.status)
+        static let timeWentToBed = Column(CodingKeys.timeWentToBed)
     }
 }
 

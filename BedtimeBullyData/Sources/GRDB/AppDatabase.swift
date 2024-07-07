@@ -107,13 +107,6 @@ extension AppDatabase {
                 t.column("hasSetBedtime", .boolean).notNull()
             }
             
-            try db.create(table: TableNames.bedtimeHistory.rawValue) { t in
-                t.primaryKey("id", .text).notNull()
-                t.column("bedtimeTarget", .double).notNull()
-                t.column("inBedTime", .double)
-                t.column("status", .text).notNull()
-            }
-            
             try db.create(table: TableNames.notificationSchedule.rawValue) { t in
                 t.primaryKey("id", .text).notNull()
                 t.column("name", .text).notNull()
@@ -141,6 +134,7 @@ extension AppDatabase {
                 t.column("name", .text).notNull()
                 t.column("status", .text).notNull()
                 t.column("notificationItems", .jsonText).notNull()
+                t.column("timeWentToBed", .double)
             }
         }
         

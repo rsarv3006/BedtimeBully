@@ -56,7 +56,7 @@ public struct BedtimeHomeDisplay: View {
                         .padding(.horizontal)
                 }
 
-                if hours == 0 && minutes < 60 {
+                if hours == 0 && minutes < 60 && bedtimeStore.bedtimeModel?.status == .active {
                     Button {
                         shouldShowInBedModal = true
                     } label: {
