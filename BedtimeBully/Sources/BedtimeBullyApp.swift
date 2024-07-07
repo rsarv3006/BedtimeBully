@@ -21,6 +21,9 @@ struct BedtimeBullyApp: App {
                     .environmentObject(storekitStore)
                     .environment(\.appDatabase, .shared)
                     .modelContainer(sharedModelContainer)
+                    .onAppear {
+                        onLoadMigrate()
+                    }
             } else {
                 HomeScreen()
                     .environmentObject(bedtimeStore)
@@ -43,6 +46,15 @@ struct BedtimeBullyApp: App {
         }
         
         return container
+    }
+    
+    @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
+    func onLoadMigrate() {
+        do {
+            try AppDatabase.shared.updateScheduleFromSwiftData(sharedModelContainer.mainContext)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

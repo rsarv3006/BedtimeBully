@@ -1,8 +1,8 @@
 import Foundation
 import GRDB
 
-#if canImport(SwiftData) 
-import SwiftData
+#if canImport(SwiftData)
+    import SwiftData
 #endif
 
 public extension AppDatabase {
@@ -106,6 +106,46 @@ public extension AppDatabase {
             throw BedtimeError.noActiveScheduleTemplate
         }
 
-        // TODO: Finish migriation from SwiftData to GRDB
+        let bedtimeScheduleTemplateFetchDescriptor = FetchDescriptor<SchemaV1_0_1.BedtimeScheduleTemplate>()
+
+        let swiftDataScheduleTemplates = try modelContext.fetch(bedtimeScheduleTemplateFetchDescriptor)
+
+        let defaultBedtimeTime = try Time(hour: 21, minute: 45)
+
+        guard let swiftDataScheduleTemplate = swiftDataScheduleTemplates.first else { return }
+
+        let mondayTime = swiftDataScheduleTemplate.monday ?? defaultBedtimeTime
+        let isMondayEnabled = swiftDataScheduleTemplate.monday != nil
+        grdbScheduleTemplate.monday = ScheduleTemplateDayItem(time: mondayTime, isEnabled: isMondayEnabled)
+
+        let tuesdayTime = swiftDataScheduleTemplate.tuesday ?? defaultBedtimeTime
+        let isTuesdayEnabled = swiftDataScheduleTemplate.tuesday != nil
+        grdbScheduleTemplate.tuesday = ScheduleTemplateDayItem(time: tuesdayTime, isEnabled: isTuesdayEnabled)
+
+        let wednesdayTime = swiftDataScheduleTemplate.wednesday ?? defaultBedtimeTime
+        let isWednesdayEnabled = swiftDataScheduleTemplate.wednesday != nil
+        grdbScheduleTemplate.wednesday = ScheduleTemplateDayItem(time: wednesdayTime, isEnabled: isWednesdayEnabled)
+
+        let thursdayTime = swiftDataScheduleTemplate.thursday ?? defaultBedtimeTime
+        let isThursdayEnabled = swiftDataScheduleTemplate.thursday != nil
+        grdbScheduleTemplate.thursday = ScheduleTemplateDayItem(time: thursdayTime, isEnabled: isThursdayEnabled)
+
+        let fridayTime = swiftDataScheduleTemplate.friday ?? defaultBedtimeTime
+        let isFridayEnabled = swiftDataScheduleTemplate.friday != nil
+        grdbScheduleTemplate.friday = ScheduleTemplateDayItem(time: fridayTime, isEnabled: isFridayEnabled)
+
+        let saturdayTime = swiftDataScheduleTemplate.saturday ?? defaultBedtimeTime
+        let isSaturdayEnabled = swiftDataScheduleTemplate.saturday != nil
+        grdbScheduleTemplate.saturday = ScheduleTemplateDayItem(time: saturdayTime, isEnabled: isSaturdayEnabled)
+
+        let sundayTime = swiftDataScheduleTemplate.sunday ?? defaultBedtimeTime
+        let isSundayEnabled = swiftDataScheduleTemplate.sunday != nil
+        grdbScheduleTemplate.sunday = ScheduleTemplateDayItem(time: sundayTime, isEnabled: isSundayEnabled)
+
+        try dbWriter.write { db in
+            try grdbScheduleTemplate.update(db)
+        }
+
+        modelContext.delete(swiftDataScheduleTemplate)
     }
 }
