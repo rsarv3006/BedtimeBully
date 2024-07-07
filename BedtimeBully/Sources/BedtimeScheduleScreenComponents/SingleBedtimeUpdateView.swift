@@ -4,7 +4,6 @@ import SwiftUI
 
 public struct SingleBedtimeUpdateView: View {
     @Environment(\.appDatabase) private var appDatabase
-    @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
     @State private var newBedtime: Date = .init()

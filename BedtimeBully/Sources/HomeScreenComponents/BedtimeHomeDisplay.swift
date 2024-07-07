@@ -3,7 +3,6 @@ import SwiftUI
 
 public struct BedtimeHomeDisplay: View {
     @Environment(\.appDatabase) private var appDatabase
-    @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()

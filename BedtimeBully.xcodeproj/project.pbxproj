@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		06AF2FC489F195EAE0C792A2 /* dedupeBedtimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7415F77EB4E7C10BB4BA6 /* dedupeBedtimes.swift */; };
 		07AC47054E083FE3629F8363 /* BedtimeV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259C76DDB1A92358F5D2416 /* BedtimeV1.swift */; };
 		09EC93006DF2AE536D991499 /* BedtimeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C926FE134DD4FC93907 /* BedtimeStatus.swift */; };
-		0A01BF173A3FCCA781027D75 /* BedtimeDedupeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684AA71005E41ADE86DD2779 /* BedtimeDedupeTest.swift */; };
 		14DA11D882E19BC0C602624C /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB16D80706CFA7731696CF7 /* AppDatabase.swift */; };
 		160EC87F70389B89707CF7FF /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD47F88301BC6D71485BB1 /* NotificationSchedule.swift */; };
 		167618EAB1B334B324AB672B /* CSQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 430A4C1D829F8F8879612D44 /* CSQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -213,7 +212,7 @@
 		2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyApp.swift; sourceTree = "<group>"; };
 		2CF0C1E523A0C7BC5239992D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FE504F625477258B7EA69CC /* ConfigV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigV1.swift; sourceTree = "<group>"; };
-		31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */ = {isa = PBXFileReference; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
+		31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
 		357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BedtimeBullyData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38780F391307DBB2B9436D3C /* NotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39507531F5A67CDEF02F2413 /* RoundedBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderView.swift; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 		65FF47C62543ED7F4D1A4059 /* Notifications-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Notifications-Info.plist"; sourceTree = "<group>"; };
 		67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6838DEFB475C7EDDA5410D86 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		684AA71005E41ADE86DD2779 /* BedtimeDedupeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeDedupeTest.swift; sourceTree = "<group>"; };
 		6BEDE851B7729EC730D3A975 /* BedtimeHistoryV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeHistoryV1_0_1.swift; sourceTree = "<group>"; };
 		6E2C399B869169DFFC09A5DB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		6EDD7FECCE4BA1AC5F5C29A1 /* RequestNotificationPermissionsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationPermissionsVM.swift; sourceTree = "<group>"; };
@@ -625,7 +623,6 @@
 			children = (
 				837CA9A2366F181F52E9D726 /* BedtimeBullyDataTests.swift */,
 				70409EA1FF5202466584B60B /* BedtimeBullyDataTestsUtils.swift */,
-				684AA71005E41ADE86DD2779 /* BedtimeDedupeTest.swift */,
 				83FC2B52FAE29253A712AD00 /* DateTests.swift */,
 				5F3BDF3B3264B964BF9AF9FF /* TimeStructTests.swift */,
 			);
@@ -959,7 +956,6 @@
 			files = (
 				D97496AB3C0C8278E481A30C /* BedtimeBullyDataTests.swift in Sources */,
 				9619166582100A51BD00742B /* BedtimeBullyDataTestsUtils.swift in Sources */,
-				0A01BF173A3FCCA781027D75 /* BedtimeDedupeTest.swift in Sources */,
 				1E3F5661F66BE25B046AC130 /* DateTests.swift in Sources */,
 				AE63C9F5B9311BA745025E02 /* TimeStructTests.swift in Sources */,
 			);
@@ -1042,7 +1038,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyDataTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1056,11 +1052,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyDataTests;
 				PRODUCT_NAME = BedtimeBullyDataTests;
 				SDKROOT = iphoneos;
@@ -1085,7 +1077,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Derived/InfoPlists/Notifications-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1098,10 +1090,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1181,7 +1170,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/NotificationsTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1193,10 +1182,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1211,7 +1197,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBully-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1224,11 +1210,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBully;
 				PRODUCT_NAME = BedtimeBully;
 				SDKROOT = iphoneos;
@@ -1247,7 +1229,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyDataTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1261,21 +1243,14 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyDataTests;
 				PRODUCT_NAME = BedtimeBullyDataTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1289,7 +1264,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1303,21 +1278,14 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyTests;
 				PRODUCT_NAME = BedtimeBullyTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1338,7 +1306,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyData-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1352,11 +1320,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyData;
 				PRODUCT_NAME = BedtimeBullyData;
 				SDKROOT = iphoneos;
@@ -1364,10 +1328,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1388,7 +1349,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Derived/InfoPlists/Notifications-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1415,7 +1376,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/NotificationsTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1441,7 +1402,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBully-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1454,21 +1415,14 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBully;
 				PRODUCT_NAME = BedtimeBully;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1487,7 +1441,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyData-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1501,11 +1455,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyData;
 				PRODUCT_NAME = BedtimeBullyData;
 				SDKROOT = iphoneos;
@@ -1528,7 +1478,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Derived/InfoPlists/BedtimeBullyTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1542,11 +1492,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = (
-					"$(inherited)",
-					"-Xcc",
-					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
-				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyTests;
 				PRODUCT_NAME = BedtimeBullyTests;
 				SDKROOT = iphoneos;

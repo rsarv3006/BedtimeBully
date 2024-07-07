@@ -1,5 +1,6 @@
 import Foundation
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func deduplicateBedtimes(things: [Bedtime]) -> [Bedtime] {
     var bedtimes: [Bedtime] = []
     var idsFound: [TimeInterval] = []
@@ -16,6 +17,7 @@ public func deduplicateBedtimes(things: [Bedtime]) -> [Bedtime] {
     return bedtimes
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func deduplicateThings(things: [VeryImportantThings]) -> [VeryImportantThings] {
     var bedtimes: [VeryImportantThings] = []
     var idsFound: [TimeInterval] = []

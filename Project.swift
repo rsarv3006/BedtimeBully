@@ -43,7 +43,7 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "rjs.app.dev.BedtimeBully",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen",
@@ -62,7 +62,7 @@ let project = Project(
             destinations: .iOS,
             product: .unitTests,
             bundleId: "rjs.app.dev.BedtimeBullyTests",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             infoPlist: .default,
             sources: ["BedtimeBully/Tests/**"],
             resources: [],
@@ -73,7 +73,7 @@ let project = Project(
             destinations: .iOS,
             product: .framework,
             bundleId: "rjs.app.dev.Notifications",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             sources: ["Notifications/Sources/**"]
         ),
         .target(
@@ -81,7 +81,7 @@ let project = Project(
             destinations: .iOS,
             product: .unitTests,
             bundleId: "rjs.app.dev.NotificationsTests",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             sources: ["Notifications/Tests/**"]
         ),
         .target(
@@ -89,7 +89,7 @@ let project = Project(
             destinations: .iOS,
             product: .framework,
             bundleId: "rjs.app.dev.BedtimeBullyData",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             sources: ["BedtimeBullyData/Sources/**"],
             dependencies: [
                 .target(name: ProjectTargets.Notifications),
@@ -101,7 +101,7 @@ let project = Project(
             destinations: .iOS,
             product: .unitTests,
             bundleId: "rjs.app.dev.BedtimeBullyDataTests",
-            deploymentTargets: DeploymentTargets.iOS("17.0"),
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
             sources: ["BedtimeBullyData/Tests/**"],
             dependencies: [
                 .target(name: ProjectTargets.BedtimeBullyData),

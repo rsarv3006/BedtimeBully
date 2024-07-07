@@ -5,11 +5,9 @@ import SwiftUI
 
 public struct HomeScreen: View {
     @Environment(\.appDatabase) private var appDatabase
-    @Environment(\.modelContext) private var modelContext
     @EnvironmentObject() private var storekitStore: StorekitStore
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
 
-    @State private var bedtimes: [Bedtime] = []
     @Query(ConfigRequest()) private var config: GRDBConfig?
 
     @State() private var isLoadingStorekit = true
@@ -61,8 +59,6 @@ public struct HomeScreen: View {
                 }
                 .onAppear {
                     do {
-                        try buildInitialData(modelContext)
-
                         if let config {
                             bedtimeStore.hasBedtime = config.hasSetBedtime
                             shouldShowRequestNotificationPermissions = !config.isNotificationsEnabled
@@ -96,7 +92,6 @@ public struct HomeScreen: View {
 
         try appDatabase.addBedtimesFromSchedule()
 
-
         let bedtimes = try appDatabase.getActiveBedtimes()
         bedtimeStore.bedtimeModel = bedtimes.first
 
@@ -106,7 +101,5 @@ public struct HomeScreen: View {
 
         bedtimeStore.bedtime = Date(timeIntervalSince1970: bedtimeModel.id)
         bedtimeStore.hasBedtime = true
-
-        try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
     }
 }

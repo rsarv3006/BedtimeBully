@@ -1,6 +1,10 @@
 import Foundation
 import GRDB
 
+#if canImport(SwiftData) 
+import SwiftData
+#endif
+
 public extension AppDatabase {
     func createDefaultScheduleTemplate() throws {
         try dbWriter.write { db in
@@ -93,5 +97,15 @@ public extension AppDatabase {
         try removeAllBedtimesAndNotifications()
 
         try addBedtimesFromSchedule()
+    }
+
+    @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
+    func updateScheduleFromSwiftData(_ modelContext: ModelContext) throws {
+        let grdbScheduleTemplate = try getActiveScheduleTemplate()
+        guard var grdbScheduleTemplate else {
+            throw BedtimeError.noActiveScheduleTemplate
+        }
+
+        // TODO: Finish migriation from SwiftData to GRDB
     }
 }

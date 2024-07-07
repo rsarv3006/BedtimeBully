@@ -3,7 +3,6 @@ import GRDBQuery
 import SwiftUI
 
 public struct BedtimeScheduleScreen: View {
-    @Environment(\.modelContext) private var modelContext
     @State private var segmentedControlSelected = 0
 
     @Query(ScheduleTemplateRequest()) private var scheduleTemplates: [GRDBScheduleTemplate]

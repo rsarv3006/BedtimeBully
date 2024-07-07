@@ -1,7 +1,11 @@
 import Foundation
 import Notifications
-import SwiftData
 
+#if canImport(SwiftData)
+    import SwiftData
+#endif
+
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func buildInitialData(_ modelContext: ModelContext) throws {
     let schedulesFetchDescriptor: FetchDescriptor<NotificationSchedule> = FetchDescriptor()
     let schedules = try modelContext.fetch(schedulesFetchDescriptor)
@@ -49,11 +53,13 @@ public func buildInitialData(_ modelContext: ModelContext) throws {
     }
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public struct BedtimeDatesAndActiveSchedule {
     let datesToCreate: [Date]
     let activeSchedule: BedtimeScheduleTemplate
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) throws -> BedtimeDatesAndActiveSchedule {
     var datesToCreate: [Date] = []
     let bedtimeScheduleTemplatesDescriptor: FetchDescriptor<BedtimeScheduleTemplate> = FetchDescriptor()
@@ -92,7 +98,7 @@ public func getBedtimeDatesToCreate(_ modelContext: ModelContext, now: Date) thr
     return BedtimeDatesAndActiveSchedule(datesToCreate: datesToCreate, activeSchedule: activeScheduleTemplate)
 }
 
-// TODO: move addBedtimesFromSchedule to GRDB
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
     let now = Date()
     let bedtimeDates = try getBedtimeDatesToCreate(modelContext, now: now)
@@ -106,6 +112,7 @@ public func addBedtimesFromSchedule(_ modelContext: ModelContext) throws {
     }
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 func createBedtimeAndNotificationsforDate(modelContext: ModelContext, bedtimeDate: Date, notificationSchedule: NotificationSchedule?) throws {
     guard let notificationSchedule else {
         throw BedtimeError.notificationScheduleNotSetOnBedtime
@@ -115,6 +122,7 @@ func createBedtimeAndNotificationsforDate(modelContext: ModelContext, bedtimeDat
     modelContext.insert(bedtime)
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
         predicate: #Predicate { $0.status == "active" },
@@ -133,6 +141,7 @@ public func addNotificationsForAllActiveBedtimes(modelContext: ModelContext) thr
     }
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor()
     let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
@@ -149,6 +158,7 @@ public func removeAllBedtimesAndNotifications(modelContext: ModelContext) throws
     NotificationService.cancelNotifications(ids: notificationItemIds)
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, currentDate date: Date) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor(
         predicate: #Predicate { $0.id < date.timeIntervalSince1970 }
@@ -168,6 +178,7 @@ public func removeBedtimesAndNotificationsInThePast(modelContext: ModelContext, 
     try modelContext.save()
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func wipeAllData(modelContext: ModelContext) throws {
     let bedtimesFetchDescriptor: FetchDescriptor<Bedtime> = FetchDescriptor()
     let bedtimes = try modelContext.fetch(bedtimesFetchDescriptor)
@@ -198,6 +209,7 @@ public func wipeAllData(modelContext: ModelContext) throws {
     }
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func updateBedtimeAndNotifications(modelContext: ModelContext, newBedtime: Date) throws {
     let bedtimeTime = try newBedtime.getTime()
 
@@ -217,6 +229,7 @@ public func updateBedtimeAndNotifications(modelContext: ModelContext, newBedtime
     try addNotificationsForAllActiveBedtimes(modelContext: modelContext)
 }
 
+@available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
 public func updateNotificationsfromUpdatedBedtimeSchedule(modelContext: ModelContext, newBedtimeSchedule _: BedtimeScheduleTemplate) throws {
     try removeAllBedtimesAndNotifications(modelContext: modelContext)
 

@@ -6,6 +6,7 @@ public struct DataUtils {
         return bedtime.addingTimeInterval(-notificationOffset)
     }
 
+    @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
     public static func getBedtimeDateFromSchedule(_ bedtimeSchedule: BedtimeScheduleTemplate?) throws -> Date {
         guard let bedtimeSchedule = bedtimeSchedule else { throw BedtimeError.noBedtimeSchedule }
         let today = Date()
