@@ -2,7 +2,7 @@ import Foundation
 import GRDB
 
 public struct NotificationItems: Codable {
-    var items: [NotificationItem]
+    public var items: [NotificationItem]
 }
 
 public struct GRDBNotificationSchedule: Identifiable, Equatable {

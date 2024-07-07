@@ -4,6 +4,15 @@ import GRDB
 public struct ScheduleTemplateDayItem: Codable {
     public var time: Time
     public var isEnabled: Bool
+    
+    public init(time: Time, isEnabled: Bool) {
+        self.time = time
+        self.isEnabled = isEnabled
+    }
+
+    public var debugDescription: String {
+        "Time: \(time.debugDescription), isEnabled: \(isEnabled)"
+    }
 }
 
 public struct GRDBScheduleTemplate: Identifiable, Equatable {
@@ -123,14 +132,14 @@ public extension GRDBScheduleTemplate {
 }
 
 public extension GRDBScheduleTemplate {
-    mutating func setBedtimes(db: Database, monday: Time, tuesday: Time, wednesday: Time, thursday: Time, friday: Time, saturday: Time, sunday: Time) throws {
-            self.monday.time = monday
-            self.tuesday.time = tuesday
-            self.wednesday.time = wednesday
-            self.thursday.time = thursday
-            self.friday.time = friday
-            self.saturday.time = saturday
-            self.sunday.time = sunday
+    mutating func setBedtimes(db: Database, monday: ScheduleTemplateDayItem, tuesday: ScheduleTemplateDayItem, wednesday: ScheduleTemplateDayItem, thursday: ScheduleTemplateDayItem, friday: ScheduleTemplateDayItem, saturday: ScheduleTemplateDayItem, sunday: ScheduleTemplateDayItem) throws {
+            self.monday = monday
+            self.tuesday = tuesday
+            self.wednesday = wednesday
+            self.thursday = thursday
+            self.friday = friday
+            self.saturday = saturday
+            self.sunday = sunday
         
         try self.update(db)
     }

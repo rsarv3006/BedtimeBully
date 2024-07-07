@@ -1,9 +1,9 @@
 import BedtimeBullyData
-import SwiftData
+import GRDB
 import SwiftUI
 
 public class WeeklyBedtimeScheduleViewModel: ObservableObject {
-    @Published private var bedtimeSchedule: BedtimeScheduleTemplate
+    @Published private var bedtimeSchedule: GRDBScheduleTemplate
 
     @Published var isSundayEnabled: Bool
     @Published var sundayBedtime: Date
@@ -30,91 +30,90 @@ public class WeeklyBedtimeScheduleViewModel: ObservableObject {
     @Published var errorUpdatingBedtimeSchedule = ""
     @Published var showBedtimeHasUpdated = false
 
-    public init(schedule: BedtimeScheduleTemplate) {
+    public init(schedule: GRDBScheduleTemplate) {
         bedtimeSchedule = schedule
         let now = Date()
 
-        if let sundayBuiltDate = try? schedule.sunday?.toDate(baseDate: now) {
+        if let sundayBuiltDate = try? schedule.sunday.time.toDate(baseDate: now) {
             sundayBedtime = sundayBuiltDate
-            isSundayEnabled = true
+            isSundayEnabled = schedule.sunday.isEnabled
         } else {
-            isSundayEnabled = false
             sundayBedtime = now
+            isSundayEnabled = false
         }
 
-        if let mondayBuiltDate = try? schedule.monday?.toDate(baseDate: now) {
+        if let mondayBuiltDate = try? schedule.monday.time.toDate(baseDate: now) {
             mondayBedtime = mondayBuiltDate
-            isMondayEnabled = true
+            isMondayEnabled = schedule.monday.isEnabled
         } else {
             mondayBedtime = now
             isMondayEnabled = false
         }
 
-        if let tuesdayBuiltDate = try? schedule.tuesday?.toDate(baseDate: now) {
+        if let tuesdayBuiltDate = try? schedule.tuesday.time.toDate(baseDate: now) {
             tuesdayBedtime = tuesdayBuiltDate
-            isTuesdayEnabled = true
+            isTuesdayEnabled = schedule.tuesday.isEnabled
         } else {
             tuesdayBedtime = now
             isTuesdayEnabled = false
         }
 
-        if let wednesdayBuiltDate = try? schedule.wednesday?.toDate(baseDate: now) {
+        if let wednesdayBuiltDate = try? schedule.wednesday.time.toDate(baseDate: now) {
             wednesdayBedtime = wednesdayBuiltDate
-            isWednesdayEnabled = true
+            isWednesdayEnabled = schedule.wednesday.isEnabled
         } else {
             wednesdayBedtime = now
             isWednesdayEnabled = false
         }
 
-        if let thursdayBuiltDate = try? schedule.thursday?.toDate(baseDate: now) {
+        if let thursdayBuiltDate = try? schedule.thursday.time.toDate(baseDate: now) {
             thursdayBedtime = thursdayBuiltDate
-            isThursdayEnabled = true
+            isThursdayEnabled = schedule.thursday.isEnabled
         } else {
             thursdayBedtime = now
             isThursdayEnabled = false
         }
 
-        if let fridayBuiltDate = try? schedule.friday?.toDate(baseDate: now) {
+        if let fridayBuiltDate = try? schedule.friday.time.toDate(baseDate: now) {
             fridayBedtime = fridayBuiltDate
-            isFridayEnabled = true
+            isFridayEnabled = schedule.friday.isEnabled
         } else {
             fridayBedtime = now
             isFridayEnabled = false
         }
 
-        if let saturdayBuiltDate = try? schedule.saturday?.toDate(baseDate: now) {
+        if let saturdayBuiltDate = try? schedule.saturday.time.toDate(baseDate: now) {
             saturdayBedtime = saturdayBuiltDate
-            isSaturdayEnabled = true
+            isSaturdayEnabled = schedule.saturday.isEnabled
         } else {
             saturdayBedtime = now
             isSaturdayEnabled = false
         }
     }
 
-    func saveBedtimeSchedule(_ modelContext: ModelContext) {
-        let mondayTime = isMondayEnabled ? try? mondayBedtime.getTime() : nil
-        let tuesdayTime = isTuesdayEnabled ? try? tuesdayBedtime.getTime() : nil
-        let wednesdayTime = isWednesdayEnabled ? try? wednesdayBedtime.getTime() : nil
-        let thursdayTime = isThursdayEnabled ? try? thursdayBedtime.getTime() : nil
-        let fridayTime = isFridayEnabled ? try? fridayBedtime.getTime() : nil
-        let saturdayTime = isSaturdayEnabled ? try? saturdayBedtime.getTime() : nil
-        let sundayTime = isSundayEnabled ? try? sundayBedtime.getTime() : nil
-
+    func saveBedtimeSchedule(_ appDatabase: AppDatabase) {
         do {
+            let monday = ScheduleTemplateDayItem(time: try mondayBedtime.getTime(), isEnabled: isMondayEnabled)
+            let tuesday = ScheduleTemplateDayItem(time: try tuesdayBedtime.getTime(), isEnabled: isTuesdayEnabled)
+            let wednesday = ScheduleTemplateDayItem(time: try wednesdayBedtime.getTime(), isEnabled: isWednesdayEnabled)
+            let thursday = ScheduleTemplateDayItem(time: try thursdayBedtime.getTime(), isEnabled: isThursdayEnabled)
+            let friday = ScheduleTemplateDayItem(time: try fridayBedtime.getTime(), isEnabled: isFridayEnabled)
+            let saturday = ScheduleTemplateDayItem(time: try saturdayBedtime.getTime(), isEnabled: isSaturdayEnabled)
+            let sunday = ScheduleTemplateDayItem(time: try sundayBedtime.getTime(), isEnabled: isSundayEnabled)
+
             hasError = false
             errorUpdatingBedtimeSchedule = ""
-            try bedtimeSchedule.setBedtimes(
-                modelContext: modelContext,
-                monday: mondayTime,
-                tuesday: tuesdayTime,
-                wednesday: wednesdayTime,
-                thursday: thursdayTime,
-                friday: fridayTime,
-                saturday: saturdayTime,
-                sunday: sundayTime
+            try appDatabase.updateWeeklyBedtimeSchedule(
+                bedtimeSchedule: bedtimeSchedule,
+                monday: monday,
+                tuesday: tuesday,
+                wednesday: wednesday,
+                thursday: thursday,
+                friday: friday,
+                saturday: saturday,
+                sunday: sunday
             )
 
-            try updateNotificationsfromUpdatedBedtimeSchedule(modelContext: modelContext, newBedtimeSchedule: bedtimeSchedule)
             showBedtimeHasUpdated = true
 
         } catch {

@@ -38,6 +38,10 @@ public struct Time {
 
     public var hour: Int { hourComponent }
     public var minute: Int { minuteComponent }
+
+    public var debugDescription: String {
+        "Time: \(hour):\(minute)"
+    }
 }
 
 extension Time: Codable {}

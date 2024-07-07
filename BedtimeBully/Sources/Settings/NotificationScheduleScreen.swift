@@ -1,13 +1,14 @@
 import BedtimeBullyData
-import SwiftData
+import GRDBQuery
 import SwiftUI
 
 struct NotificationScheduleScreen: View {
     @State private var openCustomizeSchedule = false
-    @Query() private var bedtimeSchedules: [BedtimeScheduleTemplate]
 
-    private var activeSchedule: NotificationSchedule? {
-        return bedtimeSchedules.first(where: { $0.isActive })?.notificationSchedule
+    @Query(NotificationScheduleRequest()) private var scheduleTemplates: [GRDBNotificationSchedule]
+
+    private var activeSchedule: GRDBNotificationSchedule? {
+        return scheduleTemplates.first(where: { $0.name == "Default" })
     }
 
     var body: some View {
@@ -22,8 +23,8 @@ struct NotificationScheduleScreen: View {
                         .padding()
 
                     if let activeSchedule = activeSchedule {
-                        ForEach(activeSchedule.notificationMessages, id: \.self) { item in
-                            Text(item)
+                        ForEach(activeSchedule.notificationItems.items, id: \.self) { item in
+                            Text(item.message)
                                 .padding(.bottom)
                         }
 

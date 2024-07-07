@@ -1,13 +1,12 @@
 import BedtimeBullyData
-import SwiftData
 import SwiftUI
 
 public struct WeeklyBedtimeSceduleScreen: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.appDatabase) private var appDatabase
     @EnvironmentObject() private var storekitStore: StorekitStore
     @StateObject private var viewModel: WeeklyBedtimeScheduleViewModel
 
-    init(bedtimeSchedule: BedtimeScheduleTemplate) {
+    init(bedtimeSchedule: GRDBScheduleTemplate) {
         _viewModel = StateObject(wrappedValue: WeeklyBedtimeScheduleViewModel(schedule: bedtimeSchedule))
     }
 
@@ -16,12 +15,13 @@ public struct WeeklyBedtimeSceduleScreen: View {
             ZStack {
                 VStack {
                     Button(action: {
-                        viewModel.saveBedtimeSchedule(modelContext)
+                        viewModel.saveBedtimeSchedule(appDatabase)
                     }) {
                         Text("Save Bedtimes")
                     }
                     .padding(.vertical)
                     .alert("Weekly Bedtime Schedule has been updated", isPresented: $viewModel.showBedtimeHasUpdated) {}
+                    .alert(viewModel.errorUpdatingBedtimeSchedule, isPresented: $viewModel.hasError) {}
 
                     BedtimeScheduleWeekSectionUpdate(title: "Sunday", bedtimeDate: $viewModel.sundayBedtime, isDateEnabled: $viewModel.isSundayEnabled)
                     BedtimeScheduleWeekSectionUpdate(title: "Monday", bedtimeDate: $viewModel.mondayBedtime, isDateEnabled: $viewModel.isMondayEnabled)

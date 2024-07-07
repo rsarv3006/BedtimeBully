@@ -1,14 +1,12 @@
 import BedtimeBullyData
-import SwiftData
+import GRDBQuery
 import SwiftUI
 
 public struct BedtimeScheduleScreen: View {
     @Environment(\.modelContext) private var modelContext
     @State private var segmentedControlSelected = 0
 
-    @Query(filter: #Predicate<BedtimeScheduleTemplate> { schedule in
-        schedule.isActive == true
-    }) private var activeBedtimeSchedules: [BedtimeScheduleTemplate]
+    @Query(ScheduleTemplateRequest()) private var scheduleTemplates: [GRDBScheduleTemplate]
 
     public var body: some View {
         NavigationStack {
@@ -25,7 +23,7 @@ public struct BedtimeScheduleScreen: View {
                     SingleBedtimeUpdateView()
                         .frame(maxWidth: 350)
                 } else {
-                    if let schedule = activeBedtimeSchedules.first {
+                    if let schedule = scheduleTemplates.first {
                         WeeklyBedtimeSceduleScreen(bedtimeSchedule: schedule)
                     } else {
                         Text("No bedtime schedule found")

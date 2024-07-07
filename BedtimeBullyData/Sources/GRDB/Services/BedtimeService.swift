@@ -59,7 +59,6 @@ public extension AppDatabase {
             let bedtime = GRDBBedtime.new(date: bedtimeDate, notificationSchedule: notificationSchedule)
             try bedtime.insert(db)
 
-            
             for notificationItem in bedtime.notificationItems.items {
                 let notificationItemId = notificationItem.id
                 let notificationDate = Date(timeIntervalSince1970: notificationItemId)
@@ -116,31 +115,6 @@ public extension AppDatabase {
             try bedtime.delete(db)
             return history
         }
-    }
-
-    func updateBedtimeAndNotifications(newBedtime: Date) throws {
-            let bedtimeTime = try newBedtime.getTime()
-
-            let bedtimeSchedule = try getActiveScheduleTemplate()
-
-            guard var bedtimeSchedule else {
-                throw BedtimeError.noActiveScheduleTemplate
-            }
-
-            try removeAllBedtimesAndNotifications()
-
-        try dbWriter.write { db in
-            try bedtimeSchedule.setBedtimes(db: db,
-                                            monday: bedtimeTime,
-                                            tuesday: bedtimeTime,
-                                            wednesday: bedtimeTime,
-                                            thursday: bedtimeTime,
-                                            friday: bedtimeTime,
-                                            saturday: bedtimeTime,
-                                            sunday: bedtimeTime)
-
-        }
-            try addBedtimesFromSchedule()
     }
 
     func removeAllBedtimesAndNotifications() throws {
