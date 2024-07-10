@@ -12,7 +12,7 @@ public struct WeeklyBedtimeSceduleScreen: View {
 
     public var body: some View {
         ScrollView {
-            ZStack {
+            ZStack(alignment: .top) {
                 VStack {
                     Button(action: {
                         viewModel.saveBedtimeSchedule(appDatabase)
@@ -32,23 +32,19 @@ public struct WeeklyBedtimeSceduleScreen: View {
                     BedtimeScheduleWeekSectionUpdate(title: "Saturday", bedtimeDate: $viewModel.saturdayBedtime, isDateEnabled: $viewModel.isSaturdayEnabled)
                 }
                 .frame(maxWidth: 350)
+                .frame(maxWidth: .infinity, alignment: .center)
 
                 if !storekitStore.hasPurchasedUnlockBedtimeSchedule {
                     VStack {
                         Text("To use the Weekly Bedtime Scheduler please unlock it on the Purchase page.")
+                            .font(.title)
+                            .multilineTextAlignment(.center)
                             .padding(.top, 40)
                         Spacer()
-
-                        HStack {
-                            Spacer()
-                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.black.opacity(0.6))
                     .ignoresSafeArea()
-                    .contentShape(Rectangle())
-                }
-                HStack {
-                    Spacer()
                 }
             }
         }
