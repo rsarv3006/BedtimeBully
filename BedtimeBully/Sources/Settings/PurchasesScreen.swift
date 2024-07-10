@@ -31,6 +31,7 @@ struct PurchasesScreen: View {
                             Text("Unlock Weekly Bedtime Schedule")
                         }
                     }
+                    .padding(.vertical)
 
                     Button(action: {
                         Task {
@@ -39,6 +40,7 @@ struct PurchasesScreen: View {
                     }) {
                         Text("Restore Purchases")
                     }
+                    .padding(.bottom)
                 }
                 .alert(isPresented: $isShowingError, content: {
                     Alert(title: Text(errorTitle), message: nil, dismissButton: .default(Text("Okay")))
