@@ -76,7 +76,13 @@ public extension AppDatabase {
     /// Creates a database full of random players for SwiftUI previews
     static func random() -> AppDatabase {
         let appDatabase = empty()
-//        try! appDatabase.createRandomPlayersIfEmpty()
+        
+        try! appDatabase.createConfig()
+        try! appDatabase.createDefaultNotificationSchedule()
+        try! appDatabase.createDefaultScheduleTemplate()
+        
+//        try! appDatabase.addBedtimesFromSchedule()
+        
         return appDatabase
     }
 }
