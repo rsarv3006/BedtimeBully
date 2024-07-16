@@ -22,6 +22,7 @@ public struct BedtimeHomeDisplay: View {
     public var body: some View {
         VStack {
             Text("Welcome to Bedtime Bully! This app is designed to help you get to bed on time.")
+                .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 .padding(.bottom)
                 .onReceive(timer) { _ in
