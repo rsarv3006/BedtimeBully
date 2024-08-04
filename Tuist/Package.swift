@@ -10,7 +10,8 @@ import PackageDescription
         // productTypes: ["Alamofire": .framework,] 
         productTypes: [
           "GRDB": .framework,
-          "GRDBQuery": .framework
+          "GRDBQuery": .framework,
+          "Bedrock": .framework
         ]
     )
 #endif
@@ -23,5 +24,6 @@ let package = Package(
         // You can read more about dependencies here: https://docs.tuist.io/documentation/tuist/dependencies
         .package(url: "https://github.com/groue/GRDB.swift", from: "6.27.0"),
         .package(url: "https://github.com/groue/GRDBQuery", from: "0.8.0"),
+        .package(url: "https://github.com/rsarv3006/bedrock", from: "1.0.6")
     ]
 )

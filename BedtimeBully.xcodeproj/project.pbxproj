@@ -9,21 +9,24 @@
 /* Begin PBXBuildFile section */
 		07AC47054E083FE3629F8363 /* BedtimeV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7259C76DDB1A92358F5D2416 /* BedtimeV1.swift */; };
 		09EC93006DF2AE536D991499 /* BedtimeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C926FE134DD4FC93907 /* BedtimeStatus.swift */; };
+		0CA65E7923278CA03F2DC25A /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584DE5FB8AC9D4F09F2E83F /* config.swift */; };
 		14DA11D882E19BC0C602624C /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB16D80706CFA7731696CF7 /* AppDatabase.swift */; };
 		160EC87F70389B89707CF7FF /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD47F88301BC6D71485BB1 /* NotificationSchedule.swift */; };
 		167618EAB1B334B324AB672B /* CSQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 430A4C1D829F8F8879612D44 /* CSQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AE328F9681AFB26D4A85C9B /* BedtimeV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23519FC36C3FBABDA490EA /* BedtimeV1_0_1.swift */; };
 		1B037CC0B14F1A47374DF76E /* RequestNotificationsPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B711A4DA6CCCC04A937EFE /* RequestNotificationsPermissionView.swift */; };
 		1B29CA3C390FE3B7BA201FEA /* ScheduleTemplateV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1B19ED100ACF7EE0B67DC /* ScheduleTemplateV1.swift */; };
+		1BB5AAE5591780537F34502C /* Bedrock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E592482EBC0E7C590EF3DC4 /* Bedrock.framework */; };
 		1D545DEE82EDEB21E8175AD3 /* Bedtime Bully.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */; };
 		1E3F5661F66BE25B046AC130 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC2B52FAE29253A712AD00 /* DateTests.swift */; };
 		1E4FAAE6B0456D78A0CEEDF5 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83ECCABA0235DB1E2FC3A5 /* SettingsScreen.swift */; };
-		1E527206BE18B33506B71EF5 /* PurchasesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F2A522C29D11C4A64F8F1 /* PurchasesScreen.swift */; };
 		1E9A11D90168859D1B4319C3 /* TuistBundle+BedtimeBully.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FD5A9617CA6F0BDD4E8900 /* TuistBundle+BedtimeBully.swift */; };
 		201CAA6F7EC2A937E844B137 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FF9074B0D2F709E9049DF8 /* NotificationItem.swift */; };
 		2191123B234F9B2F9951D868 /* ConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957B1ABDC00F79309A93CD17 /* ConfigRequest.swift */; };
+		2997D7A63E4FC73C647A79D3 /* TuistPlists+BedtimeBully.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECA8EBE1E1A19877A7784E0 /* TuistPlists+BedtimeBully.swift */; };
 		29E25819421C56D74CB6A9A6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B931ECBF36FB3FBDEAAE481A /* Time.swift */; };
 		2AC7E27A407D93AA71593FE3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6838DEFB475C7EDDA5410D86 /* Utils.swift */; };
+		2C222A9EB827990345F289A7 /* PurchasesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7F22A0E2B96EB3FAC92EA /* PurchasesScreen.swift */; };
 		311691914E44396138BC5EDF /* ScheduleTemplateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FF7DB333AF51F7372060B7 /* ScheduleTemplateRequest.swift */; };
 		315C59608E4E180782053CDA /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D229CAF6FC44D4FC7EB0A /* ConfigService.swift */; };
 		384C7A2748669AE89C4B204E /* ScheduleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C180E143DEED849199D4 /* ScheduleTemplate.swift */; };
@@ -35,14 +38,16 @@
 		57ABD04BCA7C19922807E460 /* BedtimeScheduleWeekSectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8B3BE1B49C94A9E3C254A /* BedtimeScheduleWeekSectionUpdate.swift */; };
 		5875125BE75CE761C2D1C739 /* BedtimeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01284C3FBD69DD54DB4E2A3A /* BedtimeStore.swift */; };
 		5A0E6F2AFF46987A61AB032E /* RoundedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39507531F5A67CDEF02F2413 /* RoundedBorderView.swift */; };
+		620F7B0B22B870DD333D15D7 /* Bedrock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E592482EBC0E7C590EF3DC4 /* Bedrock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62B6B5EA54D74BCDFFCFFF11 /* GRDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46DD65D1B8C946251DBB9CF0 /* GRDB.framework */; };
+		63E28A471639E5F4FC50BB6C /* NetworkConfig.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BAD8228751FEB024967BBB9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE307D6AB1B6D4AE743253D /* Config.swift */; };
 		6DDC19FBD3316BA148EAF12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */; };
 		6EF116447DE6E0021253BFD0 /* BedtimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CDF8D9ED24B7A30CAC709 /* BedtimeError.swift */; };
 		741FA8EE60FCCEF6EDA8D2BE /* ScheduleTemplateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35DA10D666EF492510DC0B /* ScheduleTemplateService.swift */; };
 		76499E1D270F01280C2BEC6C /* BedtimeBullyData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		766BCA1648FD1A859211C8CB /* NotificationScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4AEBE911F021985EA8371 /* NotificationScheduleService.swift */; };
-		783BE2C72C3E2720005371B3 /* PurchasesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783BE2C62C3E2720005371B3 /* PurchasesScreenViewModel.swift */; };
+		7836DD952C5FA02200A2F83B /* versionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836DD942C5FA02200A2F83B /* versionCheck.swift */; };
 		7CFE8368692AD2FD0D3ABA45 /* NotificationScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAEFBEB236479A6F0DB37F /* NotificationScheduleScreen.swift */; };
 		7DA52F349FD6F4D521AFF5E1 /* GRDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46DD65D1B8C946251DBB9CF0 /* GRDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80929F21776EDBA0B59D293D /* BedtimeScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED15435C8E3FCEBF773E306 /* BedtimeScheduleScreen.swift */; };
@@ -50,6 +55,8 @@
 		8585A8FEF0B0952FB15EF82E /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571A175D7F3B025341A2D20B /* Notifications.framework */; };
 		8796898C098017625D9902D3 /* BedtimeHistoryV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEDE851B7729EC730D3A975 /* BedtimeHistoryV1_0_1.swift */; };
 		89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E049DA27785953AB9C2AE0A /* HomeScreen.swift */; };
+		8FED298A668F427CA1B7C709 /* NetworkConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */; };
+		92958C671B50468EC6340E58 /* PurchasesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D5C7826CD9563245D0999 /* PurchasesScreenViewModel.swift */; };
 		947695EA55864D316215BD4E /* CountdownUntilBedtimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C4F82DCF0FBAED255B720 /* CountdownUntilBedtimeView.swift */; };
 		9481E25624964E519E40F349 /* MigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A04AF52A3E189D54CA40B49 /* MigrationPlan.swift */; };
 		9619166582100A51BD00742B /* BedtimeBullyDataTestsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70409EA1FF5202466584B60B /* BedtimeBullyDataTestsUtils.swift */; };
@@ -71,6 +78,7 @@
 		BD29843611ACFA34C1A66444 /* Notifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571A175D7F3B025341A2D20B /* Notifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1DB0BE14EE7D5144C526172 /* WeeklyBedtimeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AD823439052CEA13F47112 /* WeeklyBedtimeSchedule.swift */; };
 		CC26B77AAF2E2B5FD3CAEC00 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E132D9CA0F4DF0ABC3C3823B /* Persistence.swift */; };
+		CC29ADAF6D11CAD5E2E964E8 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD672595BF5EC414656378C9 /* Config.plist */; };
 		CEEC1F1C807552E1CC43AF1E /* BedtimeHomeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932BD2A21ECA777819EB2EF0 /* BedtimeHomeDisplay.swift */; };
 		CFAEF57082B6695D6A165EFB /* ConfigV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A477D023C78E99B2611A10 /* ConfigV1_0_1.swift */; };
 		D5B5A7AD5EA5BAD7FAA8C1C5 /* SingleBedtimeUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE85744F51DA48C4D4934CD /* SingleBedtimeUpdateView.swift */; };
@@ -81,6 +89,7 @@
 		E2708834FB0464930B3393D4 /* AppBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D5F484924055AB51B34F8 /* AppBackground.swift */; };
 		E47C42F896E2EEA2D314DB96 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73258C6F0678F2F9AAAFF00E /* Date+.swift */; };
 		E730756CA58DECEAFC638344 /* BedtimeDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA58336546BAA8C98D4AC150 /* BedtimeDay.swift */; };
+		E9C9AAF463CDA78CCB6D9BEE /* Bedrock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E592482EBC0E7C590EF3DC4 /* Bedrock.framework */; };
 		EA6A3EC5C3F05B8180442C55 /* SchemaV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E83C9997891B0E48A740E4 /* SchemaV1_0_1.swift */; };
 		EC27347AEB1F445231215819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF466D1BBDF6000389253EA /* Assets.xcassets */; };
 		ECB1D99EB1531473A5CA94F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF0C1E523A0C7BC5239992D /* Preview Assets.xcassets */; };
@@ -97,6 +106,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3BE4F845B364E7768F6B1F04;
 			remoteInfo = Notifications;
+		};
+		573F48131AF2E1DDF52C5EDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C22E1D67A053077AABF4D6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8A87165F50D999BB962265;
+			remoteInfo = NetworkConfig;
 		};
 		878D2B6AE7AEB0267CCDF2A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -169,16 +185,28 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BA8507A45948C93DE22ED89 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C6C4531761FC00385EE38A98 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				620F7B0B22B870DD333D15D7 /* Bedrock.framework in Embed Frameworks */,
 				76499E1D270F01280C2BEC6C /* BedtimeBullyData.framework in Embed Frameworks */,
 				167618EAB1B334B324AB672B /* CSQLite.framework in Embed Frameworks */,
 				7DA52F349FD6F4D521AFF5E1 /* GRDB.framework in Embed Frameworks */,
 				54E24DA3FDD516888345BDCC /* GRDBQuery.framework in Embed Frameworks */,
+				63E28A471639E5F4FC50BB6C /* NetworkConfig.framework in Embed Frameworks */,
 				BD29843611ACFA34C1A66444 /* Notifications.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -206,20 +234,25 @@
 		18D83AAB66E72CFD6ADDD320 /* BedtimeBullyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedtimeBullyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE307D6AB1B6D4AE743253D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		1F83FC954654CF5F3F135F48 /* BedtimeBullyData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BedtimeBullyData-Info.plist"; sourceTree = "<group>"; };
+		21B7E1BFD62229B2C8FF45A2 /* NetworkConfig-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "NetworkConfig-Info.plist"; sourceTree = "<group>"; };
 		27E83C9997891B0E48A740E4 /* SchemaV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaV1_0_1.swift; sourceTree = "<group>"; };
 		29A477D023C78E99B2611A10 /* ConfigV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigV1_0_1.swift; sourceTree = "<group>"; };
 		2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyApp.swift; sourceTree = "<group>"; };
 		2CF0C1E523A0C7BC5239992D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FE504F625477258B7EA69CC /* ConfigV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigV1.swift; sourceTree = "<group>"; };
 		31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
+		324D5C7826CD9563245D0999 /* PurchasesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreenViewModel.swift; sourceTree = "<group>"; };
 		357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BedtimeBullyData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38780F391307DBB2B9436D3C /* NotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39507531F5A67CDEF02F2413 /* RoundedBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderView.swift; sourceTree = "<group>"; };
 		39AFBFEF764EB0B98FD784B4 /* GRDBQuery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDBQuery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFAEFBEB236479A6F0DB37F /* NotificationScheduleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleScreen.swift; sourceTree = "<group>"; };
+		3E592482EBC0E7C590EF3DC4 /* Bedrock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bedrock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429CDF8D9ED24B7A30CAC709 /* BedtimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeError.swift; sourceTree = "<group>"; };
 		430A4C1D829F8F8879612D44 /* CSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DD65D1B8C946251DBB9CF0 /* GRDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GRDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D7F22A0E2B96EB3FAC92EA /* PurchasesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreen.swift; sourceTree = "<group>"; };
 		4C6620A6B3ABA52FC7D7FF12 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		557047BF1250BB428F1996B4 /* NotificationScheduleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleRequest.swift; sourceTree = "<group>"; };
 		571A175D7F3B025341A2D20B /* Notifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +260,7 @@
 		5AF8B3BE1B49C94A9E3C254A /* BedtimeScheduleWeekSectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeScheduleWeekSectionUpdate.swift; sourceTree = "<group>"; };
 		5D2EF3C8A1A96B737A172CDA /* BedtimeBully.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BedtimeBully.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E049DA27785953AB9C2AE0A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		5ECA8EBE1E1A19877A7784E0 /* TuistPlists+BedtimeBully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistPlists+BedtimeBully.swift"; sourceTree = "<group>"; };
 		5F3BDF3B3264B964BF9AF9FF /* TimeStructTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStructTests.swift; sourceTree = "<group>"; };
 		5F427E5F5BFCB1FECCC783A2 /* NotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTests.swift; sourceTree = "<group>"; };
 		65FF47C62543ED7F4D1A4059 /* Notifications-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Notifications-Info.plist"; sourceTree = "<group>"; };
@@ -239,11 +273,12 @@
 		708D229CAF6FC44D4FC7EB0A /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		7259C76DDB1A92358F5D2416 /* BedtimeV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeV1.swift; sourceTree = "<group>"; };
 		73258C6F0678F2F9AAAFF00E /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		783BE2C62C3E2720005371B3 /* PurchasesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreenViewModel.swift; sourceTree = "<group>"; };
+		7836DD942C5FA02200A2F83B /* versionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = versionCheck.swift; sourceTree = "<group>"; };
 		79D4AEBE911F021985EA8371 /* NotificationScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleService.swift; sourceTree = "<group>"; };
 		81FF9074B0D2F709E9049DF8 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		837CA9A2366F181F52E9D726 /* BedtimeBullyDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyDataTests.swift; sourceTree = "<group>"; };
 		83FC2B52FAE29253A712AD00 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		8584DE5FB8AC9D4F09F2E83F /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		8819475761D528D2B0435A89 /* BedtimeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeRequest.swift; sourceTree = "<group>"; };
 		88AD823439052CEA13F47112 /* WeeklyBedtimeSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBedtimeSchedule.swift; sourceTree = "<group>"; };
 		88B711A4DA6CCCC04A937EFE /* RequestNotificationsPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationsPermissionView.swift; sourceTree = "<group>"; };
@@ -277,14 +312,22 @@
 		CA58336546BAA8C98D4AC150 /* BedtimeDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeDay.swift; sourceTree = "<group>"; };
 		D1F0F3AECD126EBBB1BB2AB4 /* WeeklyBedtimeScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBedtimeScheduleViewModel.swift; sourceTree = "<group>"; };
 		D91CA0B15D99A66BCDA5C3BE /* TimeInterval+formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+formatted.swift"; sourceTree = "<group>"; };
+		DD672595BF5EC414656378C9 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Config.plist; sourceTree = "<group>"; };
 		E132D9CA0F4DF0ABC3C3823B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		EB5F2A522C29D11C4A64F8F1 /* PurchasesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreen.swift; sourceTree = "<group>"; };
 		F22D5F484924055AB51B34F8 /* AppBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackground.swift; sourceTree = "<group>"; };
 		F29DC25BF39646712D643956 /* BedtimeBullyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyTests.swift; sourceTree = "<group>"; };
 		FAEF0E5E0BAA46F7EA6C3007 /* Bedtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedtime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		061BF4BE0486051105495291 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C9AAF463CDA78CCB6D9BEE /* Bedrock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D174B6604C2F549DAD17B4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,8 +370,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB5AAE5591780537F34502C /* Bedrock.framework in Frameworks */,
 				B02B7B265D7C8FBC9FB2C3BB /* BedtimeBullyData.framework in Frameworks */,
 				F84C639959773A8D46FD9B37 /* GRDBQuery.framework in Frameworks */,
+				8FED298A668F427CA1B7C709 /* NetworkConfig.framework in Frameworks */,
 				9C60C507F62821AF8A387386 /* Notifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +387,7 @@
 				211B0B8D7AE9030FD980DBD7 /* BedtimeBully */,
 				AA72361318421FA8D47946A0 /* BedtimeBullyData */,
 				AE47B77125010B3D30EC3AA6 /* Derived */,
+				511EBCC54D7218B0F0103DE2 /* NetworkConfig */,
 				CC1561EFF0B2BD5DAE4074F2 /* Notifications */,
 			);
 			name = Project;
@@ -387,6 +433,7 @@
 		1F59A5ED01E14A6B77C2383B /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				3E592482EBC0E7C590EF3DC4 /* Bedrock.framework */,
 				5D2EF3C8A1A96B737A172CDA /* BedtimeBully.app */,
 				357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */,
 				A5320681A0FC4CFB3C9154D1 /* BedtimeBullyDataTests.xctest */,
@@ -394,6 +441,7 @@
 				430A4C1D829F8F8879612D44 /* CSQLite.framework */,
 				46DD65D1B8C946251DBB9CF0 /* GRDB.framework */,
 				39AFBFEF764EB0B98FD784B4 /* GRDBQuery.framework */,
+				3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */,
 				571A175D7F3B025341A2D20B /* Notifications.framework */,
 				38780F391307DBB2B9436D3C /* NotificationsTests.xctest */,
 			);
@@ -435,6 +483,7 @@
 			children = (
 				C1AECC99D4EA46D8DBE6AB3D /* TuistAssets+BedtimeBully.swift */,
 				13FD5A9617CA6F0BDD4E8900 /* TuistBundle+BedtimeBully.swift */,
+				5ECA8EBE1E1A19877A7784E0 /* TuistPlists+BedtimeBully.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -462,10 +511,20 @@
 				1F83FC954654CF5F3F135F48 /* BedtimeBullyData-Info.plist */,
 				95620D49BF25CE556E2A6AF8 /* BedtimeBullyDataTests-Info.plist */,
 				B122B6778866D5A5863720CD /* BedtimeBullyTests-Info.plist */,
+				21B7E1BFD62229B2C8FF45A2 /* NetworkConfig-Info.plist */,
 				65FF47C62543ED7F4D1A4059 /* Notifications-Info.plist */,
 				0512CC32B0283BBBFD186CF5 /* NotificationsTests-Info.plist */,
 			);
 			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		45E60A7D0C9BF8C7C60ED0EE /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				47D7F22A0E2B96EB3FAC92EA /* PurchasesScreen.swift */,
+				324D5C7826CD9563245D0999 /* PurchasesScreenViewModel.swift */,
+			);
+			path = Purchases;
 			sourceTree = "<group>";
 		};
 		4C7EF9769708F1C84D322B92 /* Services */ = {
@@ -477,6 +536,23 @@
 				AA35DA10D666EF492510DC0B /* ScheduleTemplateService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		511EBCC54D7218B0F0103DE2 /* NetworkConfig */ = {
+			isa = PBXGroup;
+			children = (
+				5B264A725BF7CB59215D9595 /* Sources */,
+			);
+			path = NetworkConfig;
+			sourceTree = "<group>";
+		};
+		5B264A725BF7CB59215D9595 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8584DE5FB8AC9D4F09F2E83F /* config.swift */,
+				7836DD942C5FA02200A2F83B /* versionCheck.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		6198472AB87317C026E26919 /* GRDB */ = {
@@ -500,19 +576,10 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		783BE2C52C3E270C005371B3 /* Purchases */ = {
-			isa = PBXGroup;
-			children = (
-				EB5F2A522C29D11C4A64F8F1 /* PurchasesScreen.swift */,
-				783BE2C62C3E2720005371B3 /* PurchasesScreenViewModel.swift */,
-			);
-			path = Purchases;
-			sourceTree = "<group>";
-		};
 		7EC5C1880732D42F17AA6067 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				783BE2C52C3E270C005371B3 /* Purchases */,
+				45E60A7D0C9BF8C7C60ED0EE /* Purchases */,
 				9ED15435C8E3FCEBF773E306 /* BedtimeScheduleScreen.swift */,
 				3DFAEFBEB236479A6F0DB37F /* NotificationScheduleScreen.swift */,
 				BC83ECCABA0235DB1E2FC3A5 /* SettingsScreen.swift */,
@@ -565,6 +632,7 @@
 				14A45DAE758BE6766DA0014C /* Preview Content */,
 				BAF466D1BBDF6000389253EA /* Assets.xcassets */,
 				31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */,
+				DD672595BF5EC414656378C9 /* Config.plist */,
 				67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
@@ -725,6 +793,7 @@
 			);
 			dependencies = (
 				4EFC151C948AFF79804E1A09 /* PBXTargetDependency */,
+				F8D376674F8E3C099BDC9867 /* PBXTargetDependency */,
 				04EB3A9FB0A70DD7215C4927 /* PBXTargetDependency */,
 			);
 			name = BedtimeBully;
@@ -807,6 +876,24 @@
 			productReference = 38780F391307DBB2B9436D3C /* NotificationsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DC8A87165F50D999BB962265 /* NetworkConfig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C96C0DBB35DFCB22EF21795 /* Build configuration list for PBXNativeTarget "NetworkConfig" */;
+			buildPhases = (
+				1F3A0DFDEC23EED2D60B4404 /* Sources */,
+				661D0CC71663E19EFCCFC4EB /* Resources */,
+				9BA8507A45948C93DE22ED89 /* Embed Frameworks */,
+				061BF4BE0486051105495291 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NetworkConfig;
+			productName = NetworkConfig;
+			productReference = 3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -839,6 +926,7 @@
 				C47B9DEBE87D395270636B04 /* NotificationsTests */,
 				A0F8DB4DB817E20E4439A447 /* BedtimeBullyData */,
 				A62EBE99145DD266A066220F /* BedtimeBullyDataTests */,
+				DC8A87165F50D999BB962265 /* NetworkConfig */,
 			);
 		};
 /* End PBXProject section */
@@ -857,12 +945,20 @@
 			files = (
 				EC27347AEB1F445231215819 /* Assets.xcassets in Resources */,
 				1D545DEE82EDEB21E8175AD3 /* Bedtime Bully.storekit in Resources */,
+				CC29ADAF6D11CAD5E2E964E8 /* Config.plist in Resources */,
 				6DDC19FBD3316BA148EAF12E /* LaunchScreen.storyboard in Resources */,
 				ECB1D99EB1531473A5CA94F1 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6139C9EFAA4792CEDC575C9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661D0CC71663E19EFCCFC4EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -893,6 +989,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F3A0DFDEC23EED2D60B4404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CA65E7923278CA03F2DC25A /* config.swift in Sources */,
+				7836DD952C5FA02200A2F83B /* versionCheck.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B8195D844AE1278D4248603 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -979,17 +1084,18 @@
 				CEEC1F1C807552E1CC43AF1E /* BedtimeHomeDisplay.swift in Sources */,
 				947695EA55864D316215BD4E /* CountdownUntilBedtimeView.swift in Sources */,
 				5A0E6F2AFF46987A61AB032E /* RoundedBorderView.swift in Sources */,
-				783BE2C72C3E2720005371B3 /* PurchasesScreenViewModel.swift in Sources */,
 				A056FAFA0619A380E1CC917C /* RequestNotificationPermissionsVM.swift in Sources */,
 				1B037CC0B14F1A47374DF76E /* RequestNotificationsPermissionView.swift in Sources */,
 				80929F21776EDBA0B59D293D /* BedtimeScheduleScreen.swift in Sources */,
 				7CFE8368692AD2FD0D3ABA45 /* NotificationScheduleScreen.swift in Sources */,
-				1E527206BE18B33506B71EF5 /* PurchasesScreen.swift in Sources */,
+				2C222A9EB827990345F289A7 /* PurchasesScreen.swift in Sources */,
+				92958C671B50468EC6340E58 /* PurchasesScreenViewModel.swift in Sources */,
 				1E4FAAE6B0456D78A0CEEDF5 /* SettingsScreen.swift in Sources */,
 				4ECB9702660F23022A723A06 /* StoreKit.swift in Sources */,
 				5875125BE75CE761C2D1C739 /* BedtimeStore.swift in Sources */,
 				DDB27558E1B77600084EAEA3 /* TuistAssets+BedtimeBully.swift in Sources */,
 				1E9A11D90168859D1B4319C3 /* TuistBundle+BedtimeBully.swift in Sources */,
+				2997D7A63E4FC73C647A79D3 /* TuistPlists+BedtimeBully.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1139,12 @@
 			name = Notifications;
 			target = 3BE4F845B364E7768F6B1F04 /* Notifications */;
 			targetProxy = C79EAC1404F35598599C9001 /* PBXContainerItemProxy */;
+		};
+		F8D376674F8E3C099BDC9867 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NetworkConfig;
+			target = DC8A87165F50D999BB962265 /* NetworkConfig */;
+			targetProxy = 573F48131AF2E1DDF52C5EDB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1571,6 +1683,73 @@
 			};
 			name = Release;
 		};
+		EF1F5C6FE0C3FE4CF348B466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Derived/InfoPlists/NetworkConfig-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.NetworkConfig;
+				PRODUCT_NAME = NetworkConfig;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB6E4EDEE8A8EF6EF998363B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Derived/InfoPlists/NetworkConfig-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.NetworkConfig;
+				PRODUCT_NAME = NetworkConfig;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1633,6 +1812,15 @@
 			buildConfigurations = (
 				2A13CD7C26DD88574DA0F603 /* Debug */,
 				775F2C918E1206AB6565A409 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C96C0DBB35DFCB22EF21795 /* Build configuration list for PBXNativeTarget "NetworkConfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB6E4EDEE8A8EF6EF998363B /* Debug */,
+				EF1F5C6FE0C3FE4CF348B466 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

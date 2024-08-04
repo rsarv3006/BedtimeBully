@@ -1,7 +1,7 @@
 import BedtimeBullyData
 import SwiftData
 import SwiftUI
-
+import NetworkConfig
 
 import SwiftUI
 #if canImport(SwiftData)
@@ -24,11 +24,13 @@ struct BedtimeBullyApp: App {
                     .onAppear {
                         onLoadMigrate()
                     }
+                    .checkAppVersion()
             } else {
                 HomeScreen()
                     .environmentObject(bedtimeStore)
                     .environmentObject(storekitStore)
                     .environment(\.appDatabase, .shared)
+                    .checkAppVersion()
             }
         }
     }

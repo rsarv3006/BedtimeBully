@@ -19,6 +19,7 @@ enum ProjectTargets {
     static let BedtimeBullyData = "BedtimeBullyData"
     static let BedtimeBullyDataTests = "BedtimeBullyDataTests"
     static let NotificationsTests = "NotificationsTests"
+    static let NetworkConfig = "NetworkConfig"
 }
 
 let project = Project(
@@ -56,7 +57,9 @@ let project = Project(
             dependencies: [
                 .target(name: ProjectTargets.Notifications),
                 .target(name: ProjectTargets.BedtimeBullyData),
+                .target(name: ProjectTargets.NetworkConfig),
                 .external(name: "GRDBQuery"),
+                .external(name: "Bedrock")
             ]
         ),
         .target(
@@ -107,6 +110,17 @@ let project = Project(
             sources: ["BedtimeBullyData/Tests/**"],
             dependencies: [
                 .target(name: ProjectTargets.BedtimeBullyData),
+            ]
+        ),
+        .target(
+            name: ProjectTargets.NetworkConfig,
+            destinations: .iOS,
+            product: .framework,
+            bundleId: "rjs.app.dev.NetworkConfig",
+            deploymentTargets: DeploymentTargets.iOS("16.0"),
+            sources: ["NetworkConfig/Sources/**"],
+            dependencies: [
+                .external(name: "Bedrock"),
             ]
         ),
     ]

@@ -18,12 +18,19 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Notifications.xcscheme_^#shared#^_</key>
+		<key>NetworkConfig.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>Notifications.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 </dict>

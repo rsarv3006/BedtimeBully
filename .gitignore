@@ -73,4 +73,4 @@ Tuist/.build
 
 .idea
 
-
+**/Config.plist

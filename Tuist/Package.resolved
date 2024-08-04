@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "bedrock",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rsarv3006/bedrock",
+      "state" : {
+        "revision" : "aba24f03be59ab24febea6dcaaae46393d2b1e60",
+        "version" : "1.0.6"
+      }
+    },
+    {
       "identity" : "grdb.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/groue/GRDB.swift.git",

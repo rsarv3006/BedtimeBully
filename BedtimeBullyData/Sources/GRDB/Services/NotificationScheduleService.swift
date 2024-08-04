@@ -22,10 +22,6 @@ public extension AppDatabase {
 
     func getNotificationScheduleById(_ id: String) throws -> GRDBNotificationSchedule? {
         return try dbWriter.read { db in
-            let allThings = try GRDBNotificationSchedule.all().fetchAll(db)
-            allThings.forEach { thing in
-                print(thing.id)
-            }
             return try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.id == id).fetchOne(db)
         }
     }
