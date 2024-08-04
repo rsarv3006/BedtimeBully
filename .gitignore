@@ -74,3 +74,4 @@ Tuist/.build
 .idea
 
 **/Config.plist
+**/DefaultConfig.json
