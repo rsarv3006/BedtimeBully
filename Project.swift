@@ -1,6 +1,6 @@
 import ProjectDescription
 
-let markettingVersion = "1.1.0"
+let markettingVersion = "1.1.1"
 
 extension SettingsDictionary {
     func setProjectVersions() -> SettingsDictionary {
