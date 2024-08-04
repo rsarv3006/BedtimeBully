@@ -1,13 +1,11 @@
 import ProjectDescription
 
+let markettingVersion = "1.1.0"
+
 extension SettingsDictionary {
     func setProjectVersions() -> SettingsDictionary {
-        let currentProjectversion = "1"
-        let markettingVersion = "1.1.0"
         return appleGenericVersioningSystem().merging([
             "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
-            "CURRENT_PROJECT_VERSION": SettingValue(stringLiteral: currentProjectversion),
-            "MARKETING_VERSION": SettingValue(stringLiteral: markettingVersion),
         ])
     }
 }
@@ -48,8 +46,9 @@ let project = Project(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen",
                     "UISupportedInterfaceOrientations": [
-                    "UIInterfaceOrientationPortrait"
-                    ]
+                        "UIInterfaceOrientationPortrait",
+                    ],
+                    "CFBundleShortVersionString": "\(markettingVersion)",
                 ]
             ),
             sources: ["BedtimeBully/Sources/**"],
@@ -59,7 +58,7 @@ let project = Project(
                 .target(name: ProjectTargets.BedtimeBullyData),
                 .target(name: ProjectTargets.NetworkConfig),
                 .external(name: "GRDBQuery"),
-                .external(name: "Bedrock")
+                .external(name: "Bedrock"),
             ]
         ),
         .target(
