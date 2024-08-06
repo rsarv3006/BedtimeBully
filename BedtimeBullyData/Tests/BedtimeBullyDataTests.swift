@@ -8,8 +8,6 @@ final class BedtimeBullyDataTests: XCTestCase {
 
     override func setUpWithError() throws {
         super.setUp()
-        // Create an in-memory database for testing
-        
         appDb = AppDatabase.random()
     }
 

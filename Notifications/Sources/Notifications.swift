@@ -1,7 +1,7 @@
 import UserNotifications
 
 public enum NotificationService {
-    static let center = UNUserNotificationCenter.current()
+    public static let center = UNUserNotificationCenter.current()
 
     public static func requestAuthorization(completion: @escaping (Bool, (any Error)?) -> Void) {
         center.requestAuthorization(options: [.badge, .sound, .alert, .carPlay], completionHandler: completion)
