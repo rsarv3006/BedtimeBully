@@ -96,7 +96,7 @@ extension AppDatabase {
             try db.execute(sql: """
                 UPDATE notificationSchedule
                 SET status = 'active' 
-                WHERE name = 'Default'
+                WHERE name = 'Default' OR name = 'Standard'
             """)
             
             try db.execute(literal: """
