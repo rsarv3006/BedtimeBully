@@ -43,6 +43,10 @@ public extension AppDatabase {
             try GRDBScheduleTemplate.all().filter(GRDBScheduleTemplate.Columns.isActive == true).fetchOne(db)
         }
     }
+    
+    private func getActiveScheduleTemplate(db: Database) throws -> GRDBScheduleTemplate? {
+        try GRDBScheduleTemplate.all().filter(GRDBScheduleTemplate.Columns.isActive == true).fetchOne(db)
+    }
 
     func updateBedtimeAndNotifications(newBedtime: Date) throws {
         let bedtimeTime = try newBedtime.getTime()
@@ -147,5 +151,16 @@ public extension AppDatabase {
         }
 
         modelContext.delete(swiftDataScheduleTemplate)
+    }
+
+    func updateNotificationScheduleIdForActiveTemplate(db: Database, new id: String) throws {
+        let bedtimeSchedule = try getActiveScheduleTemplate(db: db)
+
+        guard var bedtimeSchedule else {
+            throw BedtimeError.noActiveScheduleTemplate
+        }
+
+            bedtimeSchedule.notificationScheduleId = id
+            try bedtimeSchedule.update(db)
     }
 }

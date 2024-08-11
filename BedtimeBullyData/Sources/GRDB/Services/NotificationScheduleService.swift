@@ -38,10 +38,11 @@ public extension AppDatabase {
                 try currentActiveSchedule.update(db)
             }
 
-            let newSchedule = allSchedules.first(where: { $0.name == name.rawValue })
+            let newSchedule = try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.name == name.rawValue).fetchOne(db)
             if var newSchedule = newSchedule {
                 newSchedule.status = .active
                 try newSchedule.update(db)
+                try updateNotificationScheduleIdForActiveTemplate(db: db, new: newSchedule.id)
             }
         }
     }
@@ -49,6 +50,12 @@ public extension AppDatabase {
     func getNotificationScheduleById(_ id: String) throws -> GRDBNotificationSchedule? {
         return try dbWriter.read { db in
             try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.id == id).fetchOne(db)
+        }
+    }
+    
+    func getNotificationScheduleByName(_ name: String) throws -> GRDBNotificationSchedule? {
+        return try dbWriter.read { db in
+            try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.name == name).fetchOne(db)
         }
     }
 }
