@@ -15,9 +15,7 @@ struct NotificationScheduleScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    HStack {
-                        Spacer()
-                    }
+                    HStack { Spacer() }
 
                     Text("This is the notification schedule used to notify you of an upcoming bedtime.")
                         .padding()
@@ -33,14 +31,10 @@ struct NotificationScheduleScreen: View {
                             .padding()
                     }
 
-                    Button(action: {
-                           openCustomizeSchedule.toggle() 
-                        }) {
+                    NavigationLink(destination: NotificationCustomizeScreen()) {
                         Text("Customize Notification Schedule")
                     }
                     .buttonStyle(.bordered)
-                    .alert("Coming Soon!", isPresented: $openCustomizeSchedule, actions: {})
-
 
                     Spacer()
                 }

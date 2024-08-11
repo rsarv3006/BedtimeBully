@@ -12,7 +12,7 @@ public struct GRDBNotificationSchedule: Identifiable, Equatable {
 
     public var id: String
     public let name: String
-    public let notificationItems: NotificationItems
+    public var notificationItems: NotificationItems
 }
 
 extension GRDBNotificationSchedule: TableRecord {

@@ -1,19 +1,65 @@
-[!]  --- xcodebuild: Using the first of multiple matching destinations:
-{ platform:iOS Simulator, id:70C0DD74-D29D-4B59-8C35-AD45097BDDA5, OS:17.4, name:iPhone 15 Pro Max }
-{ platform:iOS Simulator, id:70C0DD74-D29D-4B59-8C35-AD45097BDDA5, OS:17.4, name:iPhone 15 Pro Max }
 [CSQLite] Processing CSQLite-Info.plist
-[GRDB] Processing GRDB-Info.plist
-[Notifications] Processing Notifications-Info.plist
-[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
 [GRDBQuery] Processing GRDBQuery-Info.plist
+[Bedrock] Processing Bedrock-Info.plist
+[Notifications] Processing Notifications-Info.plist
+[GRDB] Processing GRDB-Info.plist
+[NetworkConfig] Processing NetworkConfig-Info.plist
+[GRDB] Compiling TuistBundle+GRDB.swift
+[BedtimeBullyData] Write Auxiliary File BedtimeBullyData-OutputFileMap.json
+[BedtimeBullyData] Write Auxiliary File BedtimeBullyData.SwiftFileList
+[BedtimeBullyData] Processing BedtimeBullyData-Info.plist
+[BedtimeBullyData] Write Auxiliary File BedtimeBullyData.LinkFileList
+[BedtimeBullyData] Compiling NotificationScheduleService.swift
+[BedtimeBullyData] Compiling DefaultNotificationItemArrays.swift
+[BedtimeBullyData] Compiling BedtimeService.swift
+[BedtimeBullyData] Compiling Persistence.swift
+[BedtimeBully] Write Auxiliary File BedtimeBully.SwiftFileList
+[BedtimeBully] Write Auxiliary File BedtimeBully-OutputFileMap.json
 [BedtimeBully] Compiling PurchasesScreen.swift
-[BedtimeBully] Processing BedtimeBully-Info.plist
-Signing BedtimeBully.app (in target 'BedtimeBully' from project 'BedtimeBully')
-Build Succeeded
+[BedtimeBully] Compiling SettingsScreen.swift
+[BedtimeBully] Compiling StoreKit.swift
+[BedtimeBully] Compiling BedtimeScheduleScreen.swift
+[BedtimeBully] Compiling NotificationCustomizeScreen.swift
+[x] /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:73: cannot convert value of type 'Binding<Subject>' to expected argument type '[NotificationItem]'
+                appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                                        ^
+[x] /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:73: value of type 'NotificationMessageType' has no dynamic member 'notificationItems' using key path from root type 'NotificationMessageType'
+                appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                              ~~~~~~~~~ ^~~~~~~~~~~~~~~~~
+[x] /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:63: referencing subscript 'subscript(dynamicMember:)' requires wrapper 'Binding<NotificationMessageType>'
+                appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                              ^
+[BedtimeBully] Compiling NotificationScheduleScreen.swift
+[BedtimeBully] Compiling BedtimeStore.swift
+[BedtimeBully] Compiling TuistAssets+BedtimeBully.swift
+[BedtimeBully] Compiling TuistBundle+BedtimeBully.swift
+[BedtimeBully] Compiling SingleBedtimeUpdateView.swift
+[BedtimeBully] Compiling WeeklyBedtimeSchedule.swift
+[BedtimeBully] Compiling WeeklyBedtimeScheduleViewModel.swift
+[BedtimeBully] Compiling BedtimeHomeDisplay.swift
+[BedtimeBully] Compiling RoundedBorderView.swift
+[BedtimeBully] Compiling RequestNotificationsPermissionView.swift
+[BedtimeBully] Compiling AppBackground.swift
+[BedtimeBully] Compiling GRDBSetup.swift
+[BedtimeBully] Compiling HomeScreen.swift
 
 -----------------------------
 -- xcodebuild.nvim summary --
 -----------------------------
 
-  ✔ Build Succeeded
+Errors:
+  ✖ /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:73
+    cannot convert value of type 'Binding<Subject>' to expected argument type '[NotificationItem]'
+                    appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                                            ^
+  ✖ /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:73
+    value of type 'NotificationMessageType' has no dynamic member 'notificationItems' using key path from root type 'NotificationMessageType'
+                    appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                                  ~~~~~~~~~ ^~~~~~~~~~~~~~~~~
+  ✖ /Users/rjs/dev/BedtimeBully/BedtimeBully/Sources/Settings/NotificationCustomizeScreen.swift:21:63
+    referencing subscript 'subscript(dynamicMember:)' requires wrapper 'Binding<NotificationMessageType>'
+                    appDatabase.replaceNotificationSchedule(with: selection.notificationItems)
+                                                                  ^
+
+  Build Failed
 
