@@ -16,7 +16,7 @@ public extension AppDatabase {
                 let defaultBedtime = ScheduleTemplateDayItem(time: defaultBedtimeTime, isEnabled: true)
 
                 guard let notificationSchedule = notificationSchedules.first(where: { notifSchedule in
-                    notifSchedule.name == "Default"
+                    notifSchedule.status == .active
                 }) else {
                     throw BedtimeError.failedToCreateBedtimeDate
                 }

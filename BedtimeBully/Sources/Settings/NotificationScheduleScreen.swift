@@ -8,7 +8,7 @@ struct NotificationScheduleScreen: View {
     @Query(NotificationScheduleRequest()) private var scheduleTemplates: [GRDBNotificationSchedule]
 
     private var activeSchedule: GRDBNotificationSchedule? {
-        return scheduleTemplates.first(where: { $0.name == "Default" })
+        return scheduleTemplates.first(where: { $0.status == .active })
     }
 
     var body: some View {
@@ -31,7 +31,7 @@ struct NotificationScheduleScreen: View {
                             .padding()
                     }
 
-                    NavigationLink(destination: NotificationCustomizeScreen()) {
+                    NavigationLink(destination: NotificationCustomizeScreen(scheduleName: activeSchedule?.name)) {
                         Text("Customize Notification Schedule")
                     }
                     .buttonStyle(.bordered)

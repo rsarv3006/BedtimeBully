@@ -2,32 +2,53 @@ import Foundation
 import GRDB
 
 public extension AppDatabase {
-    func createDefaultNotificationSchedule(notificationItems: [NotificationItem] = DefaultNotificationItems) throws {
-        try dbWriter.write { db in
-            if try GRDBNotificationSchedule.all().isEmpty(db) {
-                let defaultNotificationSchedule = GRDBNotificationSchedule.new(name: "Default", notificationItems: notificationItems)
-                try defaultNotificationSchedule.insert(db)
-            }
+    private func createDefaultNotificationSchedules(db: Database) throws {
+        if try GRDBNotificationSchedule.all().isEmpty(db) {
+            let standardNotificationSchedule = GRDBNotificationSchedule.new(name: NotificationMessageType.Standard.rawValue, notificationItems: StandardNotificationItems, status: .active)
+            try standardNotificationSchedule.insert(db)
+
+            let aggressiveNotificationSchedule = GRDBNotificationSchedule.new(name: "Aggressive", notificationItems: AggressiveNotificationItems)
+            try aggressiveNotificationSchedule.insert(db)
+
+            let aussieNotificationSchedule = GRDBNotificationSchedule.new(name: "Aussie", notificationItems: AussieNotificationItems)
+            try aussieNotificationSchedule.insert(db)
         }
     }
 
-    func replaceNotificationSchedule(with notificationItems: [NotificationItem]) throws {
+    func createDefaultNotificationSchedules() throws {
         try dbWriter.write { db in
-            let currentNotificationSchedule = try GRDBNotificationSchedule.all().fetchOne(db)
-            if var currentNotificationSchedule = currentNotificationSchedule {
-                currentNotificationSchedule.notificationItems = NotificationItems(items: notificationItems)
-                try currentNotificationSchedule.update(db)
-            } else {
-                let defaultNotificationSchedule = GRDBNotificationSchedule.new(name: "Default", notificationItems: notificationItems)
-                try defaultNotificationSchedule.insert(db)
+            try createDefaultNotificationSchedules(db: db)
+        }
+    }
+
+    func setNotificationSchedule(variant name: NotificationMessageType) throws {
+        try dbWriter.write { db in
+            let allSchedules = try GRDBNotificationSchedule.all().fetchAll(db)
+
+            if allSchedules.count == 1 {
+                let scheduleToDelete = allSchedules.first
+                try scheduleToDelete?.delete(db)
+
+                try createDefaultNotificationSchedules(db: db)
+            }
+
+            let currentActiveSchedule = try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.status == NotificationScheduleStatusVariant.active.rawValue).fetchOne(db)
+            if var currentActiveSchedule = currentActiveSchedule {
+                currentActiveSchedule.status = .inactive
+                try currentActiveSchedule.update(db)
+            }
+
+            let newSchedule = allSchedules.first(where: { $0.name == name.rawValue })
+            if var newSchedule = newSchedule {
+                newSchedule.status = .active
+                try newSchedule.update(db)
             }
         }
     }
 
     func getNotificationScheduleById(_ id: String) throws -> GRDBNotificationSchedule? {
         return try dbWriter.read { db in
-            return try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.id == id).fetchOne(db)
+            try GRDBNotificationSchedule.all().filter(GRDBNotificationSchedule.Columns.id == id).fetchOne(db)
         }
     }
 }
-

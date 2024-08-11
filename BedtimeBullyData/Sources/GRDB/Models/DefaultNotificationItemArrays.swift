@@ -6,7 +6,7 @@ public enum NotificationMessageType: String, CaseIterable {
     case Aussie
 }
 
-public let DefaultNotificationItems: [NotificationItem] = [
+public let StandardNotificationItems: [NotificationItem] = [
     NotificationItem(id: TimeInterval(30 * 60), message: "Bedtime in 30 minutes"),
     NotificationItem(id: TimeInterval(15 * 60), message: "Bedtime in 15 minutes"),
     NotificationItem(id: TimeInterval(10 * 60), message: "Bedtime in 10 minutes"),
