@@ -23,7 +23,7 @@ struct NotificationScheduleScreen: View {
                     if let activeSchedule = activeSchedule {
                         ForEach(activeSchedule.notificationItems.items, id: \.self) { item in
                             Text(item.message)
-                                .padding(.bottom)
+                                .padding([.bottom, .horizontal])
                         }
 
                     } else {
