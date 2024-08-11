@@ -16,7 +16,7 @@ public extension AppDatabase {
                 let defaultBedtime = ScheduleTemplateDayItem(time: defaultBedtimeTime, isEnabled: true)
 
                 guard let notificationSchedule = notificationSchedules.first(where: { notifSchedule in
-                    notifSchedule.name == "Default"
+                    notifSchedule.status == .active
                 }) else {
                     throw BedtimeError.failedToCreateBedtimeDate
                 }
@@ -42,6 +42,10 @@ public extension AppDatabase {
         return try dbWriter.read { db in
             try GRDBScheduleTemplate.all().filter(GRDBScheduleTemplate.Columns.isActive == true).fetchOne(db)
         }
+    }
+    
+    private func getActiveScheduleTemplate(db: Database) throws -> GRDBScheduleTemplate? {
+        try GRDBScheduleTemplate.all().filter(GRDBScheduleTemplate.Columns.isActive == true).fetchOne(db)
     }
 
     func updateBedtimeAndNotifications(newBedtime: Date) throws {
@@ -147,5 +151,16 @@ public extension AppDatabase {
         }
 
         modelContext.delete(swiftDataScheduleTemplate)
+    }
+
+    func updateNotificationScheduleIdForActiveTemplate(db: Database, new id: String) throws {
+        let bedtimeSchedule = try getActiveScheduleTemplate(db: db)
+
+        guard var bedtimeSchedule else {
+            throw BedtimeError.noActiveScheduleTemplate
+        }
+
+            bedtimeSchedule.notificationScheduleId = id
+            try bedtimeSchedule.update(db)
     }
 }

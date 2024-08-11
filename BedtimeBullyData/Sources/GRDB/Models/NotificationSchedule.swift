@@ -1,6 +1,11 @@
 import Foundation
 import GRDB
 
+public enum NotificationScheduleStatusVariant: String, Codable {
+    case active
+    case inactive
+}
+
 public struct NotificationItems: Codable {
     public var items: [NotificationItem]
 }
@@ -12,7 +17,8 @@ public struct GRDBNotificationSchedule: Identifiable, Equatable {
 
     public var id: String
     public let name: String
-    public let notificationItems: NotificationItems
+    public var notificationItems: NotificationItems
+    public var status: NotificationScheduleStatusVariant
 }
 
 extension GRDBNotificationSchedule: TableRecord {
@@ -20,8 +26,8 @@ extension GRDBNotificationSchedule: TableRecord {
 }
 
 extension GRDBNotificationSchedule {
-    static func new(name: String, notificationItems: [NotificationItem]) -> GRDBNotificationSchedule {
-        GRDBNotificationSchedule(id: UUID().uuidString, name: name, notificationItems: NotificationItems(items: notificationItems))
+    static func new(name: String, notificationItems: [NotificationItem], status: NotificationScheduleStatusVariant = .inactive) -> GRDBNotificationSchedule {
+        GRDBNotificationSchedule(id: UUID().uuidString, name: name, notificationItems: NotificationItems(items: notificationItems), status: status)
     }
 }
 
@@ -31,6 +37,7 @@ extension GRDBNotificationSchedule: Codable, FetchableRecord, PersistableRecord 
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
         static let notificationItems = Column(CodingKeys.notificationItems)
+        static let status = Column(CodingKeys.status)
     }
 }
 

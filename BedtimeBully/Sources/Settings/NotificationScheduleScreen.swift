@@ -8,16 +8,14 @@ struct NotificationScheduleScreen: View {
     @Query(NotificationScheduleRequest()) private var scheduleTemplates: [GRDBNotificationSchedule]
 
     private var activeSchedule: GRDBNotificationSchedule? {
-        return scheduleTemplates.first(where: { $0.name == "Default" })
+        return scheduleTemplates.first(where: { $0.status == .active })
     }
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    HStack {
-                        Spacer()
-                    }
+                    HStack { Spacer() }
 
                     Text("This is the notification schedule used to notify you of an upcoming bedtime.")
                         .padding()
@@ -25,7 +23,7 @@ struct NotificationScheduleScreen: View {
                     if let activeSchedule = activeSchedule {
                         ForEach(activeSchedule.notificationItems.items, id: \.self) { item in
                             Text(item.message)
-                                .padding(.bottom)
+                                .padding([.bottom, .horizontal])
                         }
 
                     } else {
@@ -33,14 +31,10 @@ struct NotificationScheduleScreen: View {
                             .padding()
                     }
 
-                    Button(action: {
-                           openCustomizeSchedule.toggle() 
-                        }) {
+                    NavigationLink(destination: NotificationCustomizeScreen(scheduleName: activeSchedule?.name)) {
                         Text("Customize Notification Schedule")
                     }
                     .buttonStyle(.bordered)
-                    .alert("Coming Soon!", isPresented: $openCustomizeSchedule, actions: {})
-
 
                     Spacer()
                 }

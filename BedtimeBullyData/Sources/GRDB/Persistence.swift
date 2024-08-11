@@ -46,7 +46,7 @@ public extension AppDatabase {
 //            }
             
             try appDatabase.createConfig()
-            try appDatabase.createDefaultNotificationSchedule()
+            try appDatabase.createDefaultNotificationSchedules()
             try appDatabase.createDefaultScheduleTemplate()
             
             try appDatabase.addBedtimesFromSchedule()
@@ -78,7 +78,7 @@ public extension AppDatabase {
         let appDatabase = empty()
         
         try! appDatabase.createConfig()
-        try! appDatabase.createDefaultNotificationSchedule()
+        try! appDatabase.createDefaultNotificationSchedules()
         try! appDatabase.createDefaultScheduleTemplate()
         
 //        try! appDatabase.addBedtimesFromSchedule()
