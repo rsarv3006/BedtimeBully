@@ -14,6 +14,8 @@ public struct HomeScreen: View {
     @State() private var shouldShowRequestNotificationPermissions = false
     @State private var hasError = false
     @State private var errorMessage = ""
+    
+    @AppStorage("versionUpdateModal_1.1.2") var firstTimeModal = true
 
     public var body: some View {
         NavigationStack {
@@ -32,6 +34,12 @@ public struct HomeScreen: View {
                 }
                 .navigationTitle("BedtimeBully")
                 .navigationBarTitleDisplayMode(.inline)
+                .sheet(isPresented: $firstTimeModal) {
+                    VersionChangesUpdateModal {
+                        firstTimeModal = false
+                    }
+                    .presentationDetents([.medium])
+                }
                 .sheet(isPresented: $shouldShowRequestNotificationPermissions) {
                     RequestNotificationsPermissionView(
                         isModalPresented: $shouldShowRequestNotificationPermissions, config: config
