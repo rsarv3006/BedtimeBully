@@ -1,6 +1,6 @@
 import Foundation
 
-public class NotificationItem: Codable, Hashable {
+public class NotificationItem: Codable, Hashable, Equatable, Identifiable {
     public static func == (lhs: NotificationItem, rhs: NotificationItem) -> Bool {
         return "\(lhs.id)-\(lhs.message)" == "\(rhs.id)-\(rhs.message)"
     }

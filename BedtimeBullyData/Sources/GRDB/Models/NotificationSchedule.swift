@@ -6,7 +6,7 @@ public enum NotificationScheduleStatusVariant: String, Codable {
     case inactive
 }
 
-public struct NotificationItems: Codable {
+public struct NotificationItems: Codable, Equatable {
     public var items: [NotificationItem]
 }
 
