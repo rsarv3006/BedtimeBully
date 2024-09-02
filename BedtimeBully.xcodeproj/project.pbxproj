@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,12 +46,12 @@
 		63E28A471639E5F4FC50BB6C /* NetworkConfig.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		696E13F1D93529F7156E3299 /* DefaultNotificationItemArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = F569BC19D6F9F9246534B409 /* DefaultNotificationItemArrays.swift */; };
 		6BAD8228751FEB024967BBB9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE307D6AB1B6D4AE743253D /* Config.swift */; };
+		6CAD2995EF2A55976503048C /* VersionChangesUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5CCF7D330D79436DC375A9 /* VersionChangesUpdateModal.swift */; };
 		6DDC19FBD3316BA148EAF12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */; };
 		6EF116447DE6E0021253BFD0 /* BedtimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CDF8D9ED24B7A30CAC709 /* BedtimeError.swift */; };
 		741FA8EE60FCCEF6EDA8D2BE /* ScheduleTemplateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35DA10D666EF492510DC0B /* ScheduleTemplateService.swift */; };
 		76499E1D270F01280C2BEC6C /* BedtimeBullyData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		766BCA1648FD1A859211C8CB /* NotificationScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4AEBE911F021985EA8371 /* NotificationScheduleService.swift */; };
-		786B50842C699525008E2979 /* VersionChangesUpdateModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786B50832C699525008E2979 /* VersionChangesUpdateModal.swift */; };
 		7CFE8368692AD2FD0D3ABA45 /* NotificationScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAEFBEB236479A6F0DB37F /* NotificationScheduleScreen.swift */; };
 		7DA52F349FD6F4D521AFF5E1 /* GRDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46DD65D1B8C946251DBB9CF0 /* GRDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80929F21776EDBA0B59D293D /* BedtimeScheduleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED15435C8E3FCEBF773E306 /* BedtimeScheduleScreen.swift */; };
@@ -245,7 +245,7 @@
 		2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyApp.swift; sourceTree = "<group>"; };
 		2CF0C1E523A0C7BC5239992D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2FE504F625477258B7EA69CC /* ConfigV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigV1.swift; sourceTree = "<group>"; };
-		31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
+		31DFF9DE5162D22405D4875A /* Bedtime Bully.storekit */ = {isa = PBXFileReference; path = "Bedtime Bully.storekit"; sourceTree = "<group>"; };
 		324D5C7826CD9563245D0999 /* PurchasesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesScreenViewModel.swift; sourceTree = "<group>"; };
 		357FA1EA114331D2BB26EB22 /* BedtimeBullyData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BedtimeBullyData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38780F391307DBB2B9436D3C /* NotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,7 +280,6 @@
 		708D229CAF6FC44D4FC7EB0A /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		7259C76DDB1A92358F5D2416 /* BedtimeV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeV1.swift; sourceTree = "<group>"; };
 		73258C6F0678F2F9AAAFF00E /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		786B50832C699525008E2979 /* VersionChangesUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChangesUpdateModal.swift; sourceTree = "<group>"; };
 		79D4AEBE911F021985EA8371 /* NotificationScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduleService.swift; sourceTree = "<group>"; };
 		81FF9074B0D2F709E9049DF8 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		837CA9A2366F181F52E9D726 /* BedtimeBullyDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeBullyDataTests.swift; sourceTree = "<group>"; };
@@ -318,6 +317,7 @@
 		C1AECC99D4EA46D8DBE6AB3D /* TuistAssets+BedtimeBully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+BedtimeBully.swift"; sourceTree = "<group>"; };
 		C2DD47F88301BC6D71485BB1 /* NotificationSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedule.swift; sourceTree = "<group>"; };
 		CA58336546BAA8C98D4AC150 /* BedtimeDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeDay.swift; sourceTree = "<group>"; };
+		CE5CCF7D330D79436DC375A9 /* VersionChangesUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChangesUpdateModal.swift; sourceTree = "<group>"; };
 		D1F0F3AECD126EBBB1BB2AB4 /* WeeklyBedtimeScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBedtimeScheduleViewModel.swift; sourceTree = "<group>"; };
 		D91CA0B15D99A66BCDA5C3BE /* TimeInterval+formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+formatted.swift"; sourceTree = "<group>"; };
 		DD672595BF5EC414656378C9 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Config.plist; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				F22D5F484924055AB51B34F8 /* AppBackground.swift */,
-				786B50832C699525008E2979 /* VersionChangesUpdateModal.swift */,
+				CE5CCF7D330D79436DC375A9 /* VersionChangesUpdateModal.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1097,6 +1097,7 @@
 				C1DB0BE14EE7D5144C526172 /* WeeklyBedtimeSchedule.swift in Sources */,
 				53E6AE21BF06F9C89D9857CB /* WeeklyBedtimeScheduleViewModel.swift in Sources */,
 				E2708834FB0464930B3393D4 /* AppBackground.swift in Sources */,
+				6CAD2995EF2A55976503048C /* VersionChangesUpdateModal.swift in Sources */,
 				FACB2BFBCF1E6CAC71415D6B /* GRDBSetup.swift in Sources */,
 				89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */,
 				CEEC1F1C807552E1CC43AF1E /* BedtimeHomeDisplay.swift in Sources */,
@@ -1109,7 +1110,6 @@
 				7CFE8368692AD2FD0D3ABA45 /* NotificationScheduleScreen.swift in Sources */,
 				2C222A9EB827990345F289A7 /* PurchasesScreen.swift in Sources */,
 				92958C671B50468EC6340E58 /* PurchasesScreenViewModel.swift in Sources */,
-				786B50842C699525008E2979 /* VersionChangesUpdateModal.swift in Sources */,
 				1E4FAAE6B0456D78A0CEEDF5 /* SettingsScreen.swift in Sources */,
 				4ECB9702660F23022A723A06 /* StoreKit.swift in Sources */,
 				5875125BE75CE761C2D1C739 /* BedtimeStore.swift in Sources */,
@@ -1188,7 +1188,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyDataTests;
 				PRODUCT_NAME = BedtimeBullyDataTests;
 				SDKROOT = iphoneos;
@@ -1226,7 +1230,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1316,7 +1323,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1344,7 +1354,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBully;
 				PRODUCT_NAME = BedtimeBully;
 				SDKROOT = iphoneos;
@@ -1377,14 +1391,21 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyDataTests;
 				PRODUCT_NAME = BedtimeBullyDataTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1412,14 +1433,21 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyTests;
 				PRODUCT_NAME = BedtimeBullyTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1454,7 +1482,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyData;
 				PRODUCT_NAME = BedtimeBullyData;
 				SDKROOT = iphoneos;
@@ -1462,7 +1494,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1549,14 +1584,21 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBully;
 				PRODUCT_NAME = BedtimeBully;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1589,7 +1631,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyData;
 				PRODUCT_NAME = BedtimeBullyData;
 				SDKROOT = iphoneos;
@@ -1626,7 +1672,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-Xcc",
+					"-fmodule-map-file=$(SRCROOT)/Tuist/.build/checkouts/GRDB.swift/Sources/CSQLite/module.modulemap",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = rjs.app.dev.BedtimeBullyTests;
 				PRODUCT_NAME = BedtimeBullyTests;
 				SDKROOT = iphoneos;
@@ -1756,7 +1806,10 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

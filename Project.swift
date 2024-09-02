@@ -49,8 +49,8 @@ let project = Project(
                         "UIInterfaceOrientationPortrait",
                     ],
                     "CFBundleShortVersionString": "\(markettingVersion)",
-                    "UIBackgroundModes": ["fetch"],
-                    "BGTaskSchedulerPermittedIdentifiers": ["com.rjs.app.dev.BedtimeBully.refreshBedtimeNotifications"],
+                    "UIBackgroundModes": ["fetch", "processing"],
+                    "BGTaskSchedulerPermittedIdentifiers": ["rjs.app.dev.BedtimeBully.refreshBedtimeNotifications"],
                 ]
             ),
             sources: ["BedtimeBully/Sources/**"],
