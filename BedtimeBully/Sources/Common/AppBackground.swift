@@ -3,7 +3,7 @@ import SwiftUI
 struct AppBackgroundModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .background(Color("Background").ignoresSafeArea())
+            .background(BedtimeColors.background.ignoresSafeArea())
     }
 }
 

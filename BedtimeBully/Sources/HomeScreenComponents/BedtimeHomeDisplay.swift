@@ -21,21 +21,21 @@ public struct BedtimeHomeDisplay: View {
 
     public var body: some View {
         VStack {
-            Text("Welcome to Bedtime Bully! This app is designed to help you get to bed on time.")
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                .padding(.bottom)
+            Text("Today's Bedtime")
+                .font(.headline)
+                .foregroundColor(BedtimeColors.secondary)
                 .onReceive(timer) { _ in
                     if bedtimeStore.hasBedtime {
-                        updateCountdownComponents()
+                        withAnimation(.easeInOut) {
+                            updateCountdownComponents()
+                        }
                     }
                 }
 
-            Text("Today's Bedtime")
-                .font(.title2)
-
             if bedtimeStore.hasBedtime && hours <= 24 {
                 DatePicker("", selection: $bedtimeStore.bedtime, displayedComponents: .hourAndMinute)
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundColor(BedtimeColors.accent)
                     .labelsHidden()
                     .padding(.bottom)
                     .disabled(true)
@@ -43,12 +43,15 @@ public struct BedtimeHomeDisplay: View {
             } else {
                 Text("No bedtime scheduled for today.")
                     .padding()
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
+                    .foregroundColor(BedtimeColors.accent)
             }
 
             if hasSetCorrectCountdownTime {
                 if (hours == 0 && minutes == 0 && seconds == 0) || hours == 23 {
                     Text("It's bedtime!")
                         .font(.title3)
+                        .foregroundColor(BedtimeColors.accent)
                         .padding()
                 } else {
                     CountdownUntilBedtimeView(hours: $hours, minutes: $minutes, seconds: $seconds)
@@ -61,8 +64,11 @@ public struct BedtimeHomeDisplay: View {
                         shouldShowInBedModal = true
                     } label: {
                         Text("I'm in Bed")
+                            .padding()
+                            .background(BedtimeColors.accent)
+                            .foregroundColor(BedtimeColors.background)
+                            .clipShape(Capsule())
                     }
-                    .buttonStyle(.bordered)
                     .alert("Going to Bed?", isPresented: $shouldShowInBedModal) {
                         Button("Yes") {
                             do {
@@ -86,14 +92,34 @@ public struct BedtimeHomeDisplay: View {
                 } else if hours == 0 && minutes < 60 {
                     Text("Good night! Sleep well!")
                         .padding(.top)
+                        .foregroundColor(BedtimeColors.accent)
                 }
             }
 
             if bedtimeStore.hasBedtime {
                 Text(beginNotifyingString)
+                    .font(.subheadline)
+                    .foregroundColor(BedtimeColors.secondary)
                     .multilineTextAlignment(.center)
                     .padding()
             }
+
+            VStack {
+                Text("Current Streak")
+                    .font(.headline)
+                    .foregroundColor(BedtimeColors.secondary)
+                if let currentStreak = try? appDatabase.getBedtimeStreak() {
+                    Text("\(currentStreak)")
+                        .font(.system(size: 48, weight: .bold, design: .rounded))
+                        .foregroundColor(BedtimeColors.accent)
+                    Text("day\(currentStreak == 1 ? "" : "s") in a row!")
+                        .font(.subheadline)
+                        .foregroundColor(BedtimeColors.secondary)
+                }
+            }
+            .padding()
+            .cornerRadius(15)
+            .overlay(RoundedRectangle(cornerRadius: 15).stroke(BedtimeColors.accent, lineWidth: 2))
         }
     }
 }

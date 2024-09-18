@@ -28,6 +28,13 @@ public extension AppDatabase {
         }
     }
 
+    func getBedtimeStreak() throws -> Int {
+        try dbWriter.read { db in
+            let bedtimes = try GRDBBedtime.all().reversed().fetchAll(db)
+            return try parseBedtimesForStreak(bedtimes: bedtimes)
+        }
+    }
+
     func getBedtimeDatesToCreate(now: Date) throws -> GRDBBedtimeDatesAndActiveSchedule {
         let schedule = try getActiveScheduleTemplate()
         var datesToCreate: [Date] = []
@@ -132,9 +139,14 @@ public extension AppDatabase {
 
             var notificationItems: [NotificationItem] = []
 
-            for bedtime in bedtimes {
+            for var bedtime in bedtimes {
                 notificationItems.append(contentsOf: bedtime.notificationItems.items)
-                try bedtime.delete(db)
+                if bedtime.id < Date().timeIntervalSince1970 {
+                    bedtime.status = .history
+                    try bedtime.update(db)
+                } else {
+                    try bedtime.delete(db)
+                }
             }
 
             let notificationItemIds = notificationItems.map { $0.idToString() }
@@ -147,4 +159,18 @@ public extension AppDatabase {
 public struct GRDBBedtimeDatesAndActiveSchedule {
     public let datesToCreate: [Date]
     public let activeSchedule: GRDBScheduleTemplate
+}
+
+public func parseBedtimesForStreak(bedtimes: [GRDBBedtime]) throws -> Int {
+    var streak = 0
+
+    for bedtime in bedtimes {
+        if let timeWentToBed = bedtime.timeWentToBed, timeWentToBed < bedtime.id {
+            streak += 1
+        } else {
+            break
+        }
+    }
+
+    return streak
 }

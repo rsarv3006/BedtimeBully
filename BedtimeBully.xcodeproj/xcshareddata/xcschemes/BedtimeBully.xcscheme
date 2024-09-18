@@ -60,6 +60,9 @@
             ReferencedContainer = "container:BedtimeBully.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../BedtimeBully/Resources/Bedtime Bully.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

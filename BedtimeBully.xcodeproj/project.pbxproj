@@ -11,6 +11,7 @@
 		09EC93006DF2AE536D991499 /* BedtimeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50D5C926FE134DD4FC93907 /* BedtimeStatus.swift */; };
 		0CA65E7923278CA03F2DC25A /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8584DE5FB8AC9D4F09F2E83F /* config.swift */; };
 		119750702CA10923A380A29F /* BackgroundRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636DED275D81489CE59AD36 /* BackgroundRefresh.swift */; };
+		13AD72A68503362E9605A9A2 /* BedtimeStreakCalculateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9294366A3946854BCA2B56F /* BedtimeStreakCalculateTests.swift */; };
 		14DA11D882E19BC0C602624C /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB16D80706CFA7731696CF7 /* AppDatabase.swift */; };
 		160EC87F70389B89707CF7FF /* NotificationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD47F88301BC6D71485BB1 /* NotificationSchedule.swift */; };
 		167618EAB1B334B324AB672B /* CSQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 430A4C1D829F8F8879612D44 /* CSQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,6 +33,7 @@
 		315C59608E4E180782053CDA /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708D229CAF6FC44D4FC7EB0A /* ConfigService.swift */; };
 		36662B44EC76A530A09F5617 /* versionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9768229CC7DB6C988EF681 /* versionCheck.swift */; };
 		384C7A2748669AE89C4B204E /* ScheduleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894C180E143DEED849199D4 /* ScheduleTemplate.swift */; };
+		3D0DDD007EB6B3F3BC3C57E3 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E1D211A08301F2CFF11FF /* CircularProgressView.swift */; };
 		43E8C65783EE8FAB50B0B927 /* BedtimeBullyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2AF90AD64A8606DFB0E8D8 /* BedtimeBullyApp.swift */; };
 		4CC0DDF87624313DD699EBC9 /* BedtimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C380236FCE8BA5E4E29ADD /* BedtimeService.swift */; };
 		4ECB9702660F23022A723A06 /* StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF2775EFD4C10C331E099F /* StoreKit.swift */; };
@@ -58,6 +60,7 @@
 		80E6B964F2F1B59DFF7DCDC7 /* BedtimeBullyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DC25BF39646712D643956 /* BedtimeBullyTests.swift */; };
 		8585A8FEF0B0952FB15EF82E /* Notifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571A175D7F3B025341A2D20B /* Notifications.framework */; };
 		8796898C098017625D9902D3 /* BedtimeHistoryV1_0_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEDE851B7729EC730D3A975 /* BedtimeHistoryV1_0_1.swift */; };
+		88CE16C214D348F9AE4230E8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B954A393114FF39AA9860BBB /* Colors.swift */; };
 		89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E049DA27785953AB9C2AE0A /* HomeScreen.swift */; };
 		8FED298A668F427CA1B7C709 /* NetworkConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72D9EDDE396C9A9274997D /* NetworkConfig.framework */; };
 		92958C671B50468EC6340E58 /* PurchasesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324D5C7826CD9563245D0999 /* PurchasesScreenViewModel.swift */; };
@@ -272,6 +275,7 @@
 		6636DED275D81489CE59AD36 /* BackgroundRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefresh.swift; sourceTree = "<group>"; };
 		67EACBF086AF42CE777E3696 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6838DEFB475C7EDDA5410D86 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6B9E1D211A08301F2CFF11FF /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		6BEDE851B7729EC730D3A975 /* BedtimeHistoryV1_0_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeHistoryV1_0_1.swift; sourceTree = "<group>"; };
 		6D9768229CC7DB6C988EF681 /* versionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = versionCheck.swift; sourceTree = "<group>"; };
 		6E2C399B869169DFFC09A5DB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 		B50D5C926FE134DD4FC93907 /* BedtimeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeStatus.swift; sourceTree = "<group>"; };
 		B6A3816576EFBA2617ADC814 /* BedtimeBully-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BedtimeBully-Info.plist"; sourceTree = "<group>"; };
 		B931ECBF36FB3FBDEAAE481A /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		B954A393114FF39AA9860BBB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B9FF7DB333AF51F7372060B7 /* ScheduleTemplateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTemplateRequest.swift; sourceTree = "<group>"; };
 		BAB16D80706CFA7731696CF7 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		BAF466D1BBDF6000389253EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,6 +325,7 @@
 		CE5CCF7D330D79436DC375A9 /* VersionChangesUpdateModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChangesUpdateModal.swift; sourceTree = "<group>"; };
 		D1F0F3AECD126EBBB1BB2AB4 /* WeeklyBedtimeScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBedtimeScheduleViewModel.swift; sourceTree = "<group>"; };
 		D91CA0B15D99A66BCDA5C3BE /* TimeInterval+formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+formatted.swift"; sourceTree = "<group>"; };
+		D9294366A3946854BCA2B56F /* BedtimeStreakCalculateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeStreakCalculateTests.swift; sourceTree = "<group>"; };
 		DD672595BF5EC414656378C9 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Config.plist; sourceTree = "<group>"; };
 		E132D9CA0F4DF0ABC3C3823B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F130CE2927FC37BD0F4312F4 /* DefaultConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultConfig.json; sourceTree = "<group>"; };
@@ -426,6 +432,14 @@
 				2CF0C1E523A0C7BC5239992D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		16BF4BD7F3B7E1322C8EC906 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B954A393114FF39AA9860BBB /* Colors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1CFB92724F196F2494F6F9AB /* V1_0_1 */ = {
@@ -673,6 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				932BD2A21ECA777819EB2EF0 /* BedtimeHomeDisplay.swift */,
+				6B9E1D211A08301F2CFF11FF /* CircularProgressView.swift */,
 				A08C4F82DCF0FBAED255B720 /* CountdownUntilBedtimeView.swift */,
 			);
 			path = HomeScreenComponents;
@@ -683,6 +698,7 @@
 			children = (
 				31161862F2C06D7768C03FC0 /* BedtimeScheduleScreenComponents */,
 				087EDE09ABBD163505EB019B /* Common */,
+				16BF4BD7F3B7E1322C8EC906 /* Extensions */,
 				B9FE090AD68434917EAA79E5 /* HomeScreenComponents */,
 				3806DB2D30BCAEA57B7BE0E1 /* Modifiers */,
 				275A9FC2326B1709ABB9E89C /* NotificationPermissions */,
@@ -712,6 +728,7 @@
 			children = (
 				837CA9A2366F181F52E9D726 /* BedtimeBullyDataTests.swift */,
 				70409EA1FF5202466584B60B /* BedtimeBullyDataTestsUtils.swift */,
+				D9294366A3946854BCA2B56F /* BedtimeStreakCalculateTests.swift */,
 				83FC2B52FAE29253A712AD00 /* DateTests.swift */,
 				5F3BDF3B3264B964BF9AF9FF /* TimeStructTests.swift */,
 			);
@@ -1081,6 +1098,7 @@
 			files = (
 				D97496AB3C0C8278E481A30C /* BedtimeBullyDataTests.swift in Sources */,
 				9619166582100A51BD00742B /* BedtimeBullyDataTestsUtils.swift in Sources */,
+				13AD72A68503362E9605A9A2 /* BedtimeStreakCalculateTests.swift in Sources */,
 				1E3F5661F66BE25B046AC130 /* DateTests.swift in Sources */,
 				AE63C9F5B9311BA745025E02 /* TimeStructTests.swift in Sources */,
 			);
@@ -1098,9 +1116,11 @@
 				53E6AE21BF06F9C89D9857CB /* WeeklyBedtimeScheduleViewModel.swift in Sources */,
 				E2708834FB0464930B3393D4 /* AppBackground.swift in Sources */,
 				6CAD2995EF2A55976503048C /* VersionChangesUpdateModal.swift in Sources */,
+				88CE16C214D348F9AE4230E8 /* Colors.swift in Sources */,
 				FACB2BFBCF1E6CAC71415D6B /* GRDBSetup.swift in Sources */,
 				89DF6422C560F9D593174A40 /* HomeScreen.swift in Sources */,
 				CEEC1F1C807552E1CC43AF1E /* BedtimeHomeDisplay.swift in Sources */,
+				3D0DDD007EB6B3F3BC3C57E3 /* CircularProgressView.swift in Sources */,
 				947695EA55864D316215BD4E /* CountdownUntilBedtimeView.swift in Sources */,
 				5A0E6F2AFF46987A61AB032E /* RoundedBorderView.swift in Sources */,
 				A056FAFA0619A380E1CC917C /* RequestNotificationPermissionsVM.swift in Sources */,
