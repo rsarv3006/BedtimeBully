@@ -1,5 +1,7 @@
 import Foundation
 
+public let dateFormatter = DateFormatter()
+
 public extension Date {
     func getTime() throws -> Time {
         return try Time(hour: hour, minute: minute)
@@ -58,7 +60,6 @@ public extension Date {
     }
     
     func getPrettyDate() -> String {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: self)

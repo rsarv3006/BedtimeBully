@@ -1,9 +1,12 @@
 import BedtimeBullyData
 import SwiftUI
+import NetworkConfig
 
 public struct BedtimeHomeDisplay: View {
     @Environment(\.appDatabase) private var appDatabase
     @EnvironmentObject() private var bedtimeStore: BedtimeStore
+    
+    @State private var shouldShowStreakData = false
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var hasSetCorrectCountdownTime = false
@@ -18,6 +21,12 @@ public struct BedtimeHomeDisplay: View {
     private var beginNotifyingString: String {
         return "We will begin notifying you at \(DataUtils.calculateNotificationTime(bedtime: bedtimeStore.bedtime, notificationOffset: 30 * 60).formatted(date: .omitted, time: .shortened)) of your upcoming bedtime."
     }
+    
+    var formattedTime: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "j:mm", options: 0, locale: Locale.current)
+        return formatter.string(from: bedtimeStore.bedtime)
+    }
 
     public var body: some View {
         VStack {
@@ -31,15 +40,22 @@ public struct BedtimeHomeDisplay: View {
                         }
                     }
                 }
+                .onAppear {
+                    Task {
+                        let config = await NetworkConfigService.shared.getConfig()
+                        if let isStreakViewEnabled = config?.isStreakViewEnabled {
+                            shouldShowStreakData = isStreakViewEnabled
+                        } else {
+                            shouldShowStreakData = false
+                        }
+                    }
+                }
 
             if bedtimeStore.hasBedtime && hours <= 24 {
-                DatePicker("", selection: $bedtimeStore.bedtime, displayedComponents: .hourAndMinute)
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundColor(BedtimeColors.accent)
-                    .labelsHidden()
+                Text(formattedTime)
+                .foregroundStyle(BedtimeColors.accent)
+                    .font(.system(size: 34, weight: .bold, design: .rounded))
                     .padding(.bottom)
-                    .disabled(true)
-
             } else {
                 Text("No bedtime scheduled for today.")
                     .padding()
@@ -69,6 +85,7 @@ public struct BedtimeHomeDisplay: View {
                             .foregroundColor(BedtimeColors.background)
                             .clipShape(Capsule())
                     }
+                    .padding()
                     .alert("Going to Bed?", isPresented: $shouldShowInBedModal) {
                         Button("Yes") {
                             do {
@@ -103,23 +120,26 @@ public struct BedtimeHomeDisplay: View {
                     .multilineTextAlignment(.center)
                     .padding()
             }
-
-            VStack {
-                Text("Current Streak")
-                    .font(.headline)
-                    .foregroundColor(BedtimeColors.secondary)
-                if let currentStreak = try? appDatabase.getBedtimeStreak() {
-                    Text("\(currentStreak)")
-                        .font(.system(size: 48, weight: .bold, design: .rounded))
-                        .foregroundColor(BedtimeColors.accent)
-                    Text("day\(currentStreak == 1 ? "" : "s") in a row!")
-                        .font(.subheadline)
+            
+            
+            if shouldShowStreakData {
+                VStack {
+                    Text("Current Streak")
+                        .font(.headline)
                         .foregroundColor(BedtimeColors.secondary)
+                    if let currentStreak = try? appDatabase.getBedtimeStreak() {
+                        Text("\(currentStreak)")
+                            .font(.system(size: 48, weight: .bold, design: .rounded))
+                            .foregroundColor(BedtimeColors.accent)
+                        Text("day\(currentStreak == 1 ? "" : "s") in a row!")
+                            .font(.subheadline)
+                            .foregroundColor(BedtimeColors.secondary)
+                    }
                 }
+                .padding()
+                .cornerRadius(15)
+                .overlay(RoundedRectangle(cornerRadius: 15).stroke(BedtimeColors.accent, lineWidth: 2))
             }
-            .padding()
-            .cornerRadius(15)
-            .overlay(RoundedRectangle(cornerRadius: 15).stroke(BedtimeColors.accent, lineWidth: 2))
         }
     }
 }

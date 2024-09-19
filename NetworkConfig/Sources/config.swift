@@ -1,11 +1,20 @@
 import Foundation
 import Bedrock
 
+public typealias NetworkConfigService = ConfigService
+
 public struct Config: GenericConfig {
     public let minAppVersion: String?
+    public let isStreakViewEnabled: Bool?
 
-    public init(apiUrl: String, anonToken: String, minAppVersion: String) {
+    public init(
+        apiUrl: String,
+        anonToken: String,
+        minAppVersion: String?,
+        isStreakViewEnabled: Bool?
+    ) {
         self.minAppVersion = minAppVersion
+        self.isStreakViewEnabled = isStreakViewEnabled
     }
 }
 
