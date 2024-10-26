@@ -7,11 +7,11 @@ import PackageDescription
     let packageSettings = PackageSettings(
         // Customize the product types for specific package product
         // Default is .staticFramework
-        // productTypes: ["Alamofire": .framework,] 
+        // productTypes: ["Alamofire": .framework,]
         productTypes: [
-          "GRDB": .framework,
-          "GRDBQuery": .framework,
-          "Bedrock": .framework
+            "GRDB": .framework,
+            "GRDBQuery": .framework,
+            "Bedrock": .framework,
         ]
     )
 #endif
@@ -22,8 +22,8 @@ let package = Package(
         // Add your own dependencies here:
         // .package(url: "https://github.com/Alamofire/Alamofire", from: "5.0.0"),
         // You can read more about dependencies here: https://docs.tuist.io/documentation/tuist/dependencies
-        .package(url: "https://github.com/groue/GRDB.swift", from: "6.27.0"),
+        .package(url: "https://github.com/groue/GRDB.swift", from: "6.29.3"),
         .package(url: "https://github.com/groue/GRDBQuery", from: "0.8.0"),
-        .package(url: "https://github.com/rsarv3006/bedrock", from: "1.0.6")
+        .package(url: "https://github.com/rsarv3006/bedrock", from: "1.0.6"),
     ]
 )
