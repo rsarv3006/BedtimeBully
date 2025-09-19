@@ -38,7 +38,7 @@ public class RemoteConfigLoader: ConfigLoader {
         let configApiToken = PlistHelpers.getKeyValueFromPlist(plistFileName: "Config", key: "ConfigApiToken")
         guard let configApiUrl,
               let configApiToken,
-              let url = URL(string: "\(configApiUrl)/api/v1/config/bedtimebully")
+              let url = URL(string: "\(configApiUrl)/api/v2/config/bedtimebully")
         else { return nil }
 
         var request = URLRequest(url: url)
@@ -53,6 +53,7 @@ public class RemoteConfigLoader: ConfigLoader {
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 let configReturn = try JsonHelpers.decoder.decode(ConfigReturnDto<Config>.self, from: data)
                 let config = configReturn.data.config
+                print("Fetching Remote Config")
                 return config
 
             } else {
